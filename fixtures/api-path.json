@@ -1,0 +1,9 @@
+{
+  "aws-create-customer": "/create-customer",
+  "aws-get-request": "/get-request",
+  "aws-get-customer": "/get-customer",
+  "aws-browser-customer": "/browse-requests",
+  "sf-auth": "/oauth2/token",
+  "sf-create-customer": "/apexrest/GetGlobalID",
+  "sf-get-customer": "/apexrest/GetCustomerDetails"
+}
