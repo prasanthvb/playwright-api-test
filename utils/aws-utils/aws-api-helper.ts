@@ -1,7 +1,11 @@
 import { APIRequestContext, expect } from '@playwright/test';
 import apiPaths from "../../fixtures/api-path.json";
 
-const baseUrl = process.env.AWS_BASE_URL;
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+
+const baseUrl = process.env.AWS_SANDBOX_URL;
 const apiKey = process.env.AWS_API_KEY;
 
 export function authHeaders(valid = true) {
