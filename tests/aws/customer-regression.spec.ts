@@ -4,10 +4,12 @@ dotenv.config();
 import { test, expect } from "@playwright/test";
 import apiPaths from "../../fixtures/api-path.json";
 import { generatePayloadWithFakerData } from "../../utils/payload/generate-new-customer-payload";
+import { awsConfig } from '../../config/api-config';
 
-const baseUrl = process.env.AWS_SANDBOX_URL;
-const apiKey = process.env.AWS_API_KEY;
+const baseUrl = awsConfig.baseUrl;
+const apiKey = awsConfig.apiKey;
 console.log("API Key:", apiKey);
+
 // Helper to add API key header
 function authHeaders() {
   return {

@@ -2,7 +2,6 @@ import { test, expect } from '@playwright/test';
 import { getSalesforceAuthToken } from '../../utils/auth/sf-auth';
 import { generatePayloadWithFakerData } from '../../utils/payload/generate-new-customer-payload';
 import apiPaths from '../../fixtures/api-path.json';
-
 let authToken: string;
 
 test.beforeAll(async ({ request }) => {

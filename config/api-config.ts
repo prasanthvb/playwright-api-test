@@ -4,6 +4,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 export const awsConfig = {
   apiKey: process.env.AWS_API_KEY,
+  baseUrl: process.env.AWS_SANDBOX_URL,
 };
 
 export const sfConfig = {

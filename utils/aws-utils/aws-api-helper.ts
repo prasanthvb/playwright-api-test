@@ -2,11 +2,11 @@ import { APIRequestContext, expect } from '@playwright/test';
 import apiPaths from "../../fixtures/api-path.json";
 
 import * as dotenv from 'dotenv';
-
+import { awsConfig } from '../../config/api-config';
 dotenv.config();
 
-const baseUrl = process.env.AWS_SANDBOX_URL;
-const apiKey = process.env.AWS_API_KEY;
+const baseUrl = awsConfig.baseUrl;
+const apiKey = awsConfig.apiKey;
 
 export function authHeaders(valid = true) {
   return {
@@ -20,7 +20,9 @@ export function authHeaders(valid = true) {
  */
 export async function createCustomer(request: APIRequestContext, payload: any) {
   console.log(`Create Customer URL: ${baseUrl}${apiPaths['aws-create-customer']}`);
-  const response = await request.post(`${baseUrl}${apiPaths['aws-create-customer']}`, {
+  console.log("Create Payload:", payload);
+  const createCustomerURL = `${baseUrl}${apiPaths["aws-create-customer"]}`;
+  const response = await request.post(createCustomerURL, {
     headers: authHeaders(),
     data: payload,
     timeout: 60_000,
@@ -31,11 +33,14 @@ export async function createCustomer(request: APIRequestContext, payload: any) {
   try {
     body = await response.json();
   } catch (err) {
-    console.warn('⚠️ Response is not JSON');
+    console.warn('Response is not JSON');
   }
 
-  // Check if the API failed or validation failed
-  const apiError = body?.error || body?.message === 'Error' ? body?.error : null;
+  // Safely capture AWS or generic error messages
+  const errorMessage =
+    body?.error ||
+    body?.message ||
+    (typeof body === 'string' ? body : 'Unknown error');
 
   // Log the API response
   console.log('Create Customer Response:', JSON.stringify(body, null, 2));
@@ -45,8 +50,8 @@ export async function createCustomer(request: APIRequestContext, payload: any) {
     response,
     status,
     body,
-    apiError,
-    requestID: body?.data?.requestID,
+    apiError: errorMessage,
+    requestID: body?.data?.requestID || body?.requestID || null,
   };
 }
 

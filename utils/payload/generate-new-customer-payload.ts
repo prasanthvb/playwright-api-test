@@ -12,23 +12,23 @@ const distributionChannels: DistributionChannel[] = [
 
 // Define the main payload structure interface
 interface Payload {
-  accountName: string;
-  legalOwnerName: string;
-  distributionChannel: DistributionChannel;
+  accountName: string | null;
+  legalOwnerName: string | null;
+  distributionChannel: DistributionChannel | null;
   Address: Array<{
-    addressType: string;
-    addressLine1: string;
-    city: string;
-    county: string;
-    state: string;
-    postalCode: string;
-    country: string;
+    addressType: string | null;
+    addressLine1: string | null;
+    city: string | null;
+    county: string | null;
+    state: string | null;
+    postalCode: string | null;
+    country: string | null;
   }>;
-  contactFirstName: string;
-  contactLastName: string;
-  primaryEmail: string;
-  phone: string;
-  alcoholLicenseNumber: string;
+  contactFirstName: string | null;
+  contactLastName: string | null;
+  primaryEmail: string | null;
+  phone: string | null;
+  alcoholLicenseNumber: string | null;
 }
 
 /**
