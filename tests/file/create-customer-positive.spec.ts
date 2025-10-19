@@ -4,7 +4,7 @@ dotenv.config();
 import { test, expect } from "@playwright/test";
 import apiPaths from "../../fixtures/api-path.json";
 import { generatePayloadWithFakerData } from "../../utils/payload/generate-new-customer-payload";
-import { awsConfig } from '../../config/api-config';
+import { awsConfig } from "../../config/api-config";
 
 const baseUrl = awsConfig.baseUrl;
 const apiKey = awsConfig.apiKey;

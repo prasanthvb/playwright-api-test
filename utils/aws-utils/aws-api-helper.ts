@@ -1,51 +1,44 @@
-import { APIRequestContext, expect } from '@playwright/test';
+import { APIRequestContext, expect } from "@playwright/test";
 import apiPaths from "../../fixtures/api-path.json";
-
-import * as dotenv from 'dotenv';
-import { awsConfig } from '../../config/api-config';
-dotenv.config();
+import { awsConfig } from "../../config/api-config";
 
 const baseUrl = awsConfig.baseUrl;
 const apiKey = awsConfig.apiKey;
 
-export function authHeaders(valid = true) {
+// Helper to add API key header
+function authHeaders() {
   return {
-    'Content-Type': 'application/json',
-    'x-api-key': valid ? (apiKey ?? '') : 'INVALID_KEY',
+    "x-api-key": apiKey ?? "",
   };
 }
 
-/**
- * Create a new customer
- */
+/**Create Customer API */
 export async function createCustomer(request: APIRequestContext, payload: any) {
-  console.log(`Create Customer URL: ${baseUrl}${apiPaths['aws-create-customer']}`);
-  console.log("Create Payload:", payload);
-  const createCustomerURL = `${baseUrl}${apiPaths["aws-create-customer"]}`;
-  const response = await request.post(createCustomerURL, {
-    headers: authHeaders(),
-    data: payload,
-    timeout: 60_000,
-  });
+  //   console.log(`Create Customer URL: ${baseUrl}${apiPaths['aws-create-customer']}`);
+  //   console.log('Create Payload:', JSON.stringify(payload, null, 2));
+
+  const response = await request.post(
+    `${baseUrl}${apiPaths["aws-create-customer"]}`,
+    {
+      headers: authHeaders(),
+      data: payload,
+      timeout: 60_000,
+    }
+  );
 
   const status = response.status();
   let body: any = {};
   try {
     body = await response.json();
-  } catch (err) {
-    console.warn('Response is not JSON');
+  } catch {
+    console.warn("⚠️ Response not JSON");
   }
 
-  // Safely capture AWS or generic error messages
   const errorMessage =
-    body?.error ||
-    body?.message ||
-    (typeof body === 'string' ? body : 'Unknown error');
+    body?.error || body?.message === "Error" ? body?.error : null;
 
-  // Log the API response
-  console.log('Create Customer Response:', JSON.stringify(body, null, 2));
+  //   console.log('Create Customer Response:', JSON.stringify(body, null, 2));
 
-  // Return all useful data
   return {
     response,
     status,
@@ -55,46 +48,85 @@ export async function createCustomer(request: APIRequestContext, payload: any) {
   };
 }
 
-/**
- * Poll Get-Request until status changes or timeout
- */
-export async function pollGetRequest(request: APIRequestContext, requestID: string, maxRetries = 10, intervalSec = 5) {
+/** Poll Get-Request API until status changes */
+export async function pollGetRequest(
+  request: APIRequestContext,
+  requestID: string,
+  maxRetries = 15,
+  intervalSec = 5
+) {
   let status: string | undefined;
   let globalID: string | undefined;
-  let lastResponse: any = {};
 
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
-    const response = await request.get(`${baseUrl}${apiPaths['aws-get-request']}`, {
-      headers: authHeaders(),
-      data: { requestID },
-    });
+    const getReqResponse = await request.get(
+      `${baseUrl}${apiPaths["aws-get-request"]}`,
+      {
+        headers: authHeaders(),
+        data: { requestID },
+        timeout: 30_000,
+      }
+    );
 
-    const body = await response.json().catch(() => ({}));
-    lastResponse = body;
-    status = body?.data?.status;
-    globalID = body?.data?.globalID;
+    const getReqData = await getReqResponse.json().catch(() => ({}));
+    status = getReqData?.data?.status;
+    globalID = getReqData?.data?.globalID;
 
-    console.log(`Attempt ${attempt}: Status=${status || 'N/A'}, GlobalID=${globalID || 'N/A'}`);
+    // console.log(
+    //   `🔁 Attempt ${attempt}/${maxRetries} → Status=${status || 'N/A'}, GlobalID=${globalID || 'N/A'}`
+    // );
 
-    if (status === 'Active' || status === 'Error') break;
+    if (status === "Active" || status === "Error") break;
     await new Promise((r) => setTimeout(r, intervalSec * 1000));
   }
 
-  return { status, globalID, lastResponse };
+  return { status, globalID };
 }
 
-/**
- * Get Customer details by globalID
- */
-export async function getCustomer(request: APIRequestContext, globalID: string) {
-  const response = await request.get(`${baseUrl}${apiPaths['aws-get-customer']}`, {
-    headers: authHeaders(),
-    data: { globalID },
-    timeout: 30_000,
-  });
+/** Get Customer by globalID */
+export async function getCustomer(
+  request: APIRequestContext,
+  globalID: string
+) {
+  const getCustomerRes = await request.get(
+    `${baseUrl}${apiPaths["aws-get-customer"]}`,
+    {
+      headers: authHeaders(),
+      data: { globalID },
+      timeout: 30_000,
+    }
+  );
 
+  const body = await getCustomerRes.json().catch(() => ({}));
+  //   console.log('Get Customer Response:', JSON.stringify(body, null, 2));
+
+  expect(getCustomerRes.ok(), "Get Customer API failed").toBeTruthy();
+
+  return { getCustomerRes, body };
+}
+
+// --- Helper to send Browse Customer requests ---
+export async function browseCustomers(
+  request: APIRequestContext,
+  payload: any
+) {
+//   console.log(
+//     `Browse Customer URL: ${baseUrl}${apiPaths["aws-browser-customer"]}`
+//   );
+//   console.log("Browse Payload:", JSON.stringify(payload, null, 2));
+  const response = await request.get(
+    `${baseUrl}${apiPaths["aws-browser-customer"]}`,
+    {
+      headers: authHeaders(),
+      data: payload,
+      timeout: 60_000,
+    }
+  );
+  const status = response.status();
   const body = await response.json().catch(() => ({}));
-  console.log('Get Customer Response:', body);
-  expect(response.ok(), 'Get Customer API failed').toBeTruthy();
-  return { response, body };
+//   console.log(`Browse Customer → HTTP ${response.status()}`);
+//   console.log("Request:", JSON.stringify(payload, null, 2));
+//   console.log("Response:", JSON.stringify(body, null, 2));
+
+  return { response, status, body };
 }

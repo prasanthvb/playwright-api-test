@@ -1,3 +1,14 @@
 {
-    "alcoholLicenseNumber": "ESTTSBHB457465RTS"
+    "alcoholLicenseNumber": "ESTTSBHB457465RTS",
+    "invalidState": "NA",
+    "longStreetAddress": "1234 Long Street Name That Exceeds The Maximum Length Allowed By The System, Which Is Quite Lengthy Indeed",
+    "specialCharacters": "!@#$%^&*()_+{}|:\"<>?-=[]\\;',./`~",
+    "validState1": "TN",
+    "validState2": "AR",
+    "accountNameFilter": "Harmon",
+    "pageSize": 1,
+    "sortTokenTime": "time",
+    "sortTokenAccountName": "accountName",
+    "sortDirectionAsc": "asc",
+    "sortDirectionDesc": "desc"
 }
