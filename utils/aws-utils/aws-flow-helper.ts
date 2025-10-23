@@ -30,6 +30,7 @@ export async function runFullFlow(
   const pollResult = await pollGetRequest(request, requestID);
   const getRequestStatus = pollResult.status;
   const globalID = pollResult.globalID;
+  const getReqData = pollResult.getReqData;
 
   console.log(`📊 Polling Complete → Status=${getRequestStatus || 'N/A'}, GlobalID=${globalID || 'N/A'}`);
 
@@ -66,5 +67,5 @@ export async function runFullFlow(
     console.warn('⏳ Customer remained Pending after retries.');
   }
 
-  return { status, apiError, requestID, getRequestStatus, globalID, getCustomerStatus };
+  return { status, apiError, requestID, getRequestStatus, globalID, getReqData, getCustomerStatus };
 }

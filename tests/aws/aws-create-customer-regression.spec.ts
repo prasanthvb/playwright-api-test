@@ -22,7 +22,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     if (result.requestID) {
       expect(result.getRequestStatus).toBeDefined();
-      expect(["Active"]).toContain(result.getRequestStatus);
+      expect(result.getRequestStatus).toContain(["Active"]);
 
       if (result.getRequestStatus === "Active") {
         expect(result.globalID).toBeTruthy();
@@ -50,7 +50,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     expect(result.requestID).toBeTruthy();
     expect(result.getRequestStatus).toBeDefined();
-    expect(["Error"]).toContain(result.getRequestStatus);
+    expect(result.getRequestStatus).toContain(["Error"]);
   });
 
   test("CC-04 Invalid phone number", async ({ request }) => {
@@ -63,7 +63,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     expect(result.requestID).toBeTruthy();
     expect(result.getRequestStatus).toBeDefined();
-    expect(["Error"]).toContain(result.getRequestStatus);
+    expect(result.getRequestStatus).toContain(["Error"]);
   });
 
   test("CC-05 Duplicate license number", async ({ request }) => {
@@ -78,9 +78,9 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
     expect(result).toBeDefined();
     expect(result.status).toBe(200);
 
-   if (result.requestID) {
+    if (result.requestID) {
       expect(result.getRequestStatus).toBeDefined();
-      expect(["Active"]).toContain(result.getRequestStatus);
+      expect(result.getRequestStatus).toContain(["Active"]);
 
       if (result.getRequestStatus === "Active") {
         expect(result.globalID).toBeTruthy();
@@ -103,7 +103,24 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     expect(result.requestID).toBeTruthy();
     expect(result.getRequestStatus).toBeDefined();
-    expect(["Error"]).toContain(result.getRequestStatus);
+    expect(result.getRequestStatus).toContain(["Error"]);
+  });
+
+  test("CC-07 Legal Owner Name >100 chars", async ({ request }) => {
+    const payload = await generatePayloadWithFakerData();
+    payload.legalOwnerName = "L".repeat(101);
+
+    const result = await runFullFlow(
+      request,
+      payload,
+      "Legal Owner Name >100 characters"
+    );
+    expect(result).toBeDefined();
+    expect(result.status).toBe(200);
+
+    expect(result.requestID).toBeTruthy();
+    expect(result.getRequestStatus).toBeDefined();
+    expect(result.getRequestStatus).toContain(["Error"]);
   });
 
   test("CC-08 Account Name >100 chars", async ({ request }) => {
@@ -120,7 +137,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     expect(result.requestID).toBeTruthy();
     expect(result.getRequestStatus).toBeDefined();
-    expect(["Error"]).toContain(result.getRequestStatus);
+    expect(result.getRequestStatus).toContain(["Error"]);
   });
 
   test("CC-09 Street Address > 100 chars", async ({ request }) => {
@@ -137,7 +154,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     expect(result.requestID).toBeTruthy();
     expect(result.getRequestStatus).toBeDefined();
-    expect(["Error"]).toContain(result.getRequestStatus);
+    expect(result.getRequestStatus).toContain(["Error"]);
   });
 
   test("CC-10 City > 40 chars", async ({ request }) => {
@@ -150,7 +167,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     expect(result.requestID).toBeTruthy();
     expect(result.getRequestStatus).toBeDefined();
-    expect(["Error"]).toContain(result.getRequestStatus);
+    expect(result.getRequestStatus).toContain(["Error"]);
   });
 
   test("CC-11 County > 40 chars", async ({ request }) => {
@@ -167,7 +184,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     expect(result.requestID).toBeTruthy();
     expect(result.getRequestStatus).toBeDefined();
-    expect(["Error"]).toContain(result.getRequestStatus);
+    expect(result.getRequestStatus).toContain(["Error"]);
   });
 
   test("CC-12 Invalid State input", async ({ request }) => {
@@ -180,7 +197,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     expect(result.requestID).toBeTruthy();
     expect(result.getRequestStatus).toBeDefined();
-    expect(["Error"]).toContain(result.getRequestStatus);
+    expect(result.getRequestStatus).toContain(["Error"]);
   });
 
   test("CC-14 State > 50 chars", async ({ request }) => {
@@ -193,7 +210,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     expect(result.requestID).toBeTruthy();
     expect(result.getRequestStatus).toBeDefined();
-    expect(["Error"]).toContain(result.getRequestStatus);
+    expect(result.getRequestStatus).toContain(["Error"]);
   });
 
   test("CC-15 Postal code < 5 chars", async ({ request }) => {
@@ -210,7 +227,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     expect(result.requestID).toBeTruthy();
     expect(result.getRequestStatus).toBeDefined();
-    expect(["Error"]).toContain(result.getRequestStatus);
+    expect(result.getRequestStatus).toContain(["Error"]);
   });
 
   test("CC-16 First Name > 40 chars", async ({ request }) => {
@@ -227,7 +244,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     expect(result.requestID).toBeTruthy();
     expect(result.getRequestStatus).toBeDefined();
-    expect(["Error"]).toContain(result.getRequestStatus);
+    expect(result.getRequestStatus).toContain(["Error"]);
   });
 
   test("CC-17 Last Name > 40 chars", async ({ request }) => {
@@ -244,7 +261,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     expect(result.requestID).toBeTruthy();
     expect(result.getRequestStatus).toBeDefined();
-    expect(["Error"]).toContain(result.getRequestStatus);
+    expect(result.getRequestStatus).toContain(["Error"]);
   });
 
   test("CC-18 On Premise valid", async ({ request }) => {
@@ -256,7 +273,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     if (result.requestID) {
       expect(result.getRequestStatus).toBeDefined();
-      expect(["Active"]).toContain(result.getRequestStatus);
+      expect(result.getRequestStatus).toContain(["Active"]);
 
       if (result.getRequestStatus === "Active") {
         expect(result.globalID).toBeTruthy();
@@ -278,7 +295,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     if (result.requestID) {
       expect(result.getRequestStatus).toBeDefined();
-      expect(["Active"]).toContain(result.getRequestStatus);
+      expect(result.getRequestStatus).toContain(["Active"]);
 
       if (result.getRequestStatus === "Active") {
         expect(result.globalID).toBeTruthy();
@@ -300,7 +317,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     expect(result.requestID).toBeTruthy();
     expect(result.getRequestStatus).toBeDefined();
-    expect(["Error"]).toContain(result.getRequestStatus);
+    expect(result.getRequestStatus).toContain(["Error"]);
   });
 
   test("CC-21 Unauthorized Request", async ({ request }) => {
@@ -318,5 +335,65 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
     console.log("Unauthorized Response:", await res.text());
     expect([401, 403]).toContain(res.status());
+  });
+
+  test("CC-22 Verify duplicate customer error", async ({ request }) => {
+    const payload = await generatePayloadWithFakerData();
+    let globalID: string | undefined;
+    const result = await runFullFlow(
+      request,
+      payload,
+      "Create customer with valid details"
+    );
+    expect(result).toBeDefined();
+    expect(result.status).toBe(200);
+
+    if (result.requestID) {
+      expect(result.getRequestStatus).toBeDefined();
+      expect(result.getRequestStatus).toContain(["Active"]);
+
+      if (result.getRequestStatus === "Active") {
+        expect(result.globalID).toBeTruthy();
+        globalID = result.globalID;
+        expect(result.getCustomerStatus).toBe(200);
+
+        // Attempt to create the same customer again
+        const duplicateResult = await runFullFlow(
+          request,
+          payload,
+          "Duplicate Customer Creation"
+        );
+        expect(duplicateResult).toBeDefined();
+        expect(duplicateResult.status).toBe(200);
+
+        expect(duplicateResult.requestID).toBeTruthy();
+        expect(duplicateResult.getRequestStatus).toBeDefined();
+        expect(duplicateResult.getRequestStatus).toContain(["Error"]);
+        const errors = duplicateResult.getReqData?.error;
+        expect(errors).toBeDefined();
+        expect(Array.isArray(errors)).toBeTruthy();
+        expect(errors.length).toBeGreaterThan(0);
+
+        // Validate each error object structure
+        for (const err of errors) {
+          expect(err).toHaveProperty("message");
+          expect(err).toHaveProperty("errorCode");
+
+          // Check that known duplicate messages/codes appear
+          if (err.errorCode === "sf-duplicate") {
+            expect(err.message).toContain("duplicate value found");
+          }
+          if (err.errorCode === "s4-duplicate") {
+            expect(err.message).toContain("already exists");
+          }
+        }
+
+        // At least one duplicate-related error must exist
+        const duplicateCodes = errors.map((e: any) => e.errorCode);
+        expect(duplicateCodes).toEqual(
+          expect.arrayContaining(["sf-duplicate", "s4-duplicate"])
+        );
+      }
+    }
   });
 });

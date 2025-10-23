@@ -57,6 +57,7 @@ export async function pollGetRequest(
 ) {
   let status: string | undefined;
   let globalID: string | undefined;
+  let getReqData: any = {};
 
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     const getReqResponse = await request.get(
@@ -68,7 +69,7 @@ export async function pollGetRequest(
       }
     );
 
-    const getReqData = await getReqResponse.json().catch(() => ({}));
+    getReqData = await getReqResponse.json().catch(() => ({}));
     status = getReqData?.data?.status;
     globalID = getReqData?.data?.globalID;
 
@@ -80,7 +81,7 @@ export async function pollGetRequest(
     await new Promise((r) => setTimeout(r, intervalSec * 1000));
   }
 
-  return { status, globalID };
+  return { status, globalID ,getReqData};
 }
 
 /** Get Customer by globalID */
