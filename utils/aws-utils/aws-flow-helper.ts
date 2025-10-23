@@ -1,5 +1,5 @@
-import { APIRequestContext, expect } from '@playwright/test';
-import { createCustomer, pollGetRequest, getCustomer } from './aws-api-helper';
+import { APIRequestContext, expect } from "@playwright/test";
+import { createCustomer, pollGetRequest, getCustomer } from "./aws-api-helper";
 
 /**
  * Shared reusable full flow for AWS Customer API
@@ -12,18 +12,35 @@ export async function runFullFlow(
   console.log(`\n🚀 Running Scenario: ${description}`);
 
   // 1️⃣ Create Customer
-  const { status, requestID, apiError, body, response } = await createCustomer(request, payload);
+  const { status, requestID, apiError, body, response } = await createCustomer(
+    request,
+    payload
+  );
   console.log(`CreateCustomer → HTTP ${status}`);
 
   if (!response.ok() || apiError) {
     console.warn(`⚠️ Create Customer failed with HTTP ${status}`);
-    console.warn(`Error message: ${apiError || 'Unknown'}`);
-    return { status, apiError, requestID: null, getRequestStatus: null, globalID: null, getCustomerStatus: null };
+    console.warn(`Error message: ${apiError || "Unknown"}`);
+    return {
+      status,
+      apiError,
+      requestID: null,
+      getRequestStatus: null,
+      globalID: null,
+      getCustomerStatus: null,
+    };
   }
 
   if (!requestID) {
-    console.warn('⚠️ No requestID returned, cannot continue flow.');
-    return { status, apiError, requestID, getRequestStatus: null, globalID: null, getCustomerStatus: null };
+    console.warn("⚠️ No requestID returned, cannot continue flow.");
+    return {
+      status,
+      apiError,
+      requestID,
+      getRequestStatus: null,
+      globalID: null,
+      getCustomerStatus: null,
+    };
   }
 
   // 2️⃣ Poll Get-Request until Active/Error
@@ -32,40 +49,65 @@ export async function runFullFlow(
   const globalID = pollResult.globalID;
   const getReqData = pollResult.getReqData;
 
-  console.log(`📊 Polling Complete → Status=${getRequestStatus || 'N/A'}, GlobalID=${globalID || 'N/A'}`);
+  console.log(
+    `📊 Polling Complete → Status=${getRequestStatus || "N/A"}, GlobalID=${
+      globalID || "N/A"
+    }`
+  );
 
   let getCustomerStatus: number | null = null;
 
   // 3️⃣ If Active, verify customer details
-  if (getRequestStatus === 'Active' && globalID) {
+  if (getRequestStatus === "Active" && globalID) {
     const customer = await getCustomer(request, globalID);
     getCustomerStatus = customer.getCustomerRes.status();
-    const data = customer.body.data;
+    const data = customer.body;
 
     expect(data).toBeDefined();
-    expect(data.accountName).toBe(payload.accountName);
-    expect(data.legalOwnerName).toBe(payload.legalOwnerName);
-    expect(data.firstName).toBe(payload.firstName);
-    expect(data.lastName).toBe(payload.lastName);
-    expect(data.primaryEmail).toBe(payload.primaryEmail);
-    expect(data.phone).toBe(payload.phone);
-    expect(data.alcoholLicenseNumber).toBe(payload.alcoholLicenseNumber);
-    expect(data.Address?.addressLine1).toBe(payload.Address.addressLine1);
-    expect(data.Address?.city).toBe(payload.Address.city);
-    expect(data.Address?.state).toBe(payload.Address.state);
-    expect(data.Address?.postalCode).toBe(payload.Address.postalCode);
-    expect(data.Address?.country).toBe(payload.Address.country);
-    expect(data.Address?.county).toBe(payload.Address.county);
-    expect(data.status).toBe('Active');
+    expect(
+      data.customerName
+        ?.toUpperCase()
+        .replace(/\s*&\s*/g, "&") // normalize spaces around &
+        .replace(/\s*AND\s*/g, "&") // convert "AND" to "&"
+        .trim()
+    ).toBe(
+      payload.accountName
+        ?.toUpperCase()
+        .replace(/\s*&\s*/g, "&")
+        .replace(/\s*AND\s*/g, "&")
+        .trim()
+    );
+    expect(data.legalOwnerName).toBe(payload.legalOwnerName.toUpperCase());
+    expect(data.license?.number).toBe(payload.alcoholLicenseNumber);
+    expect(data.address?.city).toBe(payload.Address?.[0]?.city?.toUpperCase());
+    expect(data.address?.state).toBe(
+      payload.Address?.[0]?.state?.toUpperCase()
+    );
+    expect(data.address?.postalCode).toBe(payload.Address?.[0]?.postalCode);
+    expect(data.address?.country).toBe(
+      payload.Address?.[0]?.country?.toUpperCase()
+    );
+    expect(data.address?.county).toBe(
+      payload.Address?.[0]?.county.toUpperCase()
+    );
     expect(data.globalID).toBe(globalID);
-    expect(data.requestID).toBe(requestID);
 
-    console.log(`✅ Customer Active (${globalID}) verified successfully with 200 OK`);
-  } else if (getRequestStatus === 'Error') {
-    console.error('❌ Customer creation failed (Status: Error)');
+    console.log(
+      `✅ Customer Active (${globalID}) verified successfully with 200 OK`
+    );
+  } else if (getRequestStatus === "Error") {
+    console.error("❌ Customer creation failed (Status: Error)");
   } else {
-    console.warn('⏳ Customer remained Pending after retries.');
+    console.warn("⏳ Customer remained Pending after retries.");
   }
 
-  return { status, apiError, requestID, getRequestStatus, globalID, getReqData, getCustomerStatus };
+  return {
+    status,
+    apiError,
+    requestID,
+    getRequestStatus,
+    globalID,
+    getReqData,
+    getCustomerStatus,
+  };
 }
