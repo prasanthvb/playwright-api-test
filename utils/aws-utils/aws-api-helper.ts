@@ -58,6 +58,7 @@ export async function pollGetRequest(
   let status: string | undefined;
   let globalID: string | undefined;
   let getReqData: any = {};
+  let alcoholLicenseNumber: string | undefined;
 
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     const getReqResponse = await request.get(
@@ -72,6 +73,7 @@ export async function pollGetRequest(
     getReqData = await getReqResponse.json().catch(() => ({}));
     status = getReqData?.data?.status;
     globalID = getReqData?.data?.globalID;
+    alcoholLicenseNumber = getReqData?.data?.alcoholLicenseNumber;
 
     // console.log(
     //   `🔁 Attempt ${attempt}/${maxRetries} → Status=${status || 'N/A'}, GlobalID=${globalID || 'N/A'}`
@@ -81,11 +83,11 @@ export async function pollGetRequest(
     await new Promise((r) => setTimeout(r, intervalSec * 1000));
   }
 
-  return { status, globalID ,getReqData};
+  return { status, globalID ,getReqData, alcoholLicenseNumber };
 }
 
 /** Get Customer by globalID */
-export async function getCustomer(
+export async function getCustomerByGlobalID(
   request: APIRequestContext,
   globalID: string
 ) {
@@ -94,6 +96,28 @@ export async function getCustomer(
     {
       headers: authHeaders(),
       data: { globalID },
+      timeout: 30_000,
+    }
+  );
+
+  const body = await getCustomerRes.json().catch(() => ({}));
+  //   console.log('Get Customer Response:', JSON.stringify(body, null, 2));
+
+  expect(getCustomerRes.ok(), "Get Customer API failed").toBeTruthy();
+
+  return { getCustomerRes, body };
+}
+
+/** Get Customer by globalID */
+export async function getCustomerByLicenceNumber(
+  request: APIRequestContext,
+  alcoholLicenseNumber: string
+) {
+  const getCustomerRes = await request.get(
+    `${baseUrl}${apiPaths["aws-get-customer"]}`,
+    {
+      headers: authHeaders(),
+      data: { alcoholLicenseNumber },
       timeout: 30_000,
     }
   );

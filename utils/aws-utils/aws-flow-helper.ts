@@ -1,5 +1,5 @@
 import { APIRequestContext, expect } from "@playwright/test";
-import { createCustomer, pollGetRequest, getCustomer } from "./aws-api-helper";
+import { createCustomer, pollGetRequest, getCustomerByGlobalID, getCustomerByLicenceNumber } from "./aws-api-helper";
 
 /**
  * Shared reusable full flow for AWS Customer API
@@ -28,6 +28,7 @@ export async function runFullFlow(
       getRequestStatus: null,
       globalID: null,
       getCustomerStatus: null,
+      alcoholLicenseNumber: null,
     };
   }
 
@@ -40,6 +41,7 @@ export async function runFullFlow(
       getRequestStatus: null,
       globalID: null,
       getCustomerStatus: null,
+      alcoholLicenseNumber: null,
     };
   }
 
@@ -48,6 +50,7 @@ export async function runFullFlow(
   const getRequestStatus = pollResult.status;
   const globalID = pollResult.globalID;
   const getReqData = pollResult.getReqData;
+  const alcoholLicenseNumber = pollResult.alcoholLicenseNumber;
 
   console.log(
     `📊 Polling Complete → Status=${getRequestStatus || "N/A"}, GlobalID=${
@@ -59,13 +62,13 @@ export async function runFullFlow(
 
   // 3️⃣ If Active, verify customer details
   if (getRequestStatus === "Active" && globalID) {
-    const customer = await getCustomer(request, globalID);
-    getCustomerStatus = customer.getCustomerRes.status();
-    const data = customer.body;
+    const customer_GID = await getCustomerByGlobalID(request, globalID);
+    getCustomerStatus = customer_GID.getCustomerRes.status();
+    const data_GID = customer_GID.body.data.customer;
 
-    expect(data).toBeDefined();
+    expect(data_GID).toBeDefined();
     expect(
-      data.customerName
+      data_GID.accountName
         ?.toUpperCase()
         .replace(/\s*&\s*/g, "&") // normalize spaces around &
         .replace(/\s*AND\s*/g, "&") // convert "AND" to "&"
@@ -77,20 +80,57 @@ export async function runFullFlow(
         .replace(/\s*AND\s*/g, "&")
         .trim()
     );
-    expect(data.legalOwnerName).toBe(payload.legalOwnerName.toUpperCase());
-    expect(data.license?.number).toBe(payload.alcoholLicenseNumber);
-    expect(data.address?.city).toBe(payload.Address?.[0]?.city?.toUpperCase());
-    expect(data.address?.state).toBe(
+    expect(data_GID.legalOwnerName).toBe(payload.legalOwnerName.toUpperCase());
+    expect(data_GID.license?.number).toBe(payload.alcoholLicenseNumber);
+    expect(data_GID.Address?.[0]?.city).toBe(payload.Address?.[0]?.city?.toUpperCase());
+    expect(data_GID.Address?.[0]?.state).toBe(
       payload.Address?.[0]?.state?.toUpperCase()
     );
-    expect(data.address?.postalCode).toBe(payload.Address?.[0]?.postalCode);
-    expect(data.address?.country).toBe(
+    expect(data_GID.Address?.[0]?.postalCode).toBe(payload.Address?.[0]?.postalCode);
+    expect(data_GID.Address?.[0]?.country).toBe(
       payload.Address?.[0]?.country?.toUpperCase()
     );
-    expect(data.address?.county).toBe(
+    expect(data_GID.Address?.[0]?.county).toBe(
       payload.Address?.[0]?.county.toUpperCase()
     );
-    expect(data.globalID).toBe(globalID);
+    expect(data_GID.globalID).toBe(globalID);
+
+    // Verifiy with Alcohol License Number
+    if (!alcoholLicenseNumber) {
+      throw new Error("alcoholLicenseNumber is undefined");
+    }
+    const customer_ALN = await getCustomerByLicenceNumber(request, alcoholLicenseNumber);
+    getCustomerStatus = customer_GID.getCustomerRes.status();
+    const data_ALN = customer_GID.body.data.customer;
+
+    expect(data_ALN).toBeDefined();
+    expect(
+      data_ALN.accountName
+        ?.toUpperCase()
+        .replace(/\s*&\s*/g, "&") // normalize spaces around &
+        .replace(/\s*AND\s*/g, "&") // convert "AND" to "&"
+        .trim()
+    ).toBe(
+      payload.accountName
+        ?.toUpperCase()
+        .replace(/\s*&\s*/g, "&")
+        .replace(/\s*AND\s*/g, "&")
+        .trim()
+    );
+    expect(data_ALN.legalOwnerName).toBe(payload.legalOwnerName.toUpperCase());
+    expect(data_ALN.license?.number).toBe(payload.alcoholLicenseNumber);
+    expect(data_ALN.Address?.[0]?.city).toBe(payload.Address?.[0]?.city?.toUpperCase());
+    expect(data_ALN.Address?.[0]?.state).toBe(
+      payload.Address?.[0]?.state?.toUpperCase()
+    );
+    expect(data_ALN.Address?.[0]?.postalCode).toBe(payload.Address?.[0]?.postalCode);
+    expect(data_ALN.Address?.[0]?.country).toBe(
+      payload.Address?.[0]?.country?.toUpperCase()
+    );
+    expect(data_ALN.Address?.[0]?.county).toBe(
+      payload.Address?.[0]?.county.toUpperCase()
+    );
+    expect(data_ALN.globalID).toBe(globalID);
 
     console.log(
       `✅ Customer Active (${globalID}) verified successfully with 200 OK`
