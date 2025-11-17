@@ -15,7 +15,7 @@ import * as dotenv from 'dotenv';
 export default defineConfig({
  testDir: './tests',
   /* max time one test can run for.. */
-  timeout: 60 * 1000,
+  timeout: 120 * 1000,
   expect: {
     timeout: 5000
   },

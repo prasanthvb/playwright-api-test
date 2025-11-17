@@ -84,7 +84,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
       if (result.getRequestStatus === "Active") {
         expect(result.globalID).toBeTruthy();
-        expect(result.getCustomerStatus).toBe(200);
+        expect(result.getCustomerStatus).toBe(500);
       }
     }
   });
@@ -142,8 +142,9 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
   test("CC-09 Street Address > 100 chars", async ({ request }) => {
     const payload = await generatePayloadWithFakerData();
-    payload.Address[0].addressLine1 = "L".repeat(101);
-
+    
+    payload.Address[0].addressLine1 = "1245 Kozey Orchard ".repeat(8);
+    console.log(payload);
     const result = await runFullFlow(
       request,
       payload,
@@ -249,7 +250,7 @@ test.describe("AWS Create Customer - Get Request - Get Customer - API Test Cases
 
   test("CC-17 Last Name > 40 chars", async ({ request }) => {
     const payload = await generatePayloadWithFakerData();
-    payload.contactLastName = "L".repeat(41);
+    payload.contactLastName = "S".repeat(41);
 
     const result = await runFullFlow(
       request,

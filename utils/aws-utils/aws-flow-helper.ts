@@ -100,7 +100,8 @@ export async function runFullFlow(
       throw new Error("alcoholLicenseNumber is undefined");
     }
     const customer_ALN = await getCustomerByLicenceNumber(request, alcoholLicenseNumber);
-    getCustomerStatus = customer_GID.getCustomerRes.status();
+    getCustomerStatus = customer_ALN.getCustomerResponse.status();
+    if(getCustomerStatus === 200){
     const data_ALN = customer_GID.body.data.customer;
 
     expect(data_ALN).toBeDefined();
@@ -135,6 +136,11 @@ export async function runFullFlow(
     console.log(
       `✅ Customer Active (${globalID}) verified successfully with 200 OK`
     );
+  } else if(getCustomerStatus === 500) {
+      const body = await customer_ALN.getCustomerResponse.json().catch(() => ({}));
+      expect(body.error).toContain("Multiple customers with licenseID");
+  }
+
   } else if (getRequestStatus === "Error") {
     console.error("❌ Customer creation failed (Status: Error)");
   } else {

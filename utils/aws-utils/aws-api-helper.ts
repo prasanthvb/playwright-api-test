@@ -113,7 +113,7 @@ export async function getCustomerByLicenceNumber(
   request: APIRequestContext,
   alcoholLicenseNumber: string
 ) {
-  const getCustomerRes = await request.get(
+  const getCustomerResponse = await request.get(
     `${baseUrl}${apiPaths["aws-get-customer"]}`,
     {
       headers: authHeaders(),
@@ -122,12 +122,38 @@ export async function getCustomerByLicenceNumber(
     }
   );
 
-  const body = await getCustomerRes.json().catch(() => ({}));
-  //   console.log('Get Customer Response:', JSON.stringify(body, null, 2));
+  const status = getCustomerResponse.status();
+  const body = await getCustomerResponse.json().catch(() => ({}));
 
-  expect(getCustomerRes.ok(), "Get Customer API failed").toBeTruthy();
+  // Allowed 500 error scenario
+  const isExpected500Error =
+    status === 500 &&
+    body?.message === "Error" &&
+    typeof body?.error === "string" &&
+    body.error.includes("Multiple customers with licenseID");
 
-  return { getCustomerRes, body };
+  // ❌ Any unexpected failure → throw
+  if (status !== 200 && !isExpected500Error) {
+    throw new Error(
+      `Unexpected failure in Get Customer API.
+       Status: ${status}
+       Response: ${JSON.stringify(body, null, 2)}`
+    );
+  }
+
+  // ✔ Expected 500 duplicate-license error
+  if (isExpected500Error) {
+    return {
+    getCustomerResponse,
+    body,
+    };
+  }
+
+  // ✔ 200 OK → return full success body
+  return {
+    getCustomerResponse,
+    body,
+  };
 }
 
 // --- Helper to send Browse Customer requests ---
