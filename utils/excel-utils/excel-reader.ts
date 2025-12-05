@@ -2,8 +2,8 @@ import * as XLSX from "xlsx";
 import * as path from "path";
 
 export interface NameRecord {
-  firstName: string;
-  lastName: string;
+  actualName: string;
+  expectedName: string;
 }
 
 /**
@@ -27,7 +27,7 @@ export function readNamesFromExcel(): NameRecord[] {
   return json
     .filter((row) => row[0] && row[1])
     .map((row) => ({
-      firstName: row[0].toString().trim(),
-      lastName: row[1].toString().trim(),
+      actualName: row[0].toString().trim(),
+      expectedName: row[1].toString().trim(),
     }));
 }

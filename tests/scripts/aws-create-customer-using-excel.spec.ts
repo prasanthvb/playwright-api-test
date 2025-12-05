@@ -1,24 +1,25 @@
 import { test, expect } from "@playwright/test";
 import { generatePayloadWithFakerData } from "../../utils/payload/generate-new-customer-payload";
-import { runFullFlow } from "../../utils/aws-utils/aws-flow-helper";
+import { runFullFlow } from "../../utils/aws-utils/aws-flow-helper-verify-account-name";
 import { readNamesFromExcel } from "../../utils/excel-utils/excel-reader";
 
 const allNames = readNamesFromExcel();
 
 test.describe("CC-01 Create customer using Excel data", () => {
   allNames.forEach((record, index) => {
-    test(`CC-01 Row ${index + 1}: Create customer for ${record.firstName} ${record.lastName}`, async ({
+    test(`CC-01 Row ${index + 1}: Create customer for ${record.actualName}`, async ({
       request,
     }) => {
       const payload = await generatePayloadWithFakerData();
 
       // Update accountName using Excel row
-      payload.accountName = `${record.firstName} ${record.lastName}`;
+      payload.accountName = `${record.actualName}`;
 
       const result = await runFullFlow(
         request,
         payload,
-        `Create Customer for ${payload.accountName}`
+        `Create Customer for ${payload.accountName}`,
+        record.expectedName
       );
 
       expect(result).toBeDefined();
