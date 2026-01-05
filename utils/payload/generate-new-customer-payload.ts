@@ -1,4 +1,6 @@
 // Define the type for a Distribution Channel object for better type safety
+import { US_LOCATIONS } from "../common-utils/locationData";
+
 interface DistributionChannel {
   Code: "20" | "10";
   Name: "Off Premise" | "On Premise";
@@ -74,23 +76,24 @@ export async function generatePayloadWithFakerData(): Promise<Payload> {
   const firstName = faker.person.firstName();
   const lastName = faker.person.lastName();
 
-  // Select random distribution channel
+  // 1. Select random distribution channel
   const selectedChannel = faker.helpers.arrayElement(distributionChannels);
+
+  // 2. Select a random location from our utility list
+  const randomLocation = faker.helpers.arrayElement(US_LOCATIONS);
 
   // Assign faker-generated data
   newPayload.accountName = faker.company.name();
   newPayload.legalOwnerName = `${faker.company.name()} LLC`;
   newPayload.distributionChannel = selectedChannel;
 
-  newPayload.Address[0].addressLine1 = faker.location.streetAddress();
-  newPayload.Address[0].city = faker.location.city();
-  // newPayload.Address[0].county = faker.location.county();
-  // newPayload.Address[0].state = faker.helpers.arrayElement(["AR", "TN"]);
-  // newPayload.Address[0].postalCode = faker.location.zipCode("#####");
 
-  newPayload.Address[0].county = "Norfolk";
-  newPayload.Address[0].state = "TN";
-  newPayload.Address[0].postalCode = "20899";
+  newPayload.Address[0].addressLine1 = faker.location.streetAddress();
+  newPayload.Address[0].city = randomLocation.city;
+  newPayload.Address[0].county = randomLocation.county;
+  newPayload.Address[0].state = randomLocation.state;
+  newPayload.Address[0].postalCode = randomLocation.postalCode;
+  newPayload.Address[0].country = "US";
 
   newPayload.contactFirstName = firstName;
   newPayload.contactLastName = lastName;

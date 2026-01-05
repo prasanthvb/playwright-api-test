@@ -81,16 +81,16 @@ export async function runFullFlow(
         .trim()
     );
     expect(data_GID.legalOwnerName).toBe(payload.legalOwnerName.toUpperCase());
-    expect(data_GID.license?.number).toBe(payload.alcoholLicenseNumber);
-    expect(data_GID.Address?.[0]?.city).toBe(payload.Address?.[0]?.city?.toUpperCase());
-    expect(data_GID.Address?.[0]?.state).toBe(
+    expect(data_GID.licenses?.[0]?.number).toBe(payload.alcoholLicenseNumber);
+    expect(data_GID.addresses?.[0]?.city).toBe(payload.Address?.[0]?.city?.toUpperCase());
+    expect(data_GID.addresses?.[0]?.state).toBe(
       payload.Address?.[0]?.state?.toUpperCase()
     );
-    expect(data_GID.Address?.[0]?.postalCode).toBe(payload.Address?.[0]?.postalCode);
-    expect(data_GID.Address?.[0]?.country).toBe(
+    expect(data_GID.addresses?.[0]?.postalCode).toBe(payload.Address?.[0]?.postalCode);
+    expect(data_GID.addresses?.[0]?.country).toBe(
       payload.Address?.[0]?.country?.toUpperCase()
     );
-    expect(data_GID.Address?.[0]?.county).toBe(
+    expect(data_GID.addresses?.[0]?.county).toBe(
       payload.Address?.[0]?.county.toUpperCase()
     );
     expect(data_GID.globalID).toBe(globalID);
@@ -119,16 +119,16 @@ export async function runFullFlow(
         .trim()
     );
     expect(data_ALN.legalOwnerName).toBe(payload.legalOwnerName.toUpperCase());
-    expect(data_ALN.license?.number).toBe(payload.alcoholLicenseNumber);
-    expect(data_ALN.Address?.[0]?.city).toBe(payload.Address?.[0]?.city?.toUpperCase());
-    expect(data_ALN.Address?.[0]?.state).toBe(
+    expect(data_ALN.licenses?.[0]?.number).toBe(payload.alcoholLicenseNumber);
+    expect(data_ALN.addresses?.[0]?.city).toBe(payload.Address?.[0]?.city?.toUpperCase());
+    expect(data_ALN.addresses?.[0]?.state).toBe(
       payload.Address?.[0]?.state?.toUpperCase()
     );
-    expect(data_ALN.Address?.[0]?.postalCode).toBe(payload.Address?.[0]?.postalCode);
-    expect(data_ALN.Address?.[0]?.country).toBe(
+    expect(data_ALN.addresses?.[0]?.postalCode).toBe(payload.Address?.[0]?.postalCode);
+    expect(data_ALN.addresses?.[0]?.country).toBe(
       payload.Address?.[0]?.country?.toUpperCase()
     );
-    expect(data_ALN.Address?.[0]?.county).toBe(
+    expect(data_ALN.addresses?.[0]?.county).toBe(
       payload.Address?.[0]?.county.toUpperCase()
     );
     expect(data_ALN.globalID).toBe(globalID);
