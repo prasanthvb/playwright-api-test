@@ -25,23 +25,23 @@
   },
   "homepage": "https://github.com/prasanthvb/playwright-api-test#readme",
   "devDependencies": {
-    "@faker-js/faker": "^9.9.0",
-    "@playwright/test": "^1.55.0",
-    "@types/node": "^24.5.2",
-    "@typescript-eslint/eslint-plugin": "^8.37.0",
-    "@typescript-eslint/parser": "^8.37.0",
-    "allure-commandline": "^2.34.1",
-    "allure-playwright": "^3.4.1",
-    "eslint": "^9.23.0",
-    "eslint-plugin-playwright": "^2.2.0",
-    "typescript-eslint": "^8.37.0"
+    "@faker-js/faker": "^10.2.0",
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.52.0",
+    "@typescript-eslint/parser": "^8.52.0",
+    "allure-commandline": "^2.36.0",
+    "allure-playwright": "^3.4.3",
+    "eslint": "^9.39.2",
+    "eslint-plugin-playwright": "^2.4.0",
+    "typescript-eslint": "^8.52.0"
   },
   "dependencies": {
-    "dotenv": "^17.2.1",
-    "form-data": "^4.0.4",
+    "dotenv": "^17.2.3",
+    "form-data": "^4.0.5",
     "formdata-node": "^6.0.3",
     "mkdirp": "^3.0.1",
-    "rimraf": "^6.0.1",
+    "rimraf": "^6.1.2",
     "xlsx": "^0.18.5"
   }
 }

@@ -1,0 +1,192 @@
+{
+  "globalID": "2000502143",
+  "baselineCustomer": {
+    "getCustomerRes": {
+      "_request": {
+        "_type": "APIRequestContext",
+        "_guid": "request-context@7124de8abc8c84183d9952ea8db8a703"
+      },
+      "_initializer": {
+        "fetchUid": "83728d96039df1da6e97a4e6957de9fe",
+        "url": "https://cvx1f3z70f.execute-api.us-east-1.amazonaws.com/sandbox/get-customer",
+        "status": 200,
+        "statusText": "OK",
+        "headers": [
+          {
+            "name": "Date",
+            "value": "Thu, 08 Jan 2026 08:34:18 GMT"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "Content-Length",
+            "value": "1987"
+          },
+          {
+            "name": "Connection",
+            "value": "close"
+          },
+          {
+            "name": "x-amzn-RequestId",
+            "value": "da299b80-7165-4ed5-b2ee-bf8bc2fe3b1a"
+          },
+          {
+            "name": "x-amz-apigw-id",
+            "value": "W23RlFIwoAMEEIg="
+          },
+          {
+            "name": "X-Amzn-Trace-Id",
+            "value": "Root=1-695f6c09-5b9dafb0079773774cfba9ed;Parent=389eea8ccac15d0e;Sampled=0;Lineage=1:df8df462:0"
+          }
+        ]
+      },
+      "_headers": {
+        "_headersMap": {
+          "_map": {}
+        },
+        "_headersArray": [
+          {
+            "name": "Date",
+            "value": "Thu, 08 Jan 2026 08:34:18 GMT"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "Content-Length",
+            "value": "1987"
+          },
+          {
+            "name": "Connection",
+            "value": "close"
+          },
+          {
+            "name": "x-amzn-RequestId",
+            "value": "da299b80-7165-4ed5-b2ee-bf8bc2fe3b1a"
+          },
+          {
+            "name": "x-amz-apigw-id",
+            "value": "W23RlFIwoAMEEIg="
+          },
+          {
+            "name": "X-Amzn-Trace-Id",
+            "value": "Root=1-695f6c09-5b9dafb0079773774cfba9ed;Parent=389eea8ccac15d0e;Sampled=0;Lineage=1:df8df462:0"
+          }
+        ]
+      }
+    },
+    "body": {
+      "success": true,
+      "timestamp": "2026-01-08T08:34:00.852Z",
+      "eventType": "Create-Applicant-BFF-Orch-Event-QzHm7UzNCD",
+      "eventID": "QzHm7UzNCD",
+      "requestID": "QzHm7UzNCD",
+      "data": {
+        "customer": {
+          "accountName": "KIEHN GROUP",
+          "globalID": "2000502143",
+          "contactFirstName": "gerald",
+          "contactLastName": "Vandervort",
+          "customerType": "Z001",
+          "distributionChannel": "20",
+          "establishmentType": "999",
+          "paymentTerms": {
+            "termName": "Collect on Delivery",
+            "term": "cod",
+            "cadence": "0001",
+            "dayLimit": 0,
+            "description": "Payable upon receipt - Default"
+          },
+          "legalOwnerName": "VEUM GROUP LLC",
+          "salesDivision": "10",
+          "salesOffice": "6301",
+          "salesOrganization": "6310",
+          "siteID": "0058",
+          "status": "Active",
+          "primaryEmail": "gerald.vandervort@yahoo.com",
+          "phone": "384-314-5183",
+          "addresses": [
+            {
+              "addressLine1": "3979 CLIFF ROAD",
+              "city": "MURFREESBORO",
+              "country": "US",
+              "county": "RUTHERFORD",
+              "countyCode": "149",
+              "postalCode": "37130",
+              "state": "TN",
+              "addressID": "2000502143",
+              "addressType": "Shipping",
+              "name": "KIEHN GROUP",
+              "alternateID": "511326"
+            }
+          ],
+          "licenses": [
+            {
+              "legalRegulation": "NA",
+              "companyCode": "6310",
+              "effectiveDate": "1900-01-01",
+              "expirationDate": "9999-12-31",
+              "number": "UT5A93TA004UKPKL36X",
+              "status": "V",
+              "lifecycleStatus": "3",
+              "licenseID": ""
+            }
+          ],
+          "materialGroups": [
+            {
+              "description": "Chickasaw Spirits",
+              "repCompId": "7700",
+              "repCompDesc": "SOUTHERN GLAZER'S",
+              "key": "CKS"
+            },
+            {
+              "description": "Genesis Spirits",
+              "repCompId": "7700",
+              "repCompDesc": "SOUTHERN GLAZER'S",
+              "key": "GNS"
+            },
+            {
+              "description": "Non Alcohol 1",
+              "repCompId": "7700",
+              "repCompDesc": "SOUTHERN GLAZER'S",
+              "key": "NA1"
+            },
+            {
+              "description": "Premiere Wine",
+              "repCompId": "7700",
+              "repCompDesc": "SOUTHERN GLAZER'S",
+              "key": "PRW"
+            },
+            {
+              "description": "River Spirits",
+              "repCompId": "7700",
+              "repCompDesc": "SOUTHERN GLAZER'S",
+              "key": "RVS"
+            },
+            {
+              "description": "Signature",
+              "repCompId": "300",
+              "repCompDesc": "SIGNATURE FINE WINES & SPIRITS",
+              "key": "SG1"
+            },
+            {
+              "description": "Southern Glazers Wine & Spirits",
+              "repCompId": "7700",
+              "repCompDesc": "SOUTHERN GLAZER'S",
+              "key": "SGW"
+            }
+          ]
+        },
+        "request": {
+          "globalID": "2000502143",
+          "action": null,
+          "customer": "customer",
+          "id": "2000502143"
+        }
+      }
+    }
+  }
+}
