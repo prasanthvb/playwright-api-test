@@ -7,7 +7,7 @@ export const runUpdateFlow = async (
   globalID
 ) => {
   const updateRequestID = updateResponse?.updateRequestID;
-
+    console.log('Update Request ID:', updateRequestID);
   if (!updateRequestID) {
     throw new Error('updateRequestID not returned from update API');
   }
@@ -17,8 +17,11 @@ export const runUpdateFlow = async (
     updateRequestID,
     globalID
   );
+  console.log('Final Update Request Status:', updateRequestStatus);
 
   const finalStatus = updateRequestStatus?.data?.status;
+
+  console.log('Final Status:', finalStatus);
 
   if (finalStatus !== 'active') {
     return {

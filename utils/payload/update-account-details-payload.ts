@@ -1,26 +1,32 @@
-export const getValidAccountDetailsPayload = () => ({
-  accountDetails: {
-    contactFirstName: 'NBavish',
-    contactLastName: 'Chappelle',
-    primaryEmail: 'dave.chappelle@contact.com',
-    phone: '(512)234-2345',
-  },
-});
+import { faker } from "@faker-js/faker";
+const contactFirstName = faker.person.firstName();
+const contactLastName = faker.person.lastName();
+export const getValidAccountDetailsPayload = () => {
+  
+  return {
+    accountDetails: {
+      contactFirstName,
+      contactLastName,
+      primaryEmail: faker.internet.email({ firstName: contactFirstName, lastName: contactLastName }),
+      phone: faker.phone.number({ style: "national" }),
+    },
+  };
+};
 
 export const getInvalidEmailPayload = () => ({
   accountDetails: {
-    contactFirstName: 'NBavish',
-    contactLastName: 'Chappelle',
+    contactFirstName,
+    contactLastName,
     primaryEmail: 'dave.chappellecontact.com',
-    phone: '(512)234-2345',
+    phone: faker.phone.number({ style: "national" }),
   },
 });
 
 export const getInvalidPhonePayload = () => ({
   accountDetails: {
-    contactFirstName: 'NBavish',
-    contactLastName: 'Chappelle',
-    primaryEmail: 'dave.chappelle@contact.com',
+    contactFirstName,
+    contactLastName,
+    primaryEmail: faker.internet.email({ firstName: contactFirstName, lastName: contactLastName }),
     phone: '(512)234-TEST',
   },
 });

@@ -1,6 +1,17 @@
 import apiPaths from "../../fixtures/api-path.json";
 import { expect } from '@playwright/test';
+import { awsConfig } from "../../config/api-config";
 
+const baseUrl = awsConfig.baseUrl;
+const apiKey = awsConfig.apiKey;
+
+// Helper to add API key header
+function authHeaders() {
+  return {
+    "x-api-key": apiKey ?? "",
+  };
+}
+/** Poll Get-Update-Request API until status is 'active' or 'error' */
 export const pollGetUpdateRequest = async (
   request,
   updateRequestID: string,
@@ -12,12 +23,13 @@ export const pollGetUpdateRequest = async (
 
   for (let i = 0; i < maxRetries; i++) {
     const response = await request.get(
-      apiPaths['get-update-request'],
+      `${baseUrl}${apiPaths['get-update-request']}`,
       {
         data: {
           updateRequestID,
           globalID,
         },
+        headers: authHeaders(),
       }
     );
 

@@ -1,20 +1,20 @@
 {
-  "globalID": "2000502143",
+  "globalID": "2000600125",
   "baselineCustomer": {
     "getCustomerRes": {
       "_request": {
         "_type": "APIRequestContext",
-        "_guid": "request-context@7124de8abc8c84183d9952ea8db8a703"
+        "_guid": "request-context@7da50dac1a32717e9bf950c5c4416df2"
       },
       "_initializer": {
-        "fetchUid": "83728d96039df1da6e97a4e6957de9fe",
+        "fetchUid": "1500bce8b33c673c783da16c88a98722",
         "url": "https://cvx1f3z70f.execute-api.us-east-1.amazonaws.com/sandbox/get-customer",
         "status": 200,
         "statusText": "OK",
         "headers": [
           {
             "name": "Date",
-            "value": "Thu, 08 Jan 2026 08:34:18 GMT"
+            "value": "Mon, 12 Jan 2026 12:06:19 GMT"
           },
           {
             "name": "Content-Type",
@@ -22,23 +22,23 @@
           },
           {
             "name": "Content-Length",
-            "value": "1987"
+            "value": "2467"
           },
           {
             "name": "Connection",
-            "value": "close"
+            "value": "keep-alive"
           },
           {
             "name": "x-amzn-RequestId",
-            "value": "da299b80-7165-4ed5-b2ee-bf8bc2fe3b1a"
+            "value": "98b050a4-a161-40d4-9e83-302d8b8af838"
           },
           {
             "name": "x-amz-apigw-id",
-            "value": "W23RlFIwoAMEEIg="
+            "value": "XEiFOGP_oAMEsbg="
           },
           {
             "name": "X-Amzn-Trace-Id",
-            "value": "Root=1-695f6c09-5b9dafb0079773774cfba9ed;Parent=389eea8ccac15d0e;Sampled=0;Lineage=1:df8df462:0"
+            "value": "Root=1-6964e3ba-76f3d20259aa46e616ffe193;Parent=2d806228af9ce56c;Sampled=0;Lineage=1:df8df462:0"
           }
         ]
       },
@@ -49,7 +49,7 @@
         "_headersArray": [
           {
             "name": "Date",
-            "value": "Thu, 08 Jan 2026 08:34:18 GMT"
+            "value": "Mon, 12 Jan 2026 12:06:19 GMT"
           },
           {
             "name": "Content-Type",
@@ -57,79 +57,79 @@
           },
           {
             "name": "Content-Length",
-            "value": "1987"
+            "value": "2467"
           },
           {
             "name": "Connection",
-            "value": "close"
+            "value": "keep-alive"
           },
           {
             "name": "x-amzn-RequestId",
-            "value": "da299b80-7165-4ed5-b2ee-bf8bc2fe3b1a"
+            "value": "98b050a4-a161-40d4-9e83-302d8b8af838"
           },
           {
             "name": "x-amz-apigw-id",
-            "value": "W23RlFIwoAMEEIg="
+            "value": "XEiFOGP_oAMEsbg="
           },
           {
             "name": "X-Amzn-Trace-Id",
-            "value": "Root=1-695f6c09-5b9dafb0079773774cfba9ed;Parent=389eea8ccac15d0e;Sampled=0;Lineage=1:df8df462:0"
+            "value": "Root=1-6964e3ba-76f3d20259aa46e616ffe193;Parent=2d806228af9ce56c;Sampled=0;Lineage=1:df8df462:0"
           }
         ]
       }
     },
     "body": {
       "success": true,
-      "timestamp": "2026-01-08T08:34:00.852Z",
-      "eventType": "Create-Applicant-BFF-Orch-Event-QzHm7UzNCD",
-      "eventID": "QzHm7UzNCD",
-      "requestID": "QzHm7UzNCD",
+      "timestamp": "2026-01-12T12:05:38.435Z",
+      "eventType": "Create-Applicant-BFF-Orch-Event-ZyRNbaaQT7",
+      "eventID": "ZyRNbaaQT7",
+      "requestID": "ZyRNbaaQT7",
       "data": {
         "customer": {
-          "accountName": "KIEHN GROUP",
-          "globalID": "2000502143",
-          "contactFirstName": "gerald",
-          "contactLastName": "Vandervort",
+          "accountName": "BAUMBACH GROUP",
+          "globalID": "2000600125",
+          "contactFirstName": "fletcher",
+          "contactLastName": "Blick",
           "customerType": "Z001",
-          "distributionChannel": "20",
+          "distributionChannel": "10",
           "establishmentType": "999",
+          "legalOwnerName": "DICKINSON, VANDERVORT AND THOMPSON LLC",
+          "salesDivision": "10",
+          "salesOffice": "5901",
+          "salesOrganization": "5910",
+          "siteID": "0041",
+          "status": "Active",
+          "primaryEmail": "fletcher_blick18@hotmail.com",
+          "phone": "932-960-5845",
           "paymentTerms": {
             "termName": "Collect on Delivery",
             "term": "cod",
-            "cadence": "0001",
+            "cadence": "CCOD",
             "dayLimit": 0,
-            "description": "Payable upon receipt - Default"
+            "description": "Collect on Delivery"
           },
-          "legalOwnerName": "VEUM GROUP LLC",
-          "salesDivision": "10",
-          "salesOffice": "6301",
-          "salesOrganization": "6310",
-          "siteID": "0058",
-          "status": "Active",
-          "primaryEmail": "gerald.vandervort@yahoo.com",
-          "phone": "384-314-5183",
           "addresses": [
             {
-              "addressLine1": "3979 CLIFF ROAD",
-              "city": "MURFREESBORO",
+              "addressLine1": "895 LAYNE VILLE",
+              "city": "BENTONVILLE",
               "country": "US",
-              "county": "RUTHERFORD",
-              "countyCode": "149",
-              "postalCode": "37130",
-              "state": "TN",
-              "addressID": "2000502143",
+              "county": "BENTON",
+              "countyCode": "007",
+              "postalCode": "72712",
+              "state": "AR",
+              "addressID": "2000600125",
               "addressType": "Shipping",
-              "name": "KIEHN GROUP",
-              "alternateID": "511326"
+              "name": "BAUMBACH GROUP",
+              "alternateID": "513292"
             }
           ],
           "licenses": [
             {
               "legalRegulation": "NA",
-              "companyCode": "6310",
+              "companyCode": "5910",
               "effectiveDate": "1900-01-01",
               "expirationDate": "9999-12-31",
-              "number": "UT5A93TA004UKPKL36X",
+              "number": "8M2O8WZC5X1V3PM3TNBSWGMO3A0NAOWJ2J",
               "status": "V",
               "lifecycleStatus": "3",
               "licenseID": ""
@@ -137,54 +137,84 @@
           ],
           "materialGroups": [
             {
-              "description": "Chickasaw Spirits",
-              "repCompId": "7700",
-              "repCompDesc": "SOUTHERN GLAZER'S",
-              "key": "CKS"
+              "description": "Eagle 1",
+              "repCompId": "1210",
+              "repCompDesc": "EAGLE WINE & SPIRITS",
+              "key": "EG1"
             },
             {
-              "description": "Genesis Spirits",
-              "repCompId": "7700",
-              "repCompDesc": "SOUTHERN GLAZER'S",
-              "key": "GNS"
+              "description": "Eagle 2",
+              "repCompId": "1210",
+              "repCompDesc": "EAGLE WINE & SPIRITS",
+              "key": "EG2"
             },
             {
-              "description": "Non Alcohol 1",
-              "repCompId": "7700",
-              "repCompDesc": "SOUTHERN GLAZER'S",
-              "key": "NA1"
+              "description": "Eagle 3",
+              "repCompId": "1210",
+              "repCompDesc": "EAGLE WINE & SPIRITS",
+              "key": "EG3"
             },
             {
-              "description": "Premiere Wine",
-              "repCompId": "7700",
-              "repCompDesc": "SOUTHERN GLAZER'S",
-              "key": "PRW"
+              "description": "Eagle 4",
+              "repCompId": "1210",
+              "repCompDesc": "EAGLE WINE & SPIRITS",
+              "key": "EG4"
             },
             {
-              "description": "River Spirits",
-              "repCompId": "7700",
-              "repCompDesc": "SOUTHERN GLAZER'S",
-              "key": "RVS"
+              "description": "Falcon 1",
+              "repCompId": "1220",
+              "repCompDesc": "FALCON WINE & SPIRITS",
+              "key": "FL1"
             },
             {
-              "description": "Signature",
+              "description": "Falcon 2",
+              "repCompId": "1220",
+              "repCompDesc": "FALCON WINE & SPIRITS",
+              "key": "FL2"
+            },
+            {
+              "description": "Falcon 3",
               "repCompId": "300",
               "repCompDesc": "SIGNATURE FINE WINES & SPIRITS",
-              "key": "SG1"
+              "key": "FL3"
+            },
+            {
+              "description": "Falcon 4",
+              "repCompId": "1220",
+              "repCompDesc": "FALCON WINE & SPIRITS",
+              "key": "FL4"
+            },
+            {
+              "description": "Hawk 1",
+              "repCompId": "1230",
+              "repCompDesc": "HAWK WINE & SPIRITS",
+              "key": "HW1"
+            },
+            {
+              "description": "Hawk 2",
+              "repCompId": "1230",
+              "repCompDesc": "HAWK WINE & SPIRITS",
+              "key": "HW2"
+            },
+            {
+              "description": "Hawk 3",
+              "repCompId": "1230",
+              "repCompDesc": "HAWK WINE & SPIRITS",
+              "key": "HW3"
             },
             {
               "description": "Southern Glazers Wine & Spirits",
-              "repCompId": "7700",
-              "repCompDesc": "SOUTHERN GLAZER'S",
+              "repCompId": "1250",
+              "repCompDesc": "PHOENIX WINE & SPIRITS",
               "key": "SGW"
             }
           ]
         },
         "request": {
-          "globalID": "2000502143",
+          "globalID": "2000600125",
           "action": null,
           "customer": "customer",
-          "id": "2000502143"
+          "id": "2000600125"
         }
       }
     }
