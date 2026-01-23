@@ -155,5 +155,6 @@ export async function runFullFlow(
     globalID,
     getReqData,
     getCustomerStatus,
+    alcoholLicenseNumber,
   };
 }

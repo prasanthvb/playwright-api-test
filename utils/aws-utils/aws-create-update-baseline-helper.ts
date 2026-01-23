@@ -1,10 +1,8 @@
-import fs from 'fs';
-import path from 'path';
-import { expect } from '@playwright/test';
+import fs from "fs";
 
-import { runFullFlow } from './aws-flow-helper';
-import { getCustomerByGlobalID } from './aws-api-helper';
-import { generatePayloadWithFakerData } from '../payload/generate-new-customer-payload';
+import { runFullFlow } from "./aws-flow-helper";
+import { getCustomerByGlobalID } from "./aws-api-helper";
+import { generatePayloadWithFakerData } from "../payload/generate-new-customer-payload";
 
 export const createBaselineWithRetry = async (
   request,
@@ -13,8 +11,9 @@ export const createBaselineWithRetry = async (
 ) => {
   let attempt = 0;
   let globalID: any;
- const payload = await generatePayloadWithFakerData();
- console.log('Generated payload for baseline creation:', payload);
+  let licenceNumber: any;
+  const payload = await generatePayloadWithFakerData();
+  console.log("Generated payload for baseline creation:", payload);
   while (attempt < maxRetries) {
     attempt++;
 
@@ -26,15 +25,15 @@ export const createBaselineWithRetry = async (
       );
 
       globalID = createResponse?.globalID;
-
+      licenceNumber = createResponse?.alcoholLicenseNumber;
       if (!globalID) {
-        throw new Error('GlobalID not returned from create flow');
+        throw new Error("GlobalID not returned from create flow");
       }
 
       const customerResponse = await getCustomerByGlobalID(request, globalID);
 
       if (!customerResponse) {
-        throw new Error('Get Customer returned empty response');
+        throw new Error("Get Customer returned empty response");
       }
 
       fs.writeFileSync(
@@ -49,7 +48,7 @@ export const createBaselineWithRetry = async (
         )
       );
 
-      return globalID;
+      return { globalID, licenceNumber };
     } catch (error) {
       console.warn(
         `Baseline creation failed (attempt ${attempt}): ${error.message}`
