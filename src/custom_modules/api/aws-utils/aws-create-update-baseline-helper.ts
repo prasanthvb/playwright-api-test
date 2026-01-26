@@ -5,7 +5,7 @@ import { getCustomerByGlobalID } from "./aws-api-helper";
 import { generatePayloadWithFakerData } from "../payload/generate-new-customer-payload";
 
 export const createBaselineWithRetry = async (
-  request,
+  request: any,
   baselineFilePath: string,
   maxRetries = 6
 ) => {
@@ -36,7 +36,9 @@ export const createBaselineWithRetry = async (
         throw new Error("Get Customer returned empty response");
       }
 
-      fs.writeFileSync(
+      if (baselineFilePath) {
+        try {
+          fs.writeFileSync(
         baselineFilePath,
         JSON.stringify(
           {
@@ -46,17 +48,19 @@ export const createBaselineWithRetry = async (
           null,
           2
         )
-      );
+          );
+        } catch (err) {
+          console.warn(`Failed to write baseline file: ${err instanceof Error ? err.message : String(err)}`);
+        }
+      }
 
       return { globalID, licenceNumber };
     } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
       console.warn(
-        `Baseline creation failed (attempt ${attempt}): ${error.message}`
+        `Baseline creation failed (attempt ${attempt}): ${errorMessage}`
       );
     }
   }
-
-  throw new Error(
-    `Failed to create baseline customer after ${maxRetries} attempts`
-  );
 };

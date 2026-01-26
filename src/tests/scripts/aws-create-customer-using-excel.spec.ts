@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
-import { generatePayloadWithFakerData } from "../../utils/payload/generate-new-customer-payload";
-import { runFullFlow } from "../../utils/aws-utils/aws-flow-helper-verify-account-name";
-import { readNamesFromExcel } from "../../utils/excel-utils/excel-reader";
+import { generatePayloadWithFakerData } from "../../custom_modules/api/payload/generate-new-customer-payload";
+import { runFullFlow } from "../../custom_modules/api/aws-utils/aws-flow-helper-verify-account-name";
+import { readNamesFromExcel } from "../../custom_modules/common/excel-utils/excel-reader";
 
 const allNames = readNamesFromExcel();
 

@@ -1,20 +1,20 @@
 {
-  "globalID": "2000601371",
+  "globalID": "2000601412",
   "baselineCustomer": {
     "getCustomerRes": {
       "_request": {
         "_type": "APIRequestContext",
-        "_guid": "request-context@ccffcee15f13c8afd1bcaf66475a97da"
+        "_guid": "request-context@c81057cecd945e7169956c35ea6d61aa"
       },
       "_initializer": {
-        "fetchUid": "7ecf945ae67567f5882d50e7044be843",
+        "fetchUid": "6bad12456c0f18fb6adf5c29d4717dd7",
         "url": "https://uok5z8x4n9.execute-api.us-east-1.amazonaws.com/nonprod/get-customer",
         "status": 200,
         "statusText": "OK",
         "headers": [
           {
             "name": "Date",
-            "value": "Wed, 21 Jan 2026 14:25:10 GMT"
+            "value": "Mon, 26 Jan 2026 15:10:05 GMT"
           },
           {
             "name": "Content-Type",
@@ -22,7 +22,7 @@
           },
           {
             "name": "Content-Length",
-            "value": "1920"
+            "value": "1985"
           },
           {
             "name": "Connection",
@@ -30,15 +30,15 @@
           },
           {
             "name": "x-amzn-RequestId",
-            "value": "76ece701-9980-441e-92f3-a77f46e94a71"
+            "value": "003e91fd-211c-4eb7-afee-4dbc7e9ee2f3"
           },
           {
             "name": "x-amz-apigw-id",
-            "value": "Xig3BElQoAMEVcw="
+            "value": "XzGIKHsuIAMEBpg="
           },
           {
             "name": "X-Amzn-Trace-Id",
-            "value": "Root=1-6970e1c6-05bff35a5e98b0531b097865;Parent=69a6cdc0959b5767;Sampled=0;Lineage=1:34ccf774:0"
+            "value": "Root=1-697783cd-7fffda6b4a44f34b404b3e42;Parent=06b052ad1ccd3f0d;Sampled=0;Lineage=1:34ccf774:0"
           }
         ]
       },
@@ -49,7 +49,7 @@
         "_headersArray": [
           {
             "name": "Date",
-            "value": "Wed, 21 Jan 2026 14:25:10 GMT"
+            "value": "Mon, 26 Jan 2026 15:10:05 GMT"
           },
           {
             "name": "Content-Type",
@@ -57,7 +57,7 @@
           },
           {
             "name": "Content-Length",
-            "value": "1920"
+            "value": "1985"
           },
           {
             "name": "Connection",
@@ -65,42 +65,42 @@
           },
           {
             "name": "x-amzn-RequestId",
-            "value": "76ece701-9980-441e-92f3-a77f46e94a71"
+            "value": "003e91fd-211c-4eb7-afee-4dbc7e9ee2f3"
           },
           {
             "name": "x-amz-apigw-id",
-            "value": "Xig3BElQoAMEVcw="
+            "value": "XzGIKHsuIAMEBpg="
           },
           {
             "name": "X-Amzn-Trace-Id",
-            "value": "Root=1-6970e1c6-05bff35a5e98b0531b097865;Parent=69a6cdc0959b5767;Sampled=0;Lineage=1:34ccf774:0"
+            "value": "Root=1-697783cd-7fffda6b4a44f34b404b3e42;Parent=06b052ad1ccd3f0d;Sampled=0;Lineage=1:34ccf774:0"
           }
         ]
       }
     },
     "body": {
       "success": true,
-      "timestamp": "2026-01-21T14:24:43.114Z",
-      "eventType": "Create-Applicant-BFF-Orch-Event-Voc-qgjpk1",
-      "eventID": "Voc-qgjpk1",
-      "requestID": "Voc-qgjpk1",
+      "timestamp": "2026-01-26T15:09:41.927Z",
+      "eventType": "Create-Applicant-BFF-Orch-Event-bnASC6SLQT",
+      "eventID": "bnASC6SLQT",
+      "requestID": "bnASC6SLQT",
       "data": {
         "customer": {
-          "accountName": "LANGOSH, CONSIDINE & MURRAY",
-          "globalID": "2000601371",
-          "contactFirstName": "anabelle",
-          "contactLastName": "Satterfield",
+          "accountName": "CUMMINGS - FUNK",
+          "globalID": "2000601412",
+          "contactFirstName": "Lauryn",
+          "contactLastName": "Roberts",
           "customerType": "Z001",
           "distributionChannel": "10",
           "establishmentType": "999",
-          "legalOwnerName": "ROOB AND SONS LLC",
+          "legalOwnerName": "WUCKERT - KUB LLC",
           "salesDivision": "10",
-          "salesOffice": "6401",
-          "salesOrganization": "6410",
-          "siteID": "0042",
+          "salesOffice": "6301",
+          "salesOrganization": "6310",
+          "siteID": "0058",
           "status": "Active",
-          "primaryEmail": "anabelle.satterfield@yahoo.com",
-          "phone": "205-818-5601",
+          "primaryEmail": "lauryn.roberts@hotmail.com",
+          "phone": "315-529-5484",
           "paymentTerms": {
             "termName": "Collect on Delivery",
             "term": "cod",
@@ -110,75 +110,81 @@
           },
           "addresses": [
             {
-              "addressLine1": "495 FERRY FOREST",
-              "city": "DUBUQUE",
+              "addressLine1": "646 ELDORA VISTA",
+              "city": "MURFREESBORO",
               "country": "US",
-              "county": "DUBUQUE",
-              "countyCode": "061",
-              "postalCode": "52001",
-              "state": "IA",
-              "addressID": "2000601371",
+              "county": "RUTHERFORD",
+              "countyCode": "149",
+              "postalCode": "37130",
+              "state": "TN",
+              "addressID": "2000601412",
               "addressType": "Shipping",
-              "name": "LANGOSH, CONSIDINE & MURRAY",
-              "alternateID": "518677"
+              "name": "CUMMINGS - FUNK",
+              "alternateID": "518975"
             }
           ],
           "licenses": [
             {
               "legalRegulation": "NA",
-              "companyCode": "6410",
+              "companyCode": "6310",
               "effectiveDate": "1900-01-01",
               "expirationDate": "9999-12-31",
-              "number": "6IU3049MTRCOFR7V70VBFNG",
+              "number": "MFADCFUTPG9WNCQHJOQL0L9U33",
               "status": "V",
               "lifecycleStatus": "3",
-              "licenseID": ""
+              "lid": ""
             }
           ],
           "materialGroups": [
             {
-              "description": "Genesis Wine",
-              "repCompId": "1400",
+              "description": "Chickasaw Spirits",
+              "repCompId": "7700",
               "repCompDesc": "SOUTHERN GLAZER'S",
-              "key": "GNW"
+              "key": "CKS"
             },
             {
-              "description": "Malt Beverage1",
-              "repCompId": "1400",
+              "description": "Genesis Spirits",
+              "repCompId": "7700",
               "repCompDesc": "SOUTHERN GLAZER'S",
-              "key": "MB1"
+              "key": "GNS"
+            },
+            {
+              "description": "Non Alcohol 1",
+              "repCompId": "7700",
+              "repCompDesc": "SOUTHERN GLAZER'S",
+              "key": "NA1"
             },
             {
               "description": "Premiere Wine",
-              "repCompId": "1400",
+              "repCompId": "7700",
               "repCompDesc": "SOUTHERN GLAZER'S",
               "key": "PRW"
             },
             {
+              "description": "River Spirits",
+              "repCompId": "7700",
+              "repCompDesc": "SOUTHERN GLAZER'S",
+              "key": "RVS"
+            },
+            {
               "description": "Signature",
-              "repCompId": "1410",
-              "repCompDesc": "PINNACLE WINE & SPIRITS",
+              "repCompId": "300",
+              "repCompDesc": "SIGNATURE FINE WINES & SPIRITS",
               "key": "SG1"
             },
             {
               "description": "Southern Glazers Wine & Spirits",
-              "repCompId": "1400",
+              "repCompId": "7700",
               "repCompDesc": "SOUTHERN GLAZER'S",
               "key": "SGW"
-            },
-            {
-              "description": "Transatlantic Wine & Spirits",
-              "repCompId": "1400",
-              "repCompDesc": "SOUTHERN GLAZER'S",
-              "key": "TWS"
             }
           ]
         },
         "request": {
-          "globalID": "2000601371",
+          "globalID": "2000601412",
           "action": null,
           "customer": "customer",
-          "id": "2000601371"
+          "id": "2000601412"
         }
       }
     }

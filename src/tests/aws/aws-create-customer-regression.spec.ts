@@ -1,10 +1,10 @@
 import { test, expect, request } from "@playwright/test";
-import { generatePayloadWithFakerData } from "../../utils/payload/generate-new-customer-payload";
-import { runFullFlow } from "../../utils/aws-utils/aws-flow-helper";
-import expectedErrors from "../../fixtures/aws-error-messages.json";
-import data from "../../fixtures/test-data.json";
-import { awsConfig } from "../../config/api-config";
-import apiPaths from "../../fixtures/api-path.json";
+import { generatePayloadWithFakerData } from "../../custom_modules/api/payload/generate-new-customer-payload";
+import { runFullFlow } from "../../custom_modules/api/aws-utils/aws-flow-helper";
+import expectedErrors from "../../data/api-data/aws-error-messages.json";
+import data from "../../data/api-data/test-data.json";
+import { awsConfig } from "../../../config/api-config";
+import apiPaths from "../../data/api-data/api-path.json";
 
 const baseUrl = awsConfig.baseUrl;
 

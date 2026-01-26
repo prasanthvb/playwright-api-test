@@ -2,9 +2,9 @@ import { pollGetUpdateRequest } from './aws-get-update-request-helper';
 import { getCustomerByGlobalID } from './aws-api-helper';
 
 export const runUpdateFlow = async (
-  request,
-  updateResponse,
-  globalID
+  request: any,
+  updateResponse: any,
+  globalID: string,
 ) => {
   const updateRequestID = updateResponse?.updateRequestID;
     console.log('Update Request ID:', updateRequestID);

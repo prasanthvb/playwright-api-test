@@ -1,4 +1,4 @@
-import data from '../../fixtures/test-data.json';
+import data from '../../../data/api-data/test-data.json';
 
 interface BrowsePayload {
   sortToken?: string;

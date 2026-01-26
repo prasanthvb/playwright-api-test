@@ -1,20 +1,20 @@
 import { test, expect } from "@playwright/test";
 import path from "path";
-import apiPaths from "../../fixtures/api-path.json";
-import data from "../../fixtures/test-data.json";
-import { createBaselineWithRetry } from "../../utils/aws-utils/aws-create-update-baseline-helper";
+import data from "../../data/api-data/test-data.json";
+import apiPaths from "../../data/api-data/api-path.json";
+import { createBaselineWithRetry } from "../../custom_modules/api/aws-utils/aws-create-update-baseline-helper";
 import {
   getValidAccountDetailsPayload,
   getInvalidEmailPayload,
   getInvalidPhonePayload,
-} from "../../utils/payload/update-account-details-payload";
-import { runUpdateFlow } from "../../utils/aws-utils/aws-update-flow-helper";
+} from "../../custom_modules/api/payload/update-account-details-payload";
+import { runUpdateFlow } from "../../custom_modules/api/aws-utils/aws-update-flow-helper";
 const baselineFilePath = path.join(
   process.cwd(),
-  "fixtures/update-baseline/account-details.json"
+  "src/data/update-baseline/account-details.json"
 );
 
-import { awsConfig } from "../../config/api-config";
+import { awsConfig } from "../../../config/api-config";
 
 const baseUrl = awsConfig.baseUrl;
 const apiKey = awsConfig.apiKey;
@@ -36,7 +36,11 @@ test.describe("Verify update Account Details API", () => {
       baselineFilePath,
       3
     );
-    globalID = baselineResult.globalID;
+    if (baselineResult) {
+      globalID = baselineResult.globalID;
+    } else {
+      globalID = data.globalIDQA;
+    }
     if (!globalID || globalID === "NA") {
       globalID = data.globalIDQA;
     }

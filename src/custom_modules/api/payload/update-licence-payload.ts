@@ -4,7 +4,7 @@ const number = faker.string.alphanumeric({
   casing: "upper",
 });
 
-import data from "../../fixtures/test-data.json";
+import data from "../../../data/api-data/test-data.json";
 const types = ["AL", "B", "CC", "CL", "HR", "IA", "L", "LD", "LP", "LR", "M", "MA", "MD", "ML", "N", "NA", "NO", "PC"];
 const formatDate = (date: Date) => date.toISOString().split("T")[0];
 export const getValidLicensePayload = () => {

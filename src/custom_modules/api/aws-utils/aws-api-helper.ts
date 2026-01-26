@@ -1,6 +1,6 @@
 import { APIRequestContext, expect } from "@playwright/test";
-import apiPaths from "../../fixtures/api-path.json";
-import { awsConfig } from "../../config/api-config";
+import apiPaths from "../../../data/api-data/api-path.json";
+import { awsConfig } from "../../../../config/api-config";
 
 const baseUrl = awsConfig.baseUrl;
 const apiKey = awsConfig.apiKey;
@@ -166,7 +166,7 @@ export async function browseCustomers(
 //   );
 //   console.log("Browse Payload:", JSON.stringify(payload, null, 2));
   const response = await request.get(
-    `${baseUrl}${apiPaths["aws-browser-customer"]}`,
+    `${baseUrl}${apiPaths["aws-browse-customer"]}`,
     {
       headers: authHeaders(),
       data: payload,

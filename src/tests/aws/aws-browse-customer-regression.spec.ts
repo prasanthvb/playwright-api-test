@@ -1,10 +1,10 @@
 import { test, expect, request } from "@playwright/test";
-import { generateBrowseCustomerPayload } from "../../utils/payload/generate-browse-customer-payloads";
-import { browseCustomers } from "../../utils/aws-utils/aws-api-helper";
-import { awsConfig } from "../../config/api-config";
-import expectedErrors from "../../fixtures/aws-error-messages.json";
-import data from "../../fixtures/test-data.json";
-import apiPaths from "../../fixtures/api-path.json";
+import { generateBrowseCustomerPayload } from "../../custom_modules/api/payload/generate-browse-customer-payloads";
+import { browseCustomers } from "../../custom_modules/api/aws-utils/aws-api-helper";
+import { awsConfig } from "../../../config/api-config";
+import expectedErrors from "../../data/api-data/aws-error-messages.json";
+import data from "../../data/api-data/test-data.json";
+import apiPaths from "../../data/api-data/api-path.json";
 const baseUrl = awsConfig.baseUrl;
 
 test.describe('AWS Browse Customers API - Validation Flow', () => {

@@ -1,5 +1,5 @@
 // Define the type for a Distribution Channel object for better type safety
-import { US_LOCATIONS } from "../common-utils/locationData";
+import { US_LOCATIONS } from "../../common/common-utils/locationData";
 
 interface DistributionChannel {
   Code: "20" | "10";

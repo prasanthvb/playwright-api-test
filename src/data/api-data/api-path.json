@@ -2,7 +2,7 @@
   "aws-create-customer": "/create-customer",
   "aws-get-request": "/get-request",
   "aws-get-customer": "/get-customer",
-  "aws-browser-customer": "/browse-customers",
+  "aws-browse-customer": "/browse-customers",
   "update-customer-account-details": "/customer",
   "get-update-request": "/get-update-request"
 }

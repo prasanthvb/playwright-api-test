@@ -13,7 +13,7 @@ import * as dotenv from 'dotenv';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
- testDir: './tests',
+ testDir: './src/tests',
   /* max time one test can run for.. */
   timeout: 120 * 1000,
   expect: {
