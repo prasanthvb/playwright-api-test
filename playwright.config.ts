@@ -36,7 +36,7 @@ export default defineConfig({
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    baseURL: process.env.BASE_URL || 'https://sgwsteam--proofdev.sandbox.my.salesforce.com',
+    baseURL: process.env.BASE_URL || 'https://api.example.com',
     extraHTTPHeaders: {
       Accept: 'application/json',
     },

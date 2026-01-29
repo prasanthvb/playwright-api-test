@@ -3,29 +3,40 @@
     "target": "ES2020",
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "sourceMap": true,
-    "outDir": "dist",
-    "strict": true,
+    "lib": ["ES2020", "DOM"],
+    "resolveJsonModule": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,                       /* Allows importing .json files */
-    "allowSyntheticDefaultImports": true,             /* Helps with JSON default imports */
-    "baseUrl": ".",
+    "baseUrl": "." /* Allows importing .json files */,
+    "allowSyntheticDefaultImports": true /* Helps with JSON default imports */,
+    "types": ["node", "playwright"],
     "paths": {
       "@src/*": ["src/*"],
-      "@data/*": ["src/data/*"],                         /* Maps to root data folder */
-      "@custom_modules/*": ["src/custom_modules/*"],              /* Maps to root utils folder */
-      "@config/*": ["config/*"]                      /* Add this alias for your data folder */
-    }
+      "@data/*": ["src/data/*"] /* Maps to root data folder */,
+      "@custom_modules/*": [
+        "src/custom_modules/*"
+      ] /* Maps to root utils folder */,
+      "@config/*": ["config/*"] /* Add this alias for your data folder */
+    },
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "rootDir": ".",
+
+    "isolatedModules": true,
+    "allowJs": true,
+    "checkJs": false
   },
   "include": [
     "src/**/*.ts",
     "tests/**/*.ts",
     "src/custom_modules/**/**/*.ts",
     "config/**/*.ts",
-    "data/**/*.json",                                /* Include your data files */
+    "data/**/*.json" /* Include your data files */,
     "playwright.config.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
