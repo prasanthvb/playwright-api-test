@@ -88,7 +88,8 @@ test.describe("Verify Add License API", () => {
     expect(matchedLicense).toBeTruthy();
     expect(matchedLicense.effectiveDate).toBe(payload.license.effectiveDate);
     expect(matchedLicense.expirationDate).toBe(payload.license.expirationDate);
-    // expect(matchedLicense.type).toBe(payload.license.type);
+    expect(matchedLicense.type).toBe("ZGAL");
+    expect(matchedLicense.legalRegulation).toBe("1");
   });
 
   test("TC-LIC-10 | Verify add with duplicate license number", async ({
@@ -128,7 +129,8 @@ test.describe("Verify Add License API", () => {
     expect(matchedLicense).toBeTruthy();
     expect(matchedLicense.effectiveDate).toBe(payload.license.effectiveDate);
     expect(matchedLicense.expirationDate).toBe(payload.license.expirationDate);
-    // expect(matchedLicense.type).toBe(payload.license.type);
+    expect(matchedLicense.type).toBe("ZGAL");
+    expect(matchedLicense.legalRegulation).toBe("1");
   });
 
   test("TC-LIC-11 | Verify add licence with Invalid license type", async ({

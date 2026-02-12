@@ -12,6 +12,8 @@ import * as dotenv from 'dotenv';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+const executionDate = new Date().toISOString().split('T')[0];
+
 export default defineConfig({
  testDir: './src/tests',
   /* max time one test can run for.. */

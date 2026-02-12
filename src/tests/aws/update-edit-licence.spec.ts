@@ -92,9 +92,8 @@ test.describe("Verify Edit License API", () => {
       updateResult.updatedCustomer?.body.data.customer.licenses[0]
         .expirationDate
     ).toBe(payload.license.expirationDate);
-    // expect(
-    //   updateResult.updatedCustomer?.body.data.customer.licenses[0].type
-    // ).toBe(payload.license.type);
+    expect(updateResult.updatedCustomer?.body.data.customer.licenses[0].type).toBe("ZGAL");
+    expect(updateResult.updatedCustomer?.body.data.customer.licenses[0].legalRegulation).toBe("1");
   });
 
   test("TC-LIC-02 | Verify edit with duplicate license number", async ({
@@ -133,9 +132,8 @@ test.describe("Verify Edit License API", () => {
       updateResult.updatedCustomer?.body.data.customer.licenses[0]
         .expirationDate
     ).not.toBe(payload.license.expirationDate);
-    // expect(
-    //   updateResult.updatedCustomer?.body.data.customer.licenses[0].type
-    // ).not.toBe(payload.license.type);
+    expect(updateResult.updatedCustomer?.body.data.customer.licenses[0].type).toBe("ZGAL");
+    expect(updateResult.updatedCustomer?.body.data.customer.licenses[0].legalRegulation).toBe("1");
   });
 
   test("TC-LIC-03 | Verify edit licence with Invalid license type", async ({

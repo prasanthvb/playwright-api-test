@@ -1,20 +1,20 @@
 {
-  "globalID": "2000601410",
+  "globalID": "2000601724",
   "baselineCustomer": {
     "getCustomerRes": {
       "_request": {
         "_type": "APIRequestContext",
-        "_guid": "request-context@ff2c119eb917c8478b735497557586a5"
+        "_guid": "request-context@ce9f3cd25b2284ffefa63f3da202d279"
       },
       "_initializer": {
-        "fetchUid": "652b1a66a046ffc0c63077237b7970c7",
+        "fetchUid": "d0f6340a8e23301e4ea3a4cf6fc4b7db",
         "url": "https://uok5z8x4n9.execute-api.us-east-1.amazonaws.com/nonprod/get-customer",
         "status": 200,
         "statusText": "OK",
         "headers": [
           {
             "name": "Date",
-            "value": "Mon, 26 Jan 2026 15:00:55 GMT"
+            "value": "Thu, 12 Feb 2026 20:09:06 GMT"
           },
           {
             "name": "Content-Type",
@@ -22,23 +22,23 @@
           },
           {
             "name": "Content-Length",
-            "value": "2431"
+            "value": "2950"
           },
           {
             "name": "Connection",
-            "value": "close"
+            "value": "keep-alive"
           },
           {
             "name": "x-amzn-RequestId",
-            "value": "2e350926-08bd-49f4-b8f3-ee4e7a245ead"
+            "value": "a0020afb-5adb-4337-8d04-0946065fdfa4"
           },
           {
             "name": "x-amz-apigw-id",
-            "value": "XzEyQGBiIAMEZmg="
+            "value": "Yrz3bE6doAMEt0A="
           },
           {
             "name": "X-Amzn-Trace-Id",
-            "value": "Root=1-697781a7-435ebd7414e7bf902ed37570;Parent=1a22b97f4cb2ea0e;Sampled=0;Lineage=1:34ccf774:0"
+            "value": "Root=1-698e3362-735aa33571a670b71aa7cf08"
           }
         ]
       },
@@ -49,7 +49,7 @@
         "_headersArray": [
           {
             "name": "Date",
-            "value": "Mon, 26 Jan 2026 15:00:55 GMT"
+            "value": "Thu, 12 Feb 2026 20:09:06 GMT"
           },
           {
             "name": "Content-Type",
@@ -57,50 +57,50 @@
           },
           {
             "name": "Content-Length",
-            "value": "2431"
+            "value": "2950"
           },
           {
             "name": "Connection",
-            "value": "close"
+            "value": "keep-alive"
           },
           {
             "name": "x-amzn-RequestId",
-            "value": "2e350926-08bd-49f4-b8f3-ee4e7a245ead"
+            "value": "a0020afb-5adb-4337-8d04-0946065fdfa4"
           },
           {
             "name": "x-amz-apigw-id",
-            "value": "XzEyQGBiIAMEZmg="
+            "value": "Yrz3bE6doAMEt0A="
           },
           {
             "name": "X-Amzn-Trace-Id",
-            "value": "Root=1-697781a7-435ebd7414e7bf902ed37570;Parent=1a22b97f4cb2ea0e;Sampled=0;Lineage=1:34ccf774:0"
+            "value": "Root=1-698e3362-735aa33571a670b71aa7cf08"
           }
         ]
       }
     },
     "body": {
       "success": true,
-      "timestamp": "2026-01-26T15:00:34.337Z",
-      "eventType": "Create-Applicant-BFF-Orch-Event-uMEhD_3GCs",
-      "eventID": "uMEhD_3GCs",
-      "requestID": "uMEhD_3GCs",
+      "timestamp": "2026-02-12T20:08:26.565Z",
+      "eventType": "Create-Applicant-BFF-Orch-Event-3CPeIK31pD",
+      "eventID": "3CPeIK31pD",
+      "requestID": "3CPeIK31pD",
       "data": {
         "customer": {
-          "accountName": "JACOBSON - WILLIAMSON",
-          "globalID": "2000601410",
-          "contactFirstName": "Isabel",
-          "contactLastName": "Rice",
+          "accountName": "RUSSEL - BARROWS",
+          "globalID": "2000601724",
+          "contactFirstName": "Beverly",
+          "contactLastName": "Leannon",
           "customerType": "Z001",
           "distributionChannel": "10",
           "establishmentType": "999",
-          "legalOwnerName": "SCHNEIDER - WAELCHI LLC",
+          "legalOwnerName": "BALISTRERI INC LLC",
           "salesDivision": "10",
-          "salesOffice": "5901",
-          "salesOrganization": "5910",
-          "siteID": "0041",
+          "salesOffice": "5801",
+          "salesOrganization": "5810",
+          "siteID": "0046",
           "status": "Active",
-          "primaryEmail": "isabel.rice71@yahoo.com",
-          "phone": "808-614-1504",
+          "primaryEmail": "beverly_leannon@hotmail.com",
+          "phone": "272-214-1913",
           "paymentTerms": {
             "termName": "Collect on Delivery",
             "term": "cod",
@@ -110,26 +110,26 @@
           },
           "addresses": [
             {
-              "addressLine1": "15872 E 6TH AVENUE",
-              "city": "BENTONVILLE",
+              "addressLine1": "4079 EDNA RAMP",
+              "city": "LAFAYETTE",
               "country": "US",
-              "county": "BENTON",
-              "countyCode": "007",
-              "postalCode": "72712",
-              "state": "AR",
-              "addressID": "2000601410",
+              "county": "LAFAYETTE",
+              "countyCode": "055",
+              "postalCode": "70501",
+              "state": "LA",
+              "addressID": "2000601724",
               "addressType": "Shipping",
-              "name": "JACOBSON - WILLIAMSON",
-              "alternateID": "518958"
+              "name": "RUSSEL - BARROWS",
+              "alternateID": "520173"
             }
           ],
           "licenses": [
             {
               "legalRegulation": "NA",
-              "companyCode": "5910",
+              "companyCode": "5810",
               "effectiveDate": "1900-01-01",
               "expirationDate": "9999-12-31",
-              "number": "FI7EEH6TLL",
+              "number": "1N6PEJ8FR2XS5I9F2FZVV6IL38MQ8YXSUU8",
               "status": "V",
               "lifecycleStatus": "3",
               "lid": ""
@@ -137,84 +137,103 @@
           ],
           "materialGroups": [
             {
-              "description": "Eagle 1",
-              "repCompId": "1210",
-              "repCompDesc": "EAGLE WINE & SPIRITS",
-              "key": "EG1"
+              "description": "CPWS Spirits",
+              "repCompId": "1110",
+              "repCompDesc": "COASTAL WINE & SPIRITS",
+              "key": "CSP"
             },
             {
-              "description": "Eagle 2",
-              "repCompId": "1210",
-              "repCompDesc": "EAGLE WINE & SPIRITS",
-              "key": "EG2"
+              "description": "CPWS Wine",
+              "repCompId": "1110",
+              "repCompDesc": "COASTAL WINE & SPIRITS",
+              "key": "CWN"
             },
             {
-              "description": "Eagle 3",
-              "repCompId": "1210",
-              "repCompDesc": "EAGLE WINE & SPIRITS",
-              "key": "EG3"
-            },
-            {
-              "description": "Eagle 4",
-              "repCompId": "1210",
-              "repCompDesc": "EAGLE WINE & SPIRITS",
-              "key": "EG4"
-            },
-            {
-              "description": "Falcon 1",
-              "repCompId": "1220",
-              "repCompDesc": "FALCON WINE & SPIRITS",
-              "key": "FL1"
-            },
-            {
-              "description": "Falcon 2",
-              "repCompId": "1220",
-              "repCompDesc": "FALCON WINE & SPIRITS",
-              "key": "FL2"
-            },
-            {
-              "description": "Falcon 3",
+              "description": "Signature Pinnacle",
               "repCompId": "300",
               "repCompDesc": "SIGNATURE FINE WINES & SPIRITS",
-              "key": "FL3"
+              "key": "DED"
             },
             {
-              "description": "Falcon 4",
-              "repCompId": "1220",
-              "repCompDesc": "FALCON WINE & SPIRITS",
-              "key": "FL4"
+              "description": "Signature Genesis",
+              "repCompId": "300",
+              "repCompDesc": "SIGNATURE FINE WINES & SPIRITS",
+              "key": "DEG"
             },
             {
-              "description": "Hawk 1",
-              "repCompId": "1230",
-              "repCompDesc": "HAWK WINE & SPIRITS",
-              "key": "HW1"
+              "description": "Signature Premiere",
+              "repCompId": "300",
+              "repCompDesc": "SIGNATURE FINE WINES & SPIRITS",
+              "key": "DEP"
             },
             {
-              "description": "Hawk 2",
-              "repCompId": "1230",
-              "repCompDesc": "HAWK WINE & SPIRITS",
-              "key": "HW2"
+              "description": "Diamond Spirits",
+              "repCompId": "1900",
+              "repCompDesc": "PREMIER WINE & SPIRITS",
+              "key": "DNS"
             },
             {
-              "description": "Hawk 3",
-              "repCompId": "1230",
-              "repCompDesc": "HAWK WINE & SPIRITS",
-              "key": "HW3"
+              "description": "Genesis Spirits",
+              "repCompId": "1120",
+              "repCompDesc": "GENESIS WINE & SPIRITS",
+              "key": "GNS"
+            },
+            {
+              "description": "Genesis Wine",
+              "repCompId": "1120",
+              "repCompDesc": "GENESIS WINE & SPIRITS",
+              "key": "GNW"
+            },
+            {
+              "description": "Genesis Wine 2",
+              "repCompId": "1120",
+              "repCompDesc": "GENESIS WINE & SPIRITS",
+              "key": "GW2"
+            },
+            {
+              "description": "Malt Beverage1",
+              "repCompId": "1100",
+              "repCompDesc": "SOUTHERN GLAZER'S",
+              "key": "MB1"
+            },
+            {
+              "description": "Premiere Wine",
+              "repCompId": "1150",
+              "repCompDesc": "PINNACLE WINE & SPIRITS",
+              "key": "PRW"
+            },
+            {
+              "description": "Pinnacle Spirits",
+              "repCompId": "1150",
+              "repCompDesc": "PINNACLE WINE & SPIRITS",
+              "key": "PS1"
             },
             {
               "description": "Southern Glazers Wine & Spirits",
-              "repCompId": "1250",
-              "repCompDesc": "PHOENIX WINE & SPIRITS",
-              "key": "SGW"
+              "repCompId": "1150",
+              "repCompDesc": "PINNACLE WINE & SPIRITS",
+              "key": "SGW",
+              "salesperson": "",
+              "routeId": "58010390",
+              "salesOrg": "5810",
+              "siteSupplier": "",
+              "soldTo": "2000601724",
+              "validFrom": "2026-02-12T00:00:00.000Z",
+              "validTo": "9999-12-31T00:00:00.000Z"
+            },
+            {
+              "description": "Transatlantic Wine & Spirits",
+              "repCompId": "1140",
+              "repCompDesc": "TRANSATLANTIC SPIRITS",
+              "key": "TWS"
             }
           ]
         },
         "request": {
-          "globalID": "2000601410",
+          "globalID": "2000601724",
           "action": null,
           "customer": "customer",
-          "id": "2000601410"
+          "id": "2000601724"
         }
       }
     }

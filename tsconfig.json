@@ -36,6 +36,7 @@
     "src/custom_modules/**/**/*.ts",
     "config/**/*.ts",
     "data/**/*.json" /* Include your data files */,
+    "data/**/*.xlsx",
     "playwright.config.ts"
   ],
   "exclude": ["node_modules", "dist"]
