@@ -1,0 +1,229 @@
+{
+  "globalID": "2000601872",
+  "baselineCustomer": {
+    "getCustomerRes": {
+      "_request": {
+        "_type": "APIRequestContext",
+        "_guid": "request-context@06b9fc935ad4eb68a0598874698d7d90"
+      },
+      "_initializer": {
+        "fetchUid": "2fb99d615900d2ab6f52680739504abc",
+        "url": "https://uok5z8x4n9.execute-api.us-east-1.amazonaws.com/nonprod/get-customer",
+        "status": 200,
+        "statusText": "OK",
+        "headers": [
+          {
+            "name": "Date",
+            "value": "Tue, 17 Feb 2026 20:28:33 GMT"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "Content-Length",
+            "value": "2630"
+          },
+          {
+            "name": "Connection",
+            "value": "close"
+          },
+          {
+            "name": "x-amzn-RequestId",
+            "value": "3c92da8c-74a4-4101-9f0d-1cf6b01080d3"
+          },
+          {
+            "name": "x-amz-apigw-id",
+            "value": "Y8VZtGpQoAMEAbA="
+          },
+          {
+            "name": "X-Amzn-Trace-Id",
+            "value": "Root=1-6994cf70-395f25de109df9ea39d4a8c5"
+          }
+        ]
+      },
+      "_headers": {
+        "_headersMap": {
+          "_map": {}
+        },
+        "_headersArray": [
+          {
+            "name": "Date",
+            "value": "Tue, 17 Feb 2026 20:28:33 GMT"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "Content-Length",
+            "value": "2630"
+          },
+          {
+            "name": "Connection",
+            "value": "close"
+          },
+          {
+            "name": "x-amzn-RequestId",
+            "value": "3c92da8c-74a4-4101-9f0d-1cf6b01080d3"
+          },
+          {
+            "name": "x-amz-apigw-id",
+            "value": "Y8VZtGpQoAMEAbA="
+          },
+          {
+            "name": "X-Amzn-Trace-Id",
+            "value": "Root=1-6994cf70-395f25de109df9ea39d4a8c5"
+          }
+        ]
+      }
+    },
+    "body": {
+      "success": true,
+      "timestamp": "2026-02-17T20:28:11.821Z",
+      "eventType": "Create-Applicant-BFF-Orch-Event-7A-QVJN8ld",
+      "eventID": "7A-QVJN8ld",
+      "requestID": "7A-QVJN8ld",
+      "data": {
+        "customer": {
+          "accountName": "PREDOVIC - POUROS",
+          "globalID": "2000601872",
+          "contactFirstName": "Domenico",
+          "contactLastName": "Toy",
+          "customerType": "Z001",
+          "distributionChannel": "20",
+          "establishmentType": "999",
+          "legalOwnerName": "EFFERTZ, WARD AND CRUICKSHANK LLC",
+          "salesDivision": "10",
+          "salesOffice": "5901",
+          "salesOrganization": "5910",
+          "siteID": "0041",
+          "status": "Active",
+          "primaryEmail": "domenico.toy@gmail.com",
+          "phone": "501-257-1440",
+          "paymentTerms": {
+            "termName": "Collect on Delivery",
+            "term": "cod",
+            "cadence": "CCOD",
+            "dayLimit": 0,
+            "description": "Collect on Delivery"
+          },
+          "addresses": [
+            {
+              "addressLine1": "815 WASHINGTON ROAD",
+              "city": "BENTONVILLE",
+              "country": "US",
+              "county": "BENTON",
+              "countyCode": "007",
+              "postalCode": "72712",
+              "state": "AR",
+              "addressID": "2000601872",
+              "addressType": "Shipping",
+              "name": "PREDOVIC - POUROS",
+              "alternateID": "520694"
+            }
+          ],
+          "licenses": [
+            {
+              "legalRegulation": "NA",
+              "companyCode": "5910",
+              "effectiveDate": "1900-01-01",
+              "expirationDate": "9999-12-31",
+              "number": "KMDTDKTQQQJMKUFDYG4MXGBPQ2NYLA3V4C",
+              "status": "V",
+              "lifecycleStatus": "3",
+              "lid": ""
+            }
+          ],
+          "materialGroups": [
+            {
+              "description": "Eagle 1",
+              "repCompId": "1210",
+              "repCompDesc": "EAGLE WINE & SPIRITS",
+              "key": "EG1"
+            },
+            {
+              "description": "Eagle 2",
+              "repCompId": "1210",
+              "repCompDesc": "EAGLE WINE & SPIRITS",
+              "key": "EG2"
+            },
+            {
+              "description": "Eagle 3",
+              "repCompId": "1210",
+              "repCompDesc": "EAGLE WINE & SPIRITS",
+              "key": "EG3"
+            },
+            {
+              "description": "Eagle 4",
+              "repCompId": "1210",
+              "repCompDesc": "EAGLE WINE & SPIRITS",
+              "key": "EG4"
+            },
+            {
+              "description": "Falcon 1",
+              "repCompId": "1220",
+              "repCompDesc": "FALCON WINE & SPIRITS",
+              "key": "FL1"
+            },
+            {
+              "description": "Falcon 2",
+              "repCompId": "1220",
+              "repCompDesc": "FALCON WINE & SPIRITS",
+              "key": "FL2"
+            },
+            {
+              "description": "Falcon 3",
+              "repCompId": "300",
+              "repCompDesc": "SIGNATURE FINE WINES & SPIRITS",
+              "key": "FL3"
+            },
+            {
+              "description": "Falcon 4",
+              "repCompId": "1220",
+              "repCompDesc": "FALCON WINE & SPIRITS",
+              "key": "FL4"
+            },
+            {
+              "description": "Hawk 1",
+              "repCompId": "1230",
+              "repCompDesc": "HAWK WINE & SPIRITS",
+              "key": "HW1"
+            },
+            {
+              "description": "Hawk 2",
+              "repCompId": "1230",
+              "repCompDesc": "HAWK WINE & SPIRITS",
+              "key": "HW2"
+            },
+            {
+              "description": "Hawk 3",
+              "repCompId": "1230",
+              "repCompDesc": "HAWK WINE & SPIRITS",
+              "key": "HW3"
+            },
+            {
+              "description": "Southern Glazers Wine & Spirits",
+              "repCompId": "1250",
+              "repCompDesc": "PHOENIX WINE & SPIRITS",
+              "key": "SGW",
+              "salesperson": "",
+              "routeId": "59010114",
+              "salesOrg": "5910",
+              "siteSupplier": "",
+              "soldTo": "2000601872",
+              "validFrom": "2026-02-17T00:00:00.000Z",
+              "validTo": "9999-12-31T00:00:00.000Z"
+            }
+          ]
+        },
+        "request": {
+          "globalID": "2000601872",
+          "action": null,
+          "customer": "customer",
+          "id": "2000601872"
+        }
+      }
+    }
+  }
+}

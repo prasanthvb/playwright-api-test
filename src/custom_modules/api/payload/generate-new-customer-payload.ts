@@ -31,6 +31,7 @@ interface Payload {
   primaryEmail: string | null;
   phone: string | null;
   alcoholLicenseNumber: string | null;
+  licenseType?: string | null;
 }
 
 /**
@@ -59,7 +60,8 @@ export const basePayload: Payload = {
   contactLastName: "",
   primaryEmail: "",
   phone: "",
-  alcoholLicenseNumber: ""
+  alcoholLicenseNumber: "",
+  licenseType: ""
 };
 
 /**
@@ -103,6 +105,14 @@ export async function generatePayloadWithFakerData(): Promise<Payload> {
     length: { min: 9, max: 40 },
     casing: "upper"
   });
-
+  if (newPayload.Address[0].state === "TN") {
+    newPayload.licenseType = "8";
+  } else {
+    newPayload.licenseType = faker.helpers.arrayElement([
+      "5A",
+      "3A",
+      "8"
+    ]);
+  }
   return newPayload;
 }

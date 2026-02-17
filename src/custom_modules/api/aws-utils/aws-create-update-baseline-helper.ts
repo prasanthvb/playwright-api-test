@@ -12,8 +12,9 @@ export const createBaselineWithRetry = async (
   let attempt = 0;
   let globalID: any;
   let licenceNumber: any;
+  let getCustomerAddress: any;
   const payload = await generatePayloadWithFakerData();
-  console.log("Generated payload for baseline creation:", payload);
+  console.log("Generated payload for New Customer baseline creation:", JSON.stringify(payload, null, 2));
   while (attempt < maxRetries) {
     attempt++;
 
@@ -26,6 +27,7 @@ export const createBaselineWithRetry = async (
 
       globalID = createResponse?.globalID;
       licenceNumber = createResponse?.alcoholLicenseNumber;
+      getCustomerAddress = createResponse.getCustomerAddress;
       if (!globalID) {
         throw new Error("GlobalID not returned from create flow");
       }
@@ -54,7 +56,7 @@ export const createBaselineWithRetry = async (
         }
       }
 
-      return { globalID, licenceNumber };
+      return { globalID, licenceNumber , getCustomerAddress};
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : String(error);

@@ -29,6 +29,7 @@ export async function runFullFlow(
       globalID: null,
       getCustomerStatus: null,
       alcoholLicenseNumber: null,
+      getCustomerAddress: null,
     };
   }
 
@@ -42,6 +43,7 @@ export async function runFullFlow(
       globalID: null,
       getCustomerStatus: null,
       alcoholLicenseNumber: null,
+      customer_GID: null,
     };
   }
 
@@ -55,16 +57,18 @@ export async function runFullFlow(
   console.log(
     `📊 Polling Complete → Status=${getRequestStatus || "N/A"}, GlobalID=${
       globalID || "N/A"
-    }`
+    }, RequestID=${requestID || "N/A"},}`
   );
 
   let getCustomerStatus: number | null = null;
+  let getCustomerAddress: any = null;
 
   // 3️⃣ If Active, verify customer details
   if (getRequestStatus === "Active" && globalID) {
     const customer_GID = await getCustomerByGlobalID(request, globalID);
     getCustomerStatus = customer_GID.getCustomerRes.status();
     const data_GID = customer_GID.body.data.customer;
+    getCustomerAddress = customer_GID.body.data.customer.addresses[0];
 
     expect(data_GID).toBeDefined();
     expect(
@@ -156,5 +160,6 @@ export async function runFullFlow(
     getReqData,
     getCustomerStatus,
     alcoholLicenseNumber,
+    getCustomerAddress,
   };
 }
