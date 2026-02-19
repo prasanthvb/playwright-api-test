@@ -1,22 +1,22 @@
+/* eslint-disable no-console */
+import { APIRequestContext } from '@playwright/test';
 import { pollGetUpdateRequest } from './aws-get-update-request-helper';
 import { getCustomerByGlobalID } from './aws-api-helper';
 
-export const runUpdateFlow = async (
-  request: any,
-  updateResponse: any,
-  globalID: string,
-) => {
+interface UpdateResponse {
+  updateRequestID?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
+}
+
+export const runUpdateFlow = async (request: APIRequestContext, updateResponse: UpdateResponse, globalID: string) => {
   const updateRequestID = updateResponse?.updateRequestID;
-    console.log('Update Request ID:', updateRequestID);
+  console.log('Update Request ID:', updateRequestID);
   if (!updateRequestID) {
     throw new Error('updateRequestID not returned from update API');
   }
 
-  const updateRequestStatus = await pollGetUpdateRequest(
-    request,
-    updateRequestID,
-    globalID
-  );
+  const updateRequestStatus = await pollGetUpdateRequest(request, updateRequestID, globalID);
   console.log('Final Update Request Status:', updateRequestStatus);
 
   const finalStatus = updateRequestStatus?.data?.status;

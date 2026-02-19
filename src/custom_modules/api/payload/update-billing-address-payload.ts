@@ -1,9 +1,8 @@
-import { faker } from "@faker-js/faker";
-import { US_LOCATIONS } from "../../common/common-utils/locationData";
-  
+import { faker } from '@faker-js/faker';
+import { US_LOCATIONS } from '../../common/common-utils/locationData';
+
 // Select a random location from our utility list
 const randomLocation = faker.helpers.arrayElement(US_LOCATIONS);
-
 
 export const getValidBillingAddressPayload = () => {
   return {
@@ -24,8 +23,8 @@ export const getInvalidBillingAddressPayload = () => ({
     billingEntityName: faker.company.name(),
     addressLine1: faker.location.streetAddress(),
     city: randomLocation.city,
-    state: "InvalidState",
-    postalCode: "InvalidPostalCode",
+    state: 'InvalidState',
+    postalCode: 'InvalidPostalCode',
   },
 });
 
@@ -38,11 +37,11 @@ export const getSameAsShippingBillingAddressPayload = () => ({
 export const getEmptyBillingAddressPayload = () => ({
   billingAddress: {
     sameAsShipping: false,
-    billingEntityName: "",
-    addressLine1: "",
-    city: "",
-    state: "",
-    postalCode: "",
+    billingEntityName: '',
+    addressLine1: '',
+    city: '',
+    state: '',
+    postalCode: '',
   },
 });
 
@@ -50,10 +49,10 @@ export const getPartiallyEmptyBillingAddressPayload = () => ({
   billingAddress: {
     sameAsShipping: false,
     billingEntityName: faker.company.name(),
-    addressLine1: "",
+    addressLine1: '',
     city: randomLocation.city,
     state: randomLocation.state,
-    postalCode: "",
+    postalCode: '',
   },
 });
 
@@ -65,6 +64,6 @@ export const getNonUSBillingAddressPayload = () => ({
     city: faker.location.city(),
     state: faker.location.state(),
     postalCode: faker.location.zipCode(),
-    country: "CA", // Canada
+    country: 'CA', // Canada
   },
 });

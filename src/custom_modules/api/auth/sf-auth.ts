@@ -4,12 +4,11 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 import { APIRequestContext } from '@playwright/test';
-import { sfConfig } from "../../../../config/api-config";
-import apiPaths from "../../../data/api-data/api-path.json";
+import { sfConfig } from '../../../../config/api-config';
 
 export async function getSalesforceAuthToken(request: APIRequestContext): Promise<string> {
   // const apiUrl = `${process.env.SF_SANDBOX_URL}${apiPaths['sf-auth']}`;
-  const apiUrl= "test";
+  const apiUrl = 'test';
   const response = await request.post(apiUrl, {
     form: {
       grant_type: sfConfig.grant_type,

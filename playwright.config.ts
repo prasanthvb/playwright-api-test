@@ -1,5 +1,4 @@
 import { defineConfig, devices } from '@playwright/test';
-import * as dotenv from 'dotenv';
 
 /**
  * Read environment variables from file.
@@ -12,14 +11,13 @@ import * as dotenv from 'dotenv';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-const executionDate = new Date().toISOString().split('T')[0];
 
 export default defineConfig({
- testDir: './src/tests',
+  testDir: './src/tests',
   /* max time one test can run for.. */
   timeout: 120 * 1000,
   expect: {
-    timeout: 5000
+    timeout: 5000,
   },
   /* Run tests in files in parallel */
   fullyParallel: false,
@@ -33,7 +31,7 @@ export default defineConfig({
   reporter: [
     ['list'],
     ['html'],
-    ['allure-playwright'],   // 👈 Allure reporter
+    ['allure-playwright'], // 👈 Allure reporter
   ],
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */

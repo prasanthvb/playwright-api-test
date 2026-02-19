@@ -1,22 +1,12 @@
-import { faker } from "@faker-js/faker";
+import { faker } from '@faker-js/faker';
 
-const name = [
-  "Garage",
-  "Front Doorstep",
-  "Back Doorstep",
-  "Dock",
-  "Back Porch",
-  "Mailbox",
-  "Reception",
-];
+const name = ['Garage', 'Front Doorstep', 'Back Doorstep', 'Dock', 'Back Porch', 'Mailbox', 'Reception'];
 interface dropPoint {
   addressID?: string;
   name?: string;
 }
 
-export const getValidDropPointPayload = (
-  addressID: string,
-): { dropPoint: dropPoint } => {
+export const getValidDropPointPayload = (addressID: string): { dropPoint: dropPoint } => {
   const selectedTerm = faker.helpers.arrayElement(name);
 
   return {
@@ -39,13 +29,11 @@ export const getMissingAddressIDDropPointPayload = (): {
   };
 };
 
-export const getEmptyNameDropPointPayload = (
-  addressID: string,
-): { dropPoint: dropPoint } => {
+export const getEmptyNameDropPointPayload = (addressID: string): { dropPoint: dropPoint } => {
   return {
     dropPoint: {
       addressID,
-      name: "",
+      name: '',
     },
   };
 };
@@ -57,12 +45,12 @@ export const getInvalidAddressIDDropPointPayload = (): {
 
   return {
     dropPoint: {
-      addressID: "InvalidAddressID",
+      addressID: 'InvalidAddressID',
       name: selectedTerm,
     },
   };
 };
 
-export const getMissingDropPointPayload = (): {} => {
+export const getMissingDropPointPayload = (): Record<string, never> => {
   return {};
 };

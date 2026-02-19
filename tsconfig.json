@@ -12,9 +12,7 @@
     "paths": {
       "@src/*": ["src/*"],
       "@data/*": ["src/data/*"] /* Maps to root data folder */,
-      "@custom_modules/*": [
-        "src/custom_modules/*"
-      ] /* Maps to root utils folder */,
+      "@custom_modules/*": ["src/custom_modules/*"] /* Maps to root utils folder */,
       "@config/*": ["config/*"] /* Add this alias for your data folder */
     },
     "strict": true,

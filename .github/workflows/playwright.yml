@@ -2,9 +2,9 @@ name: AWS Playwright API Tests
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
 
 jobs:
   test:
@@ -24,8 +24,8 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run AWS API Tests with Allure
-        run: npm run test:s4
+      - name: Run AWS API Tests
+        run: npm run test:api
 
       - name: Generate Allure Report
         if: always()

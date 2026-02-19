@@ -1,12 +1,12 @@
-import { faker } from "@faker-js/faker";
+import { faker } from '@faker-js/faker';
 const number = faker.string.alphanumeric({
   length: { min: 9, max: 40 },
-  casing: "upper",
+  casing: 'upper',
 });
 
-import data from "../../../data/api-data/test-data.json";
-const types = ["AL", "B", "CC", "CL", "HR", "IA", "L", "LD", "LP", "LR", "M", "MA", "MD", "ML", "N", "NA", "NO", "PC"];
-const formatDate = (date: Date) => date.toISOString().split("T")[0];
+import data from '../../../data/api-data/test-data.json';
+const types = ['AL', 'B', 'CC', 'CL', 'HR', 'IA', 'L', 'LD', 'LP', 'LR', 'M', 'MA', 'MD', 'ML', 'N', 'NA', 'NO', 'PC'];
+const formatDate = (date: Date) => date.toISOString().split('T')[0];
 export const getValidLicensePayload = () => {
   return {
     license: {
@@ -14,19 +14,19 @@ export const getValidLicensePayload = () => {
       effectiveDate: formatDate(faker.date.past({ years: 1 })),
       expirationDate: formatDate(faker.date.future({ years: 1 })),
       type: faker.helpers.arrayElement(types),
-      operation: "",
+      operation: '',
     },
   };
 };
 
 export const getDuplicateLicensePayload = () => ({
   license: {
-      number: data.licenseID,
-      effectiveDate: formatDate(faker.date.past({ years: 1 })),
-      expirationDate: formatDate(faker.date.future({ years: 1 })),
-      type: faker.helpers.arrayElement(types),
-      operation: "",
-    },
+    number: data.licenseID,
+    effectiveDate: formatDate(faker.date.past({ years: 1 })),
+    expirationDate: formatDate(faker.date.future({ years: 1 })),
+    type: faker.helpers.arrayElement(types),
+    operation: '',
+  },
 });
 
 export const getInvalidLicenseTypePayload = () => ({
@@ -34,8 +34,8 @@ export const getInvalidLicenseTypePayload = () => ({
     number,
     effectiveDate: formatDate(faker.date.past({ years: 1 })),
     expirationDate: formatDate(faker.date.future({ years: 1 })),
-    type: "invalid_type",
-    operation: "",
+    type: 'invalid_type',
+    operation: '',
   },
 });
 
@@ -45,7 +45,7 @@ export const getInvalidLicenseDatesPayload = () => ({
     effectiveDate: formatDate(faker.date.future({ years: 1 })),
     expirationDate: formatDate(faker.date.past({ years: 1 })),
     type: faker.helpers.arrayElement(types),
-    operation: "",
+    operation: '',
   },
 });
 
@@ -54,7 +54,7 @@ export const getMissingLicenseNumberPayload = () => ({
     effectiveDate: formatDate(faker.date.past({ years: 1 })),
     expirationDate: formatDate(faker.date.future({ years: 1 })),
     type: faker.helpers.arrayElement(types),
-    operation: "",
+    operation: '',
   },
 });
 
@@ -62,7 +62,7 @@ export const getMissingLicenseDatesPayload = () => ({
   license: {
     number,
     type: faker.helpers.arrayElement(types),
-    operation: "",
+    operation: '',
   },
 });
 
@@ -71,7 +71,7 @@ export const getMissingLicenseTypePayload = () => ({
     number,
     effectiveDate: formatDate(faker.date.past({ years: 1 })),
     expirationDate: formatDate(faker.date.future({ years: 1 })),
-    operation: "",
+    operation: '',
   },
 });
 
@@ -81,6 +81,6 @@ export const addNewLicensePayload = () => ({
     effectiveDate: formatDate(faker.date.past({ years: 1 })),
     expirationDate: formatDate(faker.date.future({ years: 1 })),
     type: faker.helpers.arrayElement(types),
-    operation: "add",
+    operation: 'add',
   },
 });

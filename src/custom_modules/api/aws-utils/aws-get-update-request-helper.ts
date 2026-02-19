@@ -1,6 +1,6 @@
-import { expect } from '@playwright/test';
-import apiPaths from "../../../data/api-data/api-path.json";
-import { awsConfig } from "../../../../config/api-config";
+import { expect, APIRequestContext } from '@playwright/test';
+import apiPaths from '../../../data/api-data/api-path.json';
+import { awsConfig } from '../../../../config/api-config';
 
 const baseUrl = awsConfig.baseUrl;
 const apiKey = awsConfig.apiKey;
@@ -8,30 +8,27 @@ const apiKey = awsConfig.apiKey;
 // Helper to add API key header
 function authHeaders() {
   return {
-    "x-api-key": apiKey ?? "",
+    'x-api-key': apiKey ?? '',
   };
 }
 /** Poll Get-Update-Request API until status is 'active' or 'error' */
 export const pollGetUpdateRequest = async (
-  request: any,
+  request: APIRequestContext,
   updateRequestID: string,
   globalID: string,
   maxRetries = 10,
-  interval = 5000
+  interval = 5000,
 ) => {
   let responseBody;
 
   for (let i = 0; i < maxRetries; i++) {
-    const response = await request.get(
-      `${baseUrl}${apiPaths['get-update-request']}`,
-      {
-        data: {
-          updateRequestID,
-          globalID,
-        },
-        headers: authHeaders(),
-      }
-    );
+    const response = await request.get(`${baseUrl}${apiPaths['get-update-request']}`, {
+      data: {
+        updateRequestID,
+        globalID,
+      },
+      headers: authHeaders(),
+    });
 
     expect(response.status()).toBe(200);
     responseBody = await response.json();
@@ -42,7 +39,7 @@ export const pollGetUpdateRequest = async (
       return responseBody;
     }
 
-    await new Promise(res => setTimeout(res, interval));
+    await new Promise((res) => setTimeout(res, interval));
   }
 
   throw new Error('Update request did not reach final state');

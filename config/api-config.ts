@@ -8,9 +8,9 @@ export const awsConfig = {
 };
 
 export const sfConfig = {
-  grant_type: process.env.GRANT_TYPE || "",
-  username: process.env.USER_NAME_API || "",
-  password: process.env.PASSWORD_API || "",
-  client_id: process.env.CLIENTID || "",
-  client_secret: process.env.SECRET_KEY || "",
+  grant_type: process.env.GRANT_TYPE || '',
+  username: process.env.USER_NAME_API || '',
+  password: process.env.PASSWORD_API || '',
+  client_id: process.env.CLIENTID || '',
+  client_secret: process.env.SECRET_KEY || '',
 };
