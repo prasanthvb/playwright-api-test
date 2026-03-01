@@ -1,5 +1,6 @@
 // Define the type for a Distribution Channel object for better type safety
 import { US_LOCATIONS } from '../../common/common-utils/locationData';
+import licenseData from '../../../data/api-data/licenseType.json';
 
 export interface DistributionChannel {
   Code: '20' | '10';
@@ -104,10 +105,18 @@ export async function generatePayloadWithFakerData(): Promise<Payload> {
     length: { min: 9, max: 40 },
     casing: 'upper',
   });
-  if (newPayload.Address[0].state === 'TN') {
-    newPayload.licenseType = '8';
+  const state = newPayload.Address[0].state;
+  const premise = newPayload.distributionChannel?.Name;
+
+  const validLicenses = licenseData.filter((item) => item.state === state && item.distributionChannel === premise);
+
+  if (validLicenses.length > 0) {
+    const selectedLicense = faker.helpers.arrayElement(validLicenses);
+    newPayload.licenseType = selectedLicense.licenseType;
   } else {
+    // Default fallback
     newPayload.licenseType = faker.helpers.arrayElement(['5A', '3A', '8']);
   }
+
   return newPayload;
 }

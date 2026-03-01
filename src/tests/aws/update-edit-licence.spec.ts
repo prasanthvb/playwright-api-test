@@ -36,7 +36,7 @@ test.describe('Verify Edit License API', () => {
     const baselineResult = await createBaselineWithRetry(request, baselineFilePath, 3);
     if (baselineResult) {
       globalID = baselineResult.globalID;
-      licenceNumber = baselineResult.licenceNumber;
+      licenceNumber = baselineResult.licenceNumber || '';
     } else {
       globalID = data.globalIDQA;
       licenceNumber = '';

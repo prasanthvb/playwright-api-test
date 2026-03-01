@@ -1,0 +1,392 @@
+[
+  {
+    "state": "AR",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "CORPORATE RETAIL BEER OFF PREMISES",
+    "licenseType": "2"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "CORPORATE RETAIL BEER OFF PREMISES | GROCERY STORE WINE",
+    "licenseType": "5A"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "GROCERY STORE WINE",
+    "licenseType": "3A"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "GROCERY STORE WINE | RETAIL BEER OFF PREMISES",
+    "licenseType": "5A"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "GROCERY STORE WINE | RETAIL BEER ON PREMISES",
+    "licenseType": "5A"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "POST EXCHANGE",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "RETAIL BEER OFF PREMISES",
+    "licenseType": "2"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "RETAIL BEER OFF PREMISES | RETAIL BEER ON PREMISES",
+    "licenseType": "2"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "RETAIL BEER OFF PREMISES | RETAIL LIQUOR",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "RETAIL LIQUOR",
+    "licenseType": "7A"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "WINE CHARITABLE AUCTION TEMPORARY",
+    "licenseType": "3A"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "BEER FESTIVAL TEMPORARY",
+    "licenseType": "2A"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "COMBINATION OF RESTAURANT BEER & WINE",
+    "licenseType": "5A"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "COMBINATION OF RESTAURANT BEER & WINE | RESTAURANT MIXED DRINK",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "COMBINATION OF RESTAURANT BEER & WINE | SMALL RESTAURANT SPIRITUOUS",
+    "licenseType": "8A"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "HOTEL/MOTEL/RESTAURANT MIXED DRINK",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "HOTEL/MOTEL/RESTAURANT MIXED DRINK | RETAIL BEER ON PREMISES",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "HOTEL/MOTEL/RESTAURANT MIXED DRINK | SATELLITE CATERING",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LARGE ATTENDANCE FACILITY",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "MICROBREWERY RESTAURANT",
+    "licenseType": "8B"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "SMALL BREWERY",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIQUOR MANUFACTURING / DISTILLING",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "MICROBREWERY RESTAURANT | RESTAURANT MIXED DRINK",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "MILITARY SERVICE CLUB",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "ON PREMISES WINE",
+    "licenseType": "3"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "ON PREMISES WINE | PRIVATE CLUB CLASS A - WET COUNTY",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "ON PREMISES WINE | RETAIL BEER ON PREMISES",
+    "licenseType": "5"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "PARIMUTUEL MIXED DRINK",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "PRIVATE CLUB CLASS A - WET COUNTY",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "PRIVATE CLUB CLASS A - WET COUNTY | COMBINATION OF RESTAURANT BEER & WINE",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "PRIVATE CLUB CLASS A - WET COUNTY | CORPORATE RETAIL BEER ON PREMISES",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "PRIVATE CLUB CLASS A - WET COUNTY | ON PREMISES WINE | RETAIL BEER ON PREMISES",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "PRIVATE CLUB CLASS A - WET COUNTY | PRIVATE CLUB - SATELLITE CLASS A | RETAIL BEER ON PREMISES",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "PRIVATE CLUB CLASS A - WET COUNTY | RESTAURANT WINE | RETAIL BEER ON PREMISES",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "PRIVATE CLUB CLASS A - WET COUNTY | RETAIL BEER OFF PREMISES",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "PRIVATE CLUB CLASS A - WET COUNTY | RETAIL BEER ON PREMISES",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "PRIVATE CLUB CLASS A - WET COUNTY | RETAIL BEER ON PREMISES | ON PREMISES WINE",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "PRIVATE CLUB CLASS B - WET COUNTY",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "PRIVATE CLUB CLASS B - WET COUNTY | COMBINATION OF RESTAURANT BEER & WINE",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "PRIVATE CLUB CLASS B - WET COUNTY | RETAIL BEER ON PREMISES",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "RESTAURANT MIXED DRINK",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "RESTAURANT MIXED DRINK | RETAIL BEER OFF PREMISES",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "RESTAURANT MIXED DRINK | RETAIL BEER ON PREMISES",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "RESTAURANT MIXED DRINK | RESTAURANT MIXED DRINK",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "RESTAURANT WINE",
+    "licenseType": "3A"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "RESTAURANT WINE | PRIVATE CLUB CLASS A - WET COUNTY | RETAIL BEER ON PREMISES",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "RESTAURANT WINE | RETAIL BEER ON PREMISES",
+    "licenseType": "5A"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "RESTAURANT WINE | RETAIL LIQUOR | RETAIL BEER ON PREMISES",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "RETAIL BEER OFF PREMISES | COMBINATION OF RESTAURANT BEER & WINE",
+    "licenseType": "5A"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "RETAIL BEER ON PREMISES",
+    "licenseType": "2"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "RETAIL BEER ON PREMISES | PRIVATE CLUB CLASS B - WET COUNTY | RESTAURANT WINE",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "RETAIL BEER ON PREMISES | RESTAURANT MIXED DRINK",
+    "licenseType": "8"
+  },
+  {
+    "state": "AR",
+    "distributionChannel": "On Premise",
+    "permitCombo": "RETAIL BEER ON PREMISES | RESTAURANT WINE | RESTAURANT MIXED DRINK",
+    "licenseType": "8"
+  },
+  {
+    "state": "TN",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "RETAIL PACKAGE STORE",
+    "licenseType": "8"
+  },
+  {
+    "state": "TN",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "RETAIL FOOD STORE WINE",
+    "licenseType": "3"
+  },
+  {
+    "state": "TN",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIQUOR-BY-THE-DRINK (LBD) - RESTAURANT",
+    "licenseType": "8"
+  },
+  {
+    "state": "TN",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIQUOR-BY-THE-DRINK (LBD) - HOTEL MOTEL",
+    "licenseType": "8"
+  },
+  {
+    "state": "TN",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIQUOR-BY-THE-DRINK (LBD) - WINE ONLY RESTAURANT",
+    "licenseType": "3"
+  },
+  {
+    "state": "TN",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIQUOR-BY-THE-DRINK (LBD) - AIRLINE, BOAT, OR TRAIN",
+    "licenseType": "8"
+  },
+  {
+    "state": "TN",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIQUOR-BY-THE-DRINK (LBD) - CATERER",
+    "licenseType": "8"
+  },
+  {
+    "state": "TN",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIQUOR-BY-THE-DRINK (LBD) - CLUB",
+    "licenseType": "8"
+  },
+  {
+    "state": "TN",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIQUOR-BY-THE-DRINK (LBD) - LIMITED SERVICE RESTAURANT",
+    "licenseType": "8"
+  },
+  {
+    "state": "TN",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIQUOR-BY-THE-DRINK (LBD) - FESTIVAL LICENSE",
+    "licenseType": "8"
+  },
+  {
+    "state": "TN",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIQUOR-BY-THE-DRINK (LBD) - SPECIAL OCCASION",
+    "licenseType": "8"
+  },
+  {
+    "state": "TN",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIQUOR-BY-THE-DRINK (LBD) - SPECIAL LEGISLATION",
+    "licenseType": "8"
+  }
+]

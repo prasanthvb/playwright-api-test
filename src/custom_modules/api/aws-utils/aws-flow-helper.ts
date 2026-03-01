@@ -2,6 +2,7 @@
 import { APIRequestContext, expect } from '@playwright/test';
 import { createCustomer, pollGetRequest, getCustomerByGlobalID, getCustomerByLicenceNumber } from './aws-api-helper';
 import { Payload } from '../payload/generate-new-customer-payload';
+import licenseData from '../../../data/api-data/licenseType.json';
 
 /**
  * Shared reusable full flow for AWS Customer API
@@ -89,6 +90,20 @@ export async function runFullFlow(request: APIRequestContext, payload: Payload, 
     expect(data_GID.addresses?.[0]?.country).toBe(payload.Address?.[0]?.country?.toUpperCase());
     expect(data_GID.addresses?.[0]?.county).toBe(payload.Address?.[0]?.county?.toUpperCase());
     expect(data_GID.globalID).toBe(globalID);
+
+    const state = payload.Address?.[0]?.state;
+    const premise = payload.distributionChannel?.Name;
+    const reqLicenseType = payload.licenseType;
+
+    const validCombos = licenseData
+      .filter(
+        (item) => item.state === state && item.distributionChannel === premise && item.licenseType === reqLicenseType,
+      )
+      .map((item) => item.permitCombo);
+
+    if (validCombos.length > 0) {
+      expect(validCombos).toContain(data_GID.licenses?.[0]?.licenseType);
+    }
 
     // Verifiy with Alcohol License Number
     if (!alcoholLicenseNumber) {

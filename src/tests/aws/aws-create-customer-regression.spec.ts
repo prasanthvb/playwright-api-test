@@ -11,6 +11,7 @@ const baseUrl = awsConfig.baseUrl;
 test.describe('AWS Create Customer - Get Request - Get Customer - API Test Cases Validation', () => {
   test('CC-01 Create customer with valid details', async ({ request }) => {
     const payload = await generatePayloadWithFakerData();
+    console.log(JSON.stringify(payload, null, 2));
     const result = await runFullFlow(request, payload, 'Create customer with valid details');
     expect(result).toBeDefined();
     expect(result.status).toBe(200);
