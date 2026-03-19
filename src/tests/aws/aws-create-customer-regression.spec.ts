@@ -334,4 +334,8 @@ test.describe('AWS Create Customer - Get Request - Get Customer - API Test Cases
       }
     }
   });
+  test('CC-23 Create customer with valid details', async () => {
+    const payload = await generatePayloadWithFakerData();
+    console.log(JSON.stringify(payload, null, 2));
+  });
 });

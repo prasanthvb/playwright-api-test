@@ -6,6 +6,7 @@ interface BrowsePayload {
   pageSize: number;
   state?: string;
   filterValue?: string;
+  database_mode?: string;
 }
 
 /**
@@ -23,6 +24,7 @@ export function generateBrowseCustomerPayload(scenario: string): BrowsePayload {
   // Randomly select sortToken and sortDirection (can be blank)
   const sortTokenOptions = ['', data.sortTokenTime, data.sortTokenAccountName];
   const sortDirectionOptions = ['', data.sortDirectionAsc, data.sortDirectionDesc];
+  const stateOptions = [data.validState1, data.validState2];
 
   const basePayload: BrowsePayload = {
     sortToken: randomChoice(sortTokenOptions),
@@ -79,6 +81,14 @@ export function generateBrowseCustomerPayload(scenario: string): BrowsePayload {
       return {
         ...basePayload,
         state: data.validState1,
+      };
+
+    case 'databricks':
+      return {
+        ...basePayload,
+        pageSize: randomChoice([50, 100]),
+        state: randomChoice(stateOptions),
+        database_mode: 'postgres',
       };
 
     default:

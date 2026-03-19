@@ -1,5 +1,6 @@
 // Define the type for a Distribution Channel object for better type safety
 import { US_LOCATIONS } from '../../common/common-utils/locationData';
+import { generateLicenseNumber } from '../../common/common-utils/licenseUtils';
 import licenseData from '../../../data/api-data/licenseType.json';
 
 export interface DistributionChannel {
@@ -101,18 +102,15 @@ export async function generatePayloadWithFakerData(): Promise<Payload> {
   newPayload.contactLastName = lastName;
   newPayload.primaryEmail = faker.internet.email({ firstName, lastName });
   newPayload.phone = faker.phone.number({ style: 'national' });
-  newPayload.alcoholLicenseNumber = faker.string.alphanumeric({
-    length: { min: 9, max: 40 },
-    casing: 'upper',
-  });
   const state = newPayload.Address[0].state;
   const premise = newPayload.distributionChannel?.Name;
+  newPayload.alcoholLicenseNumber = generateLicenseNumber(faker, state);
 
   const validLicenses = licenseData.filter((item) => item.state === state && item.distributionChannel === premise);
 
   if (validLicenses.length > 0) {
     const selectedLicense = faker.helpers.arrayElement(validLicenses);
-    newPayload.licenseType = selectedLicense.licenseType;
+    newPayload.licenseType = selectedLicense.permitCombo;
   } else {
     // Default fallback
     newPayload.licenseType = faker.helpers.arrayElement(['5A', '3A', '8']);
