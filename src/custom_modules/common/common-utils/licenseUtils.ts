@@ -11,7 +11,7 @@ export const generateLicenseNumber = (faker: Faker, stateCode: string | null): s
     case 'AR':
       return `${faker.string.numeric(5)}-${faker.string.numeric(2)}`;
     case 'TN':
-      return `${faker.string.alpha({ length: 6, casing: 'upper' })}-${faker.string.alpha({ length: 3, casing: 'upper' })}-${faker.string.numeric(faker.number.int({ min: 7, max: 8 }))}`;
+      return `${faker.string.alpha({ length: 6, casing: 'upper' })}-${faker.string.alpha({ length: 3, casing: 'upper' })}-${faker.string.numeric(faker.number.int({ min: 7, max: 7 }))}`;
     default:
       return faker.string.alphanumeric({
         length: { min: 9, max: 40 },

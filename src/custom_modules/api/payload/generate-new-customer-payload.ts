@@ -1,5 +1,5 @@
 // Define the type for a Distribution Channel object for better type safety
-import { US_LOCATIONS } from '../../common/common-utils/locationData';
+import { US_LOCATIONS, initLocations } from '../../common/common-utils/locationData';
 import { generateLicenseNumber } from '../../common/common-utils/licenseUtils';
 import licenseData from '../../../data/api-data/licenseType.json';
 
@@ -70,6 +70,11 @@ export const basePayload: Payload = {
  * Generates a new payload with unique, faker-generated data for specified fields.
  */
 export async function generatePayloadWithFakerData(): Promise<Payload> {
+  // Ensure live addresses are fetched from the API before picking a location.
+  // initLocations() is safe to call every time — the HTTP request is made only
+  // once; every subsequent call awaits the same in-flight Promise.
+  await initLocations();
+
   // Dynamically import faker (ESM compatible)
   const { faker } = await import('@faker-js/faker');
 
@@ -91,7 +96,7 @@ export async function generatePayloadWithFakerData(): Promise<Payload> {
   newPayload.legalOwnerName = `${faker.company.name()} LLC`;
   newPayload.distributionChannel = selectedChannel;
 
-  newPayload.Address[0].addressLine1 = faker.location.streetAddress();
+  newPayload.Address[0].addressLine1 = randomLocation.addressLine1;
   newPayload.Address[0].city = randomLocation.city;
   newPayload.Address[0].county = randomLocation.county;
   newPayload.Address[0].state = randomLocation.state;

@@ -14,6 +14,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './src/tests',
+  globalSetup: './src/global-setup',
   /* max time one test can run for.. */
   timeout: 120 * 1000,
   expect: {
