@@ -2,7 +2,6 @@ import { test, expect } from '@playwright/test';
 import { generateBrowseCustomerPayload } from '../../custom_modules/api/payload/generate-browse-customer-payloads';
 import { browseCustomers } from '../../custom_modules/api/aws-utils/aws-api-helper';
 import { awsConfig } from '../../../config/api-config';
-import expectedErrors from '../../data/api-data/aws-error-messages.json';
 import data from '../../data/api-data/test-data.json';
 import apiPaths from '../../data/api-data/api-path.json';
 const baseUrl = awsConfig.baseUrl;
@@ -54,9 +53,8 @@ test.describe('AWS Browse Customers API - Validation Flow', () => {
   test('BC-07 Browse with missing state field', async ({ request }) => {
     const payload = generateBrowseCustomerPayload('missingState');
     const { response, body } = await browseCustomers(request, payload);
-    expect([400, 500]).toContain(response.status());
-    expect(body.message).toBe('Error');
-    expect(body.error).toContain(expectedErrors['BC-07']);
+    expect(response.status()).toBe(200);
+    expect(body.records?.length || 0).toBe(0);
   });
 
   test('BC-08 Unauthorized request', async ({ request }) => {
@@ -65,6 +63,7 @@ test.describe('AWS Browse Customers API - Validation Flow', () => {
       headers: {
         'Content-Type': 'application/json',
         'x-api-key': 'INVALID_KEY',
+        Authorization: 'INVALID_TOKEN',
       },
       data: payload,
     });

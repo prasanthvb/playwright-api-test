@@ -9,8 +9,9 @@
  *   POST https://cleverutils.com/random-address  →  state=<CODE>&count=50
  */
 export const AVAILABLE_STATES: string[] = [
-  'AR', // Arkansas
-  'TN', // Tennessee
+  // 'AR', // Arkansas
+  // 'TN', // Tennessee
+  'KY', // Kentucky
   // ── Uncomment to activate more states ──────────────────────────────────────
   // 'IA', // Iowa
   // 'KS', // Kansas

@@ -278,6 +278,7 @@ test.describe('AWS Create Customer - Get Request - Get Customer - API Test Cases
       headers: {
         'Content-Type': 'application/json',
         'x-api-key': 'INVALID_KEY',
+        Authorization: 'INVALID_TOKEN',
       },
       data: payload,
     });

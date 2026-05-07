@@ -11,17 +11,9 @@ import {
 import { runUpdateFlow } from '../../custom_modules/api/aws-utils/aws-update-flow-helper';
 const baselineFilePath = path.join(process.cwd(), 'src/data/update-baseline/account-details.json');
 
-import { awsConfig } from '../../../config/api-config';
+import { awsConfig, getAuthHeaders } from '../../../config/api-config';
 
 const baseUrl = awsConfig.baseUrl;
-const apiKey = awsConfig.apiKey;
-
-// Helper to add API key header
-function authHeaders() {
-  return {
-    'x-api-key': apiKey ?? '',
-  };
-}
 
 test.describe('Verify update Account Details API', () => {
   let globalID: string;
@@ -46,7 +38,7 @@ test.describe('Verify update Account Details API', () => {
 
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=accountDetails`,
-      { data: payload, headers: authHeaders() },
+      { data: payload, headers: getAuthHeaders() },
     );
 
     expect(response.status()).toBe(200);
@@ -76,7 +68,7 @@ test.describe('Verify update Account Details API', () => {
 
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=accountDetails`,
-      { data: payload, headers: authHeaders() },
+      { data: payload, headers: getAuthHeaders() },
     );
 
     expect(response.status()).toBe(200);
@@ -93,7 +85,7 @@ test.describe('Verify update Account Details API', () => {
 
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=accountDetails`,
-      { data: payload, headers: authHeaders() },
+      { data: payload, headers: getAuthHeaders() },
     );
 
     expect(response.status()).toBe(200);
@@ -109,7 +101,7 @@ test.describe('Verify update Account Details API', () => {
     const payload = {}; // Empty payload
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=accountDetails`,
-      { data: payload, headers: authHeaders() },
+      { data: payload, headers: getAuthHeaders() },
     );
 
     expect(response.status()).toBe(500);
@@ -122,7 +114,7 @@ test.describe('Verify update Account Details API', () => {
 
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=accountDetails`,
-      { data: payload, headers: { 'x-api-key': 'INVALID_KEY' } },
+      { data: payload, headers: { 'x-api-key': 'INVALID_KEY', Authorization: 'INVALID_TOKEN' } },
     );
 
     expect([401, 403]).toContain(response.status());
@@ -131,7 +123,7 @@ test.describe('Verify update Account Details API', () => {
   test('TC-ACC-06 | Verify update account details with invalid globalID', async ({ request }) => {
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/9999999999?action=accountDetails`,
-      { data: getValidAccountDetailsPayload(), headers: authHeaders() },
+      { data: getValidAccountDetailsPayload(), headers: getAuthHeaders() },
     );
 
     expect(response.status()).toBe(500);

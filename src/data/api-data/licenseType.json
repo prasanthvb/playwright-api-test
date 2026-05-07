@@ -388,5 +388,29 @@
     "distributionChannel": "On Premise",
     "permitCombo": "LIQUOR-BY-THE-DRINK (LBD) - SPECIAL LEGISLATION",
     "licenseType": "8"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "QUOTA RETAIL PACKAGE LICENSE",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIMITED RESTAURANT LICENSE",
+    "licenseType": "8"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "On Premise",
+    "permitCombo": "QUOTA RETAIL DRINK LICENSE",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "On Premise",
+    "permitCombo": "RETAIL DRINK LICENSE",
+    "licenseType": "8"
   }
 ]

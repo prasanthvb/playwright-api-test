@@ -7,6 +7,7 @@ interface BrowsePayload {
   state?: string;
   filterValue?: string;
   database_mode?: string;
+  source?: string;
 }
 
 /**
@@ -85,10 +86,13 @@ export function generateBrowseCustomerPayload(scenario: string): BrowsePayload {
 
     case 'databricks':
       return {
-        ...basePayload,
-        pageSize: randomChoice([50, 100]),
+        sortToken: 'time',
+        sortDirection: 'desc',
+        pageSize: 200,
         state: randomChoice(stateOptions),
+        filterValue: '',
         database_mode: 'postgres',
+        source: 'databricks',
       };
 
     default:

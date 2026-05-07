@@ -7,12 +7,12 @@ interface dropPoint {
 }
 
 export const getValidDropPointPayload = (addressID: string): { dropPoint: dropPoint } => {
-  const selectedTerm = faker.helpers.arrayElement(name);
+  const selectedName = faker.helpers.arrayElement(name);
 
   return {
     dropPoint: {
       addressID,
-      name: selectedTerm,
+      name: selectedName,
     },
   };
 };
@@ -20,11 +20,11 @@ export const getValidDropPointPayload = (addressID: string): { dropPoint: dropPo
 export const getMissingAddressIDDropPointPayload = (): {
   dropPoint: dropPoint;
 } => {
-  const selectedTerm = faker.helpers.arrayElement(name);
+  const selectedName = faker.helpers.arrayElement(name);
 
   return {
     dropPoint: {
-      name: selectedTerm,
+      name: selectedName,
     },
   };
 };
@@ -41,12 +41,12 @@ export const getEmptyNameDropPointPayload = (addressID: string): { dropPoint: dr
 export const getInvalidAddressIDDropPointPayload = (): {
   dropPoint: dropPoint;
 } => {
-  const selectedTerm = faker.helpers.arrayElement(name);
+  const selectedName = faker.helpers.arrayElement(name);
 
   return {
     dropPoint: {
       addressID: 'InvalidAddressID',
-      name: selectedTerm,
+      name: selectedName,
     },
   };
 };

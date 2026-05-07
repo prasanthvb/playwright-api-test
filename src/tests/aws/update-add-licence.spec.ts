@@ -15,17 +15,9 @@ import {
 import { runUpdateFlow } from '../../custom_modules/api/aws-utils/aws-update-flow-helper';
 const baselineFilePath = path.join(process.cwd(), 'src/data/update-baseline/edit-licence.json');
 
-import { awsConfig } from '../../../config/api-config';
+import { awsConfig, getAuthHeaders } from '../../../config/api-config';
 
 const baseUrl = awsConfig.baseUrl;
-const apiKey = awsConfig.apiKey;
-
-// Helper to add API key header
-function authHeaders() {
-  return {
-    'x-api-key': apiKey ?? '',
-  };
-}
 
 test.describe('Verify Add License API', () => {
   let globalID: string;
@@ -49,7 +41,7 @@ test.describe('Verify Add License API', () => {
     const payload = addNewLicensePayload();
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
-      { data: payload, headers: authHeaders() },
+      { data: payload, headers: getAuthHeaders() },
     );
 
     expect(response.status()).toBe(200);
@@ -79,7 +71,7 @@ test.describe('Verify Add License API', () => {
     payload.license.operation = 'add';
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
-      { data: payload, headers: authHeaders() },
+      { data: payload, headers: getAuthHeaders() },
     );
 
     expect(response.status()).toBe(200);
@@ -109,7 +101,7 @@ test.describe('Verify Add License API', () => {
     payload.license.operation = 'add';
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
-      { data: payload, headers: authHeaders() },
+      { data: payload, headers: getAuthHeaders() },
     );
 
     expect(response.status()).toBe(200);
@@ -127,7 +119,7 @@ test.describe('Verify Add License API', () => {
     payload.license.operation = 'add';
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
-      { data: payload, headers: authHeaders() },
+      { data: payload, headers: getAuthHeaders() },
     );
 
     expect(response.status()).toBe(200);
@@ -144,7 +136,7 @@ test.describe('Verify Add License API', () => {
     const payload = {}; // Empty payload
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
-      { data: payload, headers: authHeaders() },
+      { data: payload, headers: getAuthHeaders() },
     );
 
     expect(response.status()).toBe(500);
@@ -157,7 +149,7 @@ test.describe('Verify Add License API', () => {
     payload.license.operation = 'add';
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
-      { data: payload, headers: authHeaders() },
+      { data: payload, headers: getAuthHeaders() },
     );
 
     expect(response.status()).toBe(500);
@@ -173,7 +165,7 @@ test.describe('Verify Add License API', () => {
     payload.license.operation = 'add';
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
-      { data: payload, headers: authHeaders() },
+      { data: payload, headers: getAuthHeaders() },
     );
 
     expect(response.status()).toBe(500);
@@ -187,7 +179,7 @@ test.describe('Verify Add License API', () => {
     payload.license.operation = 'add';
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
-      { data: payload, headers: authHeaders() },
+      { data: payload, headers: getAuthHeaders() },
     );
 
     expect(response.status()).toBe(500);

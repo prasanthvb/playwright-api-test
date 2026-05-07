@@ -1,16 +1,8 @@
 import { expect, APIRequestContext } from '@playwright/test';
 import apiPaths from '../../../data/api-data/api-path.json';
-import { awsConfig } from '../../../../config/api-config';
+import { awsConfig, getAuthHeaders } from '../../../../config/api-config';
 
 const baseUrl = awsConfig.baseUrl;
-const apiKey = awsConfig.apiKey;
-
-// Helper to add API key header
-function authHeaders() {
-  return {
-    'x-api-key': apiKey ?? '',
-  };
-}
 /** Poll Get-Update-Request API until status is 'active' or 'error' */
 export const pollGetUpdateRequest = async (
   request: APIRequestContext,
@@ -27,7 +19,7 @@ export const pollGetUpdateRequest = async (
         updateRequestID,
         globalID,
       },
-      headers: authHeaders(),
+      headers: getAuthHeaders(),
     });
 
     expect(response.status()).toBe(200);

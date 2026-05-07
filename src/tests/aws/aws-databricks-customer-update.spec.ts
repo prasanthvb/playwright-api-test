@@ -1,19 +1,13 @@
+/* eslint-disable no-console */
 import { test, expect } from '@playwright/test';
 import { generateBrowseCustomerPayload } from '../../custom_modules/api/payload/generate-browse-customer-payloads';
 import { browseCustomers } from '../../custom_modules/api/aws-utils/aws-api-helper';
-import { awsConfig } from '../../../config/api-config';
+import { awsConfig, getAuthHeaders } from '../../../config/api-config';
 import apiPaths from '../../data/api-data/api-path.json';
 import { runUpdateFlow } from '../../custom_modules/api/aws-utils/aws-update-flow-helper';
 import { getValidLicensePayload } from '../../custom_modules/api/payload/update-licence-payload';
+import { getValidDropPointPayload } from '../../custom_modules/api/payload/update-drop-point-payload';
 const baseUrl = awsConfig.baseUrl;
-const apiKey = awsConfig.apiKey;
-
-// Helper to add API key header
-function authHeaders() {
-  return {
-    'x-api-key': apiKey ?? '',
-  };
-}
 
 interface CustomerAddress {
   state?: string;
@@ -39,8 +33,8 @@ interface CustomerRecord {
 
 test.describe('AWS Update Customers API - Databricks', () => {
   let globalID: string;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  let addressId: string;
+
+  let addressID: string;
 
   let licenseNumber: string;
 
@@ -49,44 +43,32 @@ test.describe('AWS Update Customers API - Databricks', () => {
     const { response, body } = await browseCustomers(request, payload);
     expect(response.status()).toBe(200);
     expect(Array.isArray(body.records)).toBeTruthy();
+    expect(body.records?.length, 'No records returned from browse-customers (databricks)').toBeGreaterThan(0);
 
-    if (body.records?.length > 0) {
-      // Iterate through the records and filter only the ones with status as active
-      // Assuming 'status' could be 'Active' or 'active'
-      const activeRecords = body.records.filter(
-        (r: CustomerRecord) => r.source === 'databricks' && r.status?.toLowerCase() === 'Active',
-      );
+    const activeRecords = body.records.filter(
+      (r: CustomerRecord) => r.status?.toLowerCase() === 'active' && r.source?.toLowerCase() === 'import',
+    );
+    console.log(`Total records: ${body.records.length}, Active import records: ${activeRecords.length}`);
+    expect(activeRecords.length, 'No active import records found in browse response').toBeGreaterThan(0);
 
-      if (activeRecords.length > 0) {
-        // Choose any one of the active records
-        const selectedRecord = activeRecords[Math.floor(Math.random() * activeRecords.length)];
+    // Choose any one of the active records
+    const selectedRecord = activeRecords[Math.floor(Math.random() * activeRecords.length)];
+    globalID = selectedRecord.globalID;
 
-        // Assign the globalId to the customerId variable
-        globalID = selectedRecord.globalID;
+    // Process Addresses — pick one randomly
+    const addresses = selectedRecord.Address || [];
+    expect(addresses.length, `No addresses found on selected record (globalID: ${globalID})`).toBeGreaterThan(0);
+    const selectedAddress = addresses[Math.floor(Math.random() * addresses.length)];
+    expect(selectedAddress.state).toBe(payload.state);
+    addressID = selectedAddress.addressID as string;
+    expect(addressID, `addressID is empty on selected address (globalID: ${globalID})`).toBeTruthy();
 
-        // Process Addresses
-        const addresses = selectedRecord.Address || [];
-        if (addresses.length > 0) {
-          // If there are multiple addresses, choose only one randomly
-          const selectedAddress = addresses[Math.floor(Math.random() * addresses.length)];
-
-          // Assert Address[?].state
-          expect(selectedAddress.state).toBe(payload.state);
-
-          // Get the address id
-          addressId = selectedAddress.addressID as string;
-        }
-
-        // Process Licenses
-        const licenses = selectedRecord.licenses || [];
-        if (licenses.length > 0) {
-          // If there are multiple licenses, choose one randomly
-          const selectedLicense = licenses[Math.floor(Math.random() * licenses.length)];
-          // Get the number from it
-          licenseNumber = selectedLicense.number as string;
-        }
-      }
-    }
+    // Process Licenses — pick one randomly
+    const licenses = selectedRecord.licenses || [];
+    expect(licenses.length, `No licenses found on selected record (globalID: ${globalID})`).toBeGreaterThan(0);
+    const selectedLicense = licenses[Math.floor(Math.random() * licenses.length)];
+    licenseNumber = selectedLicense.number as string;
+    expect(licenseNumber, `licenseNumber is empty on selected license (globalID: ${globalID})`).toBeTruthy();
   });
 
   test('TC-LIC-01 | Verify edit license with valid details', async ({ request }) => {
@@ -94,7 +76,7 @@ test.describe('AWS Update Customers API - Databricks', () => {
     payload.license.number = licenseNumber; // Use existing license number
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
-      { data: payload, headers: authHeaders() },
+      { data: payload, headers: getAuthHeaders() },
     );
 
     expect(response.status()).toBe(200);
@@ -114,5 +96,30 @@ test.describe('AWS Update Customers API - Databricks', () => {
     );
     expect(updateResult.updatedCustomer?.body.data.customer.licenses[0].type).toBe('ZGAL');
     expect(updateResult.updatedCustomer?.body.data.customer.licenses[0].legalRegulation).toBe('1');
+  });
+
+  test('TC-LIC-02 | Verify edit drop point with valid details', async ({ request }) => {
+    const payload = getValidDropPointPayload(addressID);
+    console.log('Payload for Drop Point Update:', JSON.stringify(payload, null, 2));
+    const response = await request.patch(
+      `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=droppoint`,
+      { data: payload, headers: getAuthHeaders() },
+    );
+
+    expect(response.status()).toBe(200);
+
+    const body = await response.json();
+    expect(body.updateRequestID).toBeTruthy();
+    console.log(body);
+
+    const updateResult = await runUpdateFlow(request, body, globalID);
+
+    expect(updateResult.status).toBe('active');
+    console.log(JSON.stringify(updateResult.updatedCustomer?.body.data.customer.addresses[0], null, 2));
+    console.log(JSON.stringify(payload.dropPoint, null, 2));
+    expect(updateResult.updatedCustomer?.body.data.customer.addresses[0].locations[0].name.toUpperCase()).toBe(
+      payload.dropPoint.name?.toUpperCase(),
+    );
+    expect(updateResult.updatedCustomer?.body.data.customer.addresses[0].addressID).toBe(payload.dropPoint.addressID);
   });
 });

@@ -1,20 +1,20 @@
 {
-  "globalID": "2000601927",
+  "globalID": "2000604928",
   "baselineCustomer": {
     "getCustomerRes": {
       "_request": {
         "_type": "APIRequestContext",
-        "_guid": "request-context@a0a7f3a48491cda54f4dab62bf9e1941"
+        "_guid": "request-context@fba5c4ee8453eff57dde328579faf074"
       },
       "_initializer": {
-        "fetchUid": "d97638eccbb19a87bae728859436b511",
+        "fetchUid": "3c06f890f4dd22012819b68777fdcc8b",
         "url": "https://uok5z8x4n9.execute-api.us-east-1.amazonaws.com/nonprod/get-customer",
         "status": 200,
         "statusText": "OK",
         "headers": [
           {
             "name": "Date",
-            "value": "Thu, 19 Feb 2026 09:50:37 GMT"
+            "value": "Thu, 16 Apr 2026 19:18:36 GMT"
           },
           {
             "name": "Content-Type",
@@ -22,7 +22,7 @@
           },
           {
             "name": "Content-Length",
-            "value": "2176"
+            "value": "4164"
           },
           {
             "name": "Connection",
@@ -30,15 +30,15 @@
           },
           {
             "name": "x-amzn-RequestId",
-            "value": "52429453-6c0a-4369-8ee8-19e3362c17c1"
+            "value": "d415bf5c-289d-4caf-9dd6-dea482dafdad"
           },
           {
             "name": "x-amz-apigw-id",
-            "value": "ZBd1LFiaIAMEqCg="
+            "value": "b7Vh6Hc8oAMEhPw="
           },
           {
             "name": "X-Amzn-Trace-Id",
-            "value": "Root=1-6996dced-268f75ed3c70c43455d9c257"
+            "value": "Root=1-69e1360b-00356b7f1e453793712903dc"
           }
         ]
       },
@@ -49,7 +49,7 @@
         "_headersArray": [
           {
             "name": "Date",
-            "value": "Thu, 19 Feb 2026 09:50:37 GMT"
+            "value": "Thu, 16 Apr 2026 19:18:36 GMT"
           },
           {
             "name": "Content-Type",
@@ -57,7 +57,7 @@
           },
           {
             "name": "Content-Length",
-            "value": "2176"
+            "value": "4164"
           },
           {
             "name": "Connection",
@@ -65,42 +65,82 @@
           },
           {
             "name": "x-amzn-RequestId",
-            "value": "52429453-6c0a-4369-8ee8-19e3362c17c1"
+            "value": "d415bf5c-289d-4caf-9dd6-dea482dafdad"
           },
           {
             "name": "x-amz-apigw-id",
-            "value": "ZBd1LFiaIAMEqCg="
+            "value": "b7Vh6Hc8oAMEhPw="
           },
           {
             "name": "X-Amzn-Trace-Id",
-            "value": "Root=1-6996dced-268f75ed3c70c43455d9c257"
+            "value": "Root=1-69e1360b-00356b7f1e453793712903dc"
           }
         ]
       }
     },
     "body": {
       "success": true,
-      "timestamp": "2026-02-19T09:49:34.509Z",
-      "eventType": "Create-Applicant-BFF-Orch-Event-_Qp6jEVYpv",
-      "eventID": "_Qp6jEVYpv",
-      "requestID": "_Qp6jEVYpv",
+      "timestamp": "2026-04-16 19:18:28.85+00",
+      "eventType": "Create-Applicant-BFF-Orch-Event-BjrRX8XtPC",
+      "eventID": "BjrRX8XtPC",
+      "requestID": "BjrRX8XtPC",
       "data": {
         "customer": {
-          "accountName": "BOTSFORD, D'AMORE & TURCOTTE",
-          "globalID": "2000601927",
-          "contactFirstName": "Georgette",
-          "contactLastName": "Kub",
+          "accountName": "BLOCK, ZIEME & CRIST",
+          "customerDomainID": "BjrRX8XtPC",
+          "globalID": "2000604928",
+          "customerID": "2000604928",
+          "contactFirstName": "Madison",
+          "contactLastName": "Dibbert",
+          "distributionChannel": "10",
+          "primaryEmail": "madison.dibbert20@gmail.com",
+          "legalOwnerName": "HALVORSON - WOLF LLC",
+          "phone": "511-426-8322",
           "customerType": "Z001",
-          "distributionChannel": "20",
           "establishmentType": "999",
-          "legalOwnerName": "FAY LLC LLC",
+          "siteID": "41",
+          "customerGroup": "ON",
+          "storeNumber": "",
+          "customerAccountType": "Z002",
+          "lifecycleStatus": "3",
+          "source": "onboard",
+          "addresses": [
+            {
+              "addressID": "2000604928",
+              "alternateID": "249977",
+              "postalCodeExtension": "5024",
+              "country": "US",
+              "countyCode": "1AD",
+              "city": "WEST MEMPHIS",
+              "addressType": "Shipping",
+              "postalCode": "72301",
+              "county": "CRITTENDEN",
+              "addressLine1": "4226 MARVIN DR",
+              "addressLine2": null,
+              "state": "AR",
+              "name": "BLOCK, ZIEME & CRIST"
+            }
+          ],
+          "licenses": [
+            {
+              "number": "72697-28",
+              "legalRegulation": "1",
+              "type": "PARIMUTUEL MIXED DRINK",
+              "effectiveDate": "1900-01-01",
+              "expirationDate": "9999-12-31",
+              "status": "V",
+              "createdAt": "2026-04-16 19:18:28.85+00"
+            }
+          ],
+          "legalRegulation": "1",
+          "licenseType": "PARIMUTUEL MIXED DRINK",
+          "licenseEffectiveDate": "1900-01-01",
+          "licenseExpirationDate": "9999-12-31",
+          "licenseStatus": "V",
+          "licenseNumber": "72697-28",
+          "salesOrganization": "5910",
           "salesDivision": "10",
-          "salesOffice": "6301",
-          "salesOrganization": "6310",
-          "siteID": "0058",
-          "status": "Active",
-          "primaryEmail": "georgette_kub63@hotmail.com",
-          "phone": "862-986-9931",
+          "salesOffice": "5901",
           "paymentTerms": {
             "termName": "Collect on Delivery",
             "term": "cod",
@@ -108,90 +148,155 @@
             "dayLimit": 0,
             "description": "Collect on Delivery"
           },
-          "addresses": [
-            {
-              "addressLine1": "84041 DUKE STREET",
-              "city": "MURFREESBORO",
-              "country": "US",
-              "county": "RUTHERFORD",
-              "countyCode": "149",
-              "postalCode": "37130",
-              "state": "TN",
-              "addressID": "2000601927",
-              "addressType": "Shipping",
-              "name": "BOTSFORD, D'AMORE & TURCOTTE",
-              "alternateID": "520921"
-            }
-          ],
-          "licenses": [
-            {
-              "legalRegulation": "1",
-              "companyCode": "6310",
-              "effectiveDate": "1900-01-01",
-              "expirationDate": "9999-12-31",
-              "number": "PQA23DPC251J9O5BYWXJA0CDK",
-              "status": "V",
-              "lifecycleStatus": "3",
-              "lid": ""
-            }
-          ],
           "materialGroups": [
             {
-              "description": "Chickasaw Spirits",
-              "repCompId": "7700",
-              "repCompDesc": "SOUTHERN GLAZER'S",
-              "key": "CKS"
+              "key": "EG1",
+              "description": "Eagle 1",
+              "repCompId": "1210",
+              "repCompDesc": "EAGLE WINE & SPIRITS",
+              "salesOrganization": "5910",
+              "salesOrg": "5910",
+              "routeID": "59010114",
+              "validFrom": null,
+              "validTo": null
             },
             {
-              "description": "Genesis Spirits",
-              "repCompId": "7700",
-              "repCompDesc": "SOUTHERN GLAZER'S",
-              "key": "GNS"
+              "key": "EG2",
+              "description": "Eagle 2",
+              "repCompId": "1210",
+              "repCompDesc": "EAGLE WINE & SPIRITS",
+              "salesOrganization": "5910",
+              "salesOrg": "5910",
+              "routeID": "59010114",
+              "validFrom": null,
+              "validTo": null
             },
             {
-              "description": "Non Alcohol 1",
-              "repCompId": "7700",
-              "repCompDesc": "SOUTHERN GLAZER'S",
-              "key": "NA1"
+              "key": "EG3",
+              "description": "Eagle 3",
+              "repCompId": "1210",
+              "repCompDesc": "EAGLE WINE & SPIRITS",
+              "salesOrganization": "5910",
+              "salesOrg": "5910",
+              "routeID": "59010114",
+              "validFrom": null,
+              "validTo": null
             },
             {
-              "description": "Premiere Wine",
-              "repCompId": "7700",
-              "repCompDesc": "SOUTHERN GLAZER'S",
-              "key": "PRW"
+              "key": "EG4",
+              "description": "Eagle 4",
+              "repCompId": "1210",
+              "repCompDesc": "EAGLE WINE & SPIRITS",
+              "salesOrganization": "5910",
+              "salesOrg": "5910",
+              "routeID": "59010114",
+              "validFrom": null,
+              "validTo": null
             },
             {
-              "description": "River Spirits",
-              "repCompId": "7700",
-              "repCompDesc": "SOUTHERN GLAZER'S",
-              "key": "RVS"
+              "key": "FL1",
+              "description": "Falcon 1",
+              "repCompId": "1220",
+              "repCompDesc": "FALCON WINE & SPIRITS",
+              "salesOrganization": "5910",
+              "salesOrg": "5910",
+              "routeID": "59010114",
+              "validFrom": null,
+              "validTo": null
             },
             {
-              "description": "Signature",
+              "key": "FL2",
+              "description": "Falcon 2",
+              "repCompId": "1220",
+              "repCompDesc": "FALCON WINE & SPIRITS",
+              "salesOrganization": "5910",
+              "salesOrg": "5910",
+              "routeID": "59010114",
+              "validFrom": null,
+              "validTo": null
+            },
+            {
+              "key": "FL3",
+              "description": "Falcon 3",
               "repCompId": "300",
               "repCompDesc": "SIGNATURE FINE WINES & SPIRITS",
-              "key": "SG1"
+              "salesOrganization": "5910",
+              "salesOrg": "5910",
+              "routeID": "59010114",
+              "validFrom": null,
+              "validTo": null
             },
             {
-              "description": "Southern Glazers Wine & Spirits",
-              "repCompId": "7700",
-              "repCompDesc": "SOUTHERN GLAZER'S",
+              "key": "FL4",
+              "description": "Falcon 4",
+              "repCompId": "1220",
+              "repCompDesc": "FALCON WINE & SPIRITS",
+              "salesOrganization": "5910",
+              "salesOrg": "5910",
+              "routeID": "59010114",
+              "validFrom": null,
+              "validTo": null
+            },
+            {
+              "key": "HW1",
+              "description": "Hawk 1",
+              "repCompId": "1230",
+              "repCompDesc": "HAWK WINE & SPIRITS",
+              "salesOrganization": "5910",
+              "salesOrg": "5910",
+              "routeID": "59010114",
+              "validFrom": null,
+              "validTo": null
+            },
+            {
+              "key": "HW2",
+              "description": "Hawk 2",
+              "repCompId": "1230",
+              "repCompDesc": "HAWK WINE & SPIRITS",
+              "salesOrganization": "5910",
+              "salesOrg": "5910",
+              "routeID": "59010114",
+              "validFrom": null,
+              "validTo": null
+            },
+            {
+              "key": "HW3",
+              "description": "Hawk 3",
+              "repCompId": "1230",
+              "repCompDesc": "HAWK WINE & SPIRITS",
+              "salesOrganization": "5910",
+              "salesOrg": "5910",
+              "routeID": "59010114",
+              "validFrom": null,
+              "validTo": null
+            },
+            {
               "key": "SGW",
-              "salesperson": "",
-              "routeId": "63010040",
-              "salesOrg": "6310",
-              "siteSupplier": "",
-              "soldTo": "2000601927",
-              "validFrom": "2026-02-19T00:00:00.000Z",
-              "validTo": "9999-12-31T00:00:00.000Z"
+              "description": "Southern Glazers Wine & Spirits",
+              "repCompId": "1250",
+              "repCompDesc": "PHOENIX WINE & SPIRITS",
+              "salesOrganization": "5910",
+              "salesOrg": "5910",
+              "routeID": "59010114",
+              "validFrom": null,
+              "validTo": null
+            }
+          ],
+          "distributionCenters": [],
+          "contacts": [
+            {
+              "phone": "511-426-8322",
+              "email": "madison.dibbert20@gmail.com",
+              "name": "Madison Dibbert",
+              "contactID": "003bc00000tGzBEAA0"
             }
           ]
         },
         "request": {
-          "globalID": "2000601927",
+          "globalID": "2000604928",
           "action": null,
           "customer": "customer",
-          "id": "2000601927"
+          "id": "2000604928"
         }
       }
     }

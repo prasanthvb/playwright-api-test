@@ -1,6 +1,6 @@
 import { APIRequestContext, expect } from '@playwright/test';
 import apiPaths from '../../../data/api-data/api-path.json';
-import { awsConfig } from '../../../../config/api-config';
+import { awsConfig, getAuthHeaders } from '../../../../config/api-config';
 import { Payload } from '../payload/generate-new-customer-payload';
 
 interface AwsApiResponse {
@@ -14,14 +14,6 @@ interface AwsApiResponse {
 }
 
 const baseUrl = awsConfig.baseUrl;
-const apiKey = awsConfig.apiKey;
-
-// Helper to add API key header
-function authHeaders() {
-  return {
-    'x-api-key': apiKey ?? '',
-  };
-}
 
 /**Create Customer API */
 export async function createCustomer(request: APIRequestContext, payload: Payload) {
@@ -29,7 +21,7 @@ export async function createCustomer(request: APIRequestContext, payload: Payloa
   //   console.log('Create Payload:', JSON.stringify(payload, null, 2));
 
   const response = await request.post(`${baseUrl}${apiPaths['aws-create-customer']}`, {
-    headers: authHeaders(),
+    headers: getAuthHeaders(),
     data: payload,
     timeout: 60_000,
   });
@@ -66,7 +58,7 @@ export async function pollGetRequest(request: APIRequestContext, requestID: stri
 
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     const getReqResponse = await request.get(`${baseUrl}${apiPaths['aws-get-request']}`, {
-      headers: authHeaders(),
+      headers: getAuthHeaders(),
       data: { requestID },
       timeout: 30_000,
     });
@@ -90,7 +82,7 @@ export async function pollGetRequest(request: APIRequestContext, requestID: stri
 /** Get Customer by globalID */
 export async function getCustomerByGlobalID(request: APIRequestContext, globalID: string) {
   const getCustomerRes = await request.get(`${baseUrl}${apiPaths['aws-get-customer']}`, {
-    headers: authHeaders(),
+    headers: getAuthHeaders(),
     data: { globalID },
     timeout: 30_000,
   });
@@ -106,7 +98,7 @@ export async function getCustomerByGlobalID(request: APIRequestContext, globalID
 /** Get Customer by globalID */
 export async function getCustomerByLicenceNumber(request: APIRequestContext, alcoholLicenseNumber: string) {
   const getCustomerResponse = await request.get(`${baseUrl}${apiPaths['aws-get-customer']}`, {
-    headers: authHeaders(),
+    headers: getAuthHeaders(),
     data: { alcoholLicenseNumber },
     timeout: 30_000,
   });
@@ -153,7 +145,7 @@ export async function browseCustomers(request: APIRequestContext, payload: any) 
   //   );
   //   console.log("Browse Payload:", JSON.stringify(payload, null, 2));
   const response = await request.get(`${baseUrl}${apiPaths['aws-browse-customer']}`, {
-    headers: authHeaders(),
+    headers: getAuthHeaders(),
     data: payload,
     timeout: 60_000,
   });
