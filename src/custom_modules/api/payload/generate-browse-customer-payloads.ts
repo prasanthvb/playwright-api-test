@@ -1,4 +1,5 @@
 import data from '../../../data/api-data/test-data.json';
+import { AVAILABLE_STATES } from '../../common/common-utils/availableStates';
 
 interface BrowsePayload {
   sortToken?: string;
@@ -25,7 +26,7 @@ export function generateBrowseCustomerPayload(scenario: string): BrowsePayload {
   // Randomly select sortToken and sortDirection (can be blank)
   const sortTokenOptions = ['', data.sortTokenTime, data.sortTokenAccountName];
   const sortDirectionOptions = ['', data.sortDirectionAsc, data.sortDirectionDesc];
-  const stateOptions = [data.validState1, data.validState2];
+  const stateOptions = AVAILABLE_STATES.length > 0 ? AVAILABLE_STATES : [data.validState1, data.validState2];
 
   const basePayload: BrowsePayload = {
     sortToken: randomChoice(sortTokenOptions),
@@ -40,28 +41,28 @@ export function generateBrowseCustomerPayload(scenario: string): BrowsePayload {
     case 'validStateWithAccountName':
       return {
         ...basePayload,
-        state: data.validState1,
+        state: randomChoice(stateOptions),
         filterValue: data.accountNameFilter,
       };
 
     case 'validStateWithLicense':
       return {
         ...basePayload,
-        state: data.validState1,
+        state: randomChoice(stateOptions),
         filterValue: 'BQ1116872',
       };
 
     case 'validStateWithNonMatchingFilter':
       return {
         ...basePayload,
-        state: data.validState1,
+        state: randomChoice(stateOptions),
         filterValue: 'NONEXISTENT',
       };
 
     case 'validStateWithUnsupportedFilter':
       return {
         ...basePayload,
-        state: data.validState1,
+        state: randomChoice(stateOptions),
         filterValue: 'InvalidKey',
       };
 
@@ -81,7 +82,7 @@ export function generateBrowseCustomerPayload(scenario: string): BrowsePayload {
     case 'unauthorized':
       return {
         ...basePayload,
-        state: data.validState1,
+        state: randomChoice(stateOptions),
       };
 
     case 'databricks':
@@ -92,7 +93,7 @@ export function generateBrowseCustomerPayload(scenario: string): BrowsePayload {
         state: randomChoice(stateOptions),
         filterValue: '',
         database_mode: 'postgres',
-        source: 'databricks',
+        source: 'import_c360',
       };
 
     default:

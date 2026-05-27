@@ -412,5 +412,341 @@
     "distributionChannel": "On Premise",
     "permitCombo": "RETAIL DRINK LICENSE",
     "licenseType": "8"
-  }
+  },
+  {
+    "state": "KS",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "CEREAL MALT BEVERAGE (CMB) RETAILER - OFF PREMISE",
+    "licenseType": "2A"
+  },
+  { "state": "KS", "distributionChannel": "Off Premise", "permitCombo": "DISTRIBUTOR - BEER", "licenseType": "2" },
+  { "state": "KS", "distributionChannel": "Off Premise", "permitCombo": "DISTRIBUTOR - SPIRITS", "licenseType": "4" },
+  { "state": "KS", "distributionChannel": "Off Premise", "permitCombo": "DISTRIBUTOR - WINE", "licenseType": "3" },
+  { "state": "KS", "distributionChannel": "Off Premise", "permitCombo": "RETAILER'S LICENSE", "licenseType": "8" },
+  { "state": "KS", "distributionChannel": "On Premise", "permitCombo": "CATERER", "licenseType": "2" },
+  {
+    "state": "KS",
+    "distributionChannel": "On Premise",
+    "permitCombo": "CEREAL MALT BEVERAGE (CMB) RETAILER - ON PREMISE",
+    "licenseType": "2A"
+  },
+  {
+    "state": "KS",
+    "distributionChannel": "On Premise",
+    "permitCombo": "CEREAL MALT BEVERAGE (CMB) RETAILER - SPECIAL EVENT",
+    "licenseType": "2A"
+  },
+  {
+    "state": "KS",
+    "distributionChannel": "On Premise",
+    "permitCombo": "CLASS A CLUB - SOCIAL (500 MEMBERS OR LESS)",
+    "licenseType": "2"
+  },
+  {
+    "state": "KS",
+    "distributionChannel": "On Premise",
+    "permitCombo": "CLASS A CLUB - SOCIAL (OVER 500 MEMBERS)",
+    "licenseType": "2"
+  },
+  {
+    "state": "KS",
+    "distributionChannel": "On Premise",
+    "permitCombo": "CLASS A CLUB (FRATERNAL/VETERANS)",
+    "licenseType": "2"
+  },
+  { "state": "KS", "distributionChannel": "On Premise", "permitCombo": "CLASS B CLUB", "licenseType": "2" },
+  { "state": "KS", "distributionChannel": "On Premise", "permitCombo": "DRINKING ESTABLISHMENT", "licenseType": "2" },
+  {
+    "state": "KS",
+    "distributionChannel": "On Premise",
+    "permitCombo": "DRINKING ESTABLISHMENT/CATERER",
+    "licenseType": "2"
+  },
+  {
+    "state": "KS",
+    "distributionChannel": "On Premise",
+    "permitCombo": "HOTEL DRINKING ESTABLISHMENT",
+    "licenseType": "2"
+  },
+  {
+    "state": "KS",
+    "distributionChannel": "On Premise",
+    "permitCombo": "HOTEL DRINKING ESTABLISHMENT AND CATERER",
+    "licenseType": "2"
+  },
+  { "state": "KS", "distributionChannel": "On Premise", "permitCombo": "NON-BEVERAGE PERMIT", "licenseType": "8" },
+  {
+    "state": "KS",
+    "distributionChannel": "On Premise",
+    "permitCombo": "NON-BEVERAGE USER LICENSE",
+    "licenseType": "8"
+  },
+  { "state": "KS", "distributionChannel": "On Premise", "permitCombo": "PUBLIC VENUE", "licenseType": "2" },
+  {
+    "state": "MO",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "Beer Original Package License",
+    "licenseType": "2"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "Package Liquor (Includes Spirits, Wine and Beer)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Beer By the Drink License",
+    "licenseType": "2"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "5% Beer License (the 5% is re ABW)",
+    "licenseType": "2"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Beer and Light Wine By Drink",
+    "licenseType": "5"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Retail By the Drink License (Spirits, Wine and Beer)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Retail By the Drink License (Spirits, Wine and Beer) Tax Exempt",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Retail Liquor By the Drink Resort License (Spirits, Wine and Beer)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Retail by Drink Seasonal Resort License (Spirits, Wine and Beer)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Retail by Drink Boat License (Spirits, Wine and Beer)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Railroad by the Drink License (Spirits, Wine and Beer)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Retail By Drink License Entertainment District - Kansas City district office (Spirits, Wine and Beer)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Retail by Drink - Mall License (Common Eating and Drinking Areas - Spirits, Wine and Beer)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "State Fair License - State Fair Beer by Drink and Domestic Wine",
+    "licenseType": "5"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "State Fair License - State Fair Beer by Drink and Domestic Wine",
+    "licenseType": "5"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "State Fair License - State Fair Beer by Drink and Domestic Wine Exhibition/Grandstand",
+    "licenseType": "5"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "State Fair License - State Fair Beer by Drink and Domestic Wine Exhibition/Grandstand",
+    "licenseType": "5"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Beer and Light Wine By Drink - June 15 through July 15 for a Maximum of 7 Days",
+    "licenseType": "5"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "Beer and Light Wine By Drink - June 15 through July 15 for a Maximum of 7 Days",
+    "licenseType": "5"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "Beer and Light Wine By Drink Festival Permit",
+    "licenseType": "5"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Missouri Produced Wine by the Drink",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Picnic License (Not For Profit Organizations - Spirits, Wine and Beer - 7 days)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Retail By Drink Festival License (Spirits, Wine and Beer)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "Retail By Drink Festival License (Spirits, Wine and Beer)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Retail Liquor by the Drink Resort Temporary License (Spirits, Wine and Beer - 90 days)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Retail by the Drink Seasonal Resort Temporary License (Spirits, Wine and Beer - 90 days)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Beer and Light Wine by Drink Caterer's License",
+    "licenseType": "5"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "Beer and Light Wine by Drink Caterer's License",
+    "licenseType": "5"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Retail By Drink Caterer's License (Spirits, Wine and Beer)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "Retail By Drink Caterer's License (Spirits, Wine and Beer)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Retail by Drink Caterer's Permit (Spirits, Wine and Beer - 50 Days Maximum)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "Retail by Drink Caterer's Permit (Spirits, Wine and Beer - 50 Days Maximum)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "On Premise",
+    "permitCombo": "Retail by Drink Caterer's Permit (Spirits, Wine and Beer - Unlimited Number of Functions)",
+    "licenseType": "8"
+  },
+  {
+    "state": "MO",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "Retail by Drink Caterer's Permit (Spirits, Wine and Beer - Unlimited Number of Functions)",
+    "licenseType": "8"
+  },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "B-2", "licenseType": "3" },
+  {
+    "state": "OH",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "B-5 (PURCHASE FROM A-2 AND A-2F)",
+    "licenseType": "3"
+  },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "C-1", "licenseType": "2" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "C-2", "licenseType": "7" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "C-2X (ADDITION TO C-2)", "licenseType": "2" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-1", "licenseType": "2" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-1", "licenseType": "2" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-2", "licenseType": "7" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-2", "licenseType": "7" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-2X (ADDITION TO D-2)", "licenseType": "2" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-2X (ADDITION TO D-2)", "licenseType": "2" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-3X (ADDITION TO D-3)", "licenseType": "3" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-4", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-4A", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5A", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5A", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5B", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5B", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5C", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5C", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5D", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5D", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5E", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5E", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5F", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5F", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5G", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5G", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5H", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5H", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5I", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5I", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5J", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5J", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5K", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5K", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5L", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5L", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5M", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5M", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5N", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5N", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-5O", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "Off Premise", "permitCombo": "D-5O", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-7 (ADDITION TO D-2)", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "D-9", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "E", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "F", "licenseType": "2" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "F-11", "licenseType": "2" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "F-12", "licenseType": "5" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "F-2", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "F-5", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "F-6", "licenseType": "3" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "F-7", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "F-8", "licenseType": "8" },
+  { "state": "OH", "distributionChannel": "On Premise", "permitCombo": "F-9", "licenseType": "8" }
 ]

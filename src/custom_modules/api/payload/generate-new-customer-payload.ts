@@ -16,6 +16,7 @@ const distributionChannels: DistributionChannel[] = [
 
 // Define the main payload structure interface
 export interface Payload {
+  overrideLicenseFormat: boolean;
   accountName: string | null;
   legalOwnerName: string | null;
   distributionChannel: DistributionChannel | null;
@@ -64,6 +65,7 @@ export const basePayload: Payload = {
   phone: '',
   alcoholLicenseNumber: '',
   licenseType: '',
+  overrideLicenseFormat: false,
 };
 
 /**
@@ -120,6 +122,7 @@ export async function generatePayloadWithFakerData(): Promise<Payload> {
     // Default fallback
     newPayload.licenseType = faker.helpers.arrayElement(['5A', '3A', '8']);
   }
+  newPayload.overrideLicenseFormat = false;
 
   return newPayload;
 }

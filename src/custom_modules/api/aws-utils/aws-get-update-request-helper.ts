@@ -8,8 +8,8 @@ export const pollGetUpdateRequest = async (
   request: APIRequestContext,
   updateRequestID: string,
   globalID: string,
-  maxRetries = 10,
-  interval = 5000,
+  maxRetries = 20,
+  interval = 6000,
 ) => {
   let responseBody;
 
@@ -26,8 +26,14 @@ export const pollGetUpdateRequest = async (
     responseBody = await response.json();
 
     const status = responseBody?.data?.status;
+    // eslint-disable-next-line no-console
+    console.log(`[poll] attempt ${i + 1}/${maxRetries} → updateRequestID: ${updateRequestID}, status: ${status}`);
 
-    if (status === 'active' || status === 'error') {
+    if (status?.toLowerCase() === 'active' || status?.toLowerCase() === 'error') {
+      if (status?.toLowerCase() === 'error') {
+        // eslint-disable-next-line no-console
+        console.error('[poll] Update request returned Error:', JSON.stringify(responseBody?.data, null, 2));
+      }
       return responseBody;
     }
 

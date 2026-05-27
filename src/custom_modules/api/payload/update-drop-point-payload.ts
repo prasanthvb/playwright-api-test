@@ -1,9 +1,11 @@
 import { faker } from '@faker-js/faker';
 
 const name = ['Garage', 'Front Doorstep', 'Back Doorstep', 'Dock', 'Back Porch', 'Mailbox', 'Reception'];
+const note = 'Make no noise, Testing drop point update';
 interface dropPoint {
   addressID?: string;
   name?: string;
+  notes?: string;
 }
 
 export const getValidDropPointPayload = (addressID: string): { dropPoint: dropPoint } => {
@@ -13,6 +15,7 @@ export const getValidDropPointPayload = (addressID: string): { dropPoint: dropPo
     dropPoint: {
       addressID,
       name: selectedName,
+      notes: note,
     },
   };
 };

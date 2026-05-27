@@ -1,5 +1,5 @@
 {
-  "alcoholLicenseNumber": "ESTTSBHB457465RTS",
+  "alcoholLicenseNumber": "328-OM-107410",
   "invalidState": "NA",
   "longStreetAddress": "1234 Long Street Name That Exceeds The Maximum Length Allowed By The System, Which Is Quite Lengthy Indeed",
   "specialCharacters": "!@#$%^&*()_+{}|:\"<>?-=[]\\;',./`~",
@@ -13,5 +13,6 @@
   "sortDirectionDesc": "desc",
   "globalIDSandbox": "2000601357",
   "globalIDQA": "2000601404",
-  "licenseID": "OB80JGU3YCGETU72TB1ITHI174V5S430OSE3MIYM"
+  "globalIDDev": "2000511727",
+  "licenseID": "328-OM-107410"
 }

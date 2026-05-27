@@ -19,11 +19,11 @@ export const runUpdateFlow = async (request: APIRequestContext, updateResponse: 
   const updateRequestStatus = await pollGetUpdateRequest(request, updateRequestID, globalID);
   console.log('Final Update Request Status:', updateRequestStatus);
 
-  const finalStatus = updateRequestStatus?.data?.status;
+  const finalStatus = updateRequestStatus?.data?.status?.toLowerCase();
 
   console.log('Final Status:', finalStatus);
 
-  if (finalStatus !== 'active') {
+  if (finalStatus?.toLowerCase() !== 'active') {
     return {
       status: finalStatus,
       error: updateRequestStatus?.data?.error,

@@ -1,18 +1,19 @@
 import { faker } from '@faker-js/faker';
-import { US_LOCATIONS } from '../../common/common-utils/locationData';
+import { US_LOCATIONS, LocationEntry } from '../../common/common-utils/locationData';
 
 // Select a random location from our utility list
 const randomLocation = faker.helpers.arrayElement(US_LOCATIONS);
 
-export const getValidBillingAddressPayload = () => {
+export const getValidBillingAddressPayload = (location?: LocationEntry) => {
+  const loc = location ?? randomLocation;
   return {
     billingAddress: {
       sameAsShipping: false,
       billingEntityName: faker.company.name(),
-      addressLine1: faker.location.streetAddress(),
-      city: randomLocation.city,
-      state: randomLocation.state,
-      postalCode: randomLocation.postalCode,
+      addressLine1: loc.addressLine1,
+      city: loc.city,
+      state: loc.state,
+      postalCode: loc.postalCode,
     },
   };
 };
