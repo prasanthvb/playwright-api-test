@@ -57,7 +57,7 @@ test.describe('Verify Edit Payment Terms API', () => {
   });
   test('TC-PAY-02 | Verify edit payment details with missing payment terms', async ({ request }) => {
     const payload = missingPaymentTermsPayload();
-
+    console.log(JSON.stringify(payload, null, 2));
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=paymentDetails`,
       { data: payload, headers: getAuthHeaders() },

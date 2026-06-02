@@ -96,6 +96,7 @@ test.describe('Verify Edit License API', () => {
   test('TC-LIC-03 | Verify edit licence with Invalid license type', async ({ request }) => {
     const payload = getInvalidLicenseTypePayload();
     payload.license.number = licenceNumber; // Use existing license number
+    console.log(JSON.stringify(payload, null, 2));
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
       { data: payload, headers: getAuthHeaders() },

@@ -1,28 +1,28 @@
 {
-  "globalID": "2000511732",
+  "globalID": "2000511768",
   "baselineCustomer": {
     "getCustomerRes": {
       "_request": {
         "_type": "APIRequestContext",
-        "_guid": "request-context@19b42552a457d79f02a60353f51d160e"
+        "_guid": "request-context@873773c4879549abdccdfec46ccc3f04"
       },
       "_initializer": {
-        "fetchUid": "f5657d1437e2a6bab31276bd939a15b2",
+        "fetchUid": "3357b793e730ac1f0319a9b0868cb3ed",
         "url": "https://mo34phjt3f.execute-api.us-east-1.amazonaws.com/nonprod/get-customer",
         "status": 200,
         "statusText": "OK",
         "headers": [
           {
             "name": "x-amzn-RequestId",
-            "value": "53c09843-a271-4ad0-add8-89c15cc61552"
+            "value": "eed67d0f-1751-479c-b6d0-658fa6551274"
           },
           {
             "name": "x-amz-apigw-id",
-            "value": "daX0yH56IAMEl-A="
+            "value": "eFfRLGy5oAMEb5Q="
           },
           {
             "name": "X-Amzn-Trace-Id",
-            "value": "Root=1-6a0739b7-d4a4b0f0bea7de545038f53c;Parent=01848c07eb0d5423;Sampled=0;Lineage=1:4d979961:0"
+            "value": "Root=1-6a1878d3-8c76e3192eb20f8ee5e31a28;Parent=539e5bb779e64777;Sampled=0;Lineage=1:4d979961:0"
           },
           {
             "name": "Content-Type",
@@ -30,7 +30,7 @@
           },
           {
             "name": "Content-Length",
-            "value": "3295"
+            "value": "3257"
           },
           {
             "name": "Connection",
@@ -38,7 +38,7 @@
           },
           {
             "name": "Date",
-            "value": "Fri, 15 May 2026 15:20:23 GMT"
+            "value": "Thu, 28 May 2026 17:18:11 GMT"
           }
         ]
       },
@@ -49,15 +49,15 @@
         "_headersArray": [
           {
             "name": "x-amzn-RequestId",
-            "value": "53c09843-a271-4ad0-add8-89c15cc61552"
+            "value": "eed67d0f-1751-479c-b6d0-658fa6551274"
           },
           {
             "name": "x-amz-apigw-id",
-            "value": "daX0yH56IAMEl-A="
+            "value": "eFfRLGy5oAMEb5Q="
           },
           {
             "name": "X-Amzn-Trace-Id",
-            "value": "Root=1-6a0739b7-d4a4b0f0bea7de545038f53c;Parent=01848c07eb0d5423;Sampled=0;Lineage=1:4d979961:0"
+            "value": "Root=1-6a1878d3-8c76e3192eb20f8ee5e31a28;Parent=539e5bb779e64777;Sampled=0;Lineage=1:4d979961:0"
           },
           {
             "name": "Content-Type",
@@ -65,7 +65,7 @@
           },
           {
             "name": "Content-Length",
-            "value": "3295"
+            "value": "3257"
           },
           {
             "name": "Connection",
@@ -73,71 +73,71 @@
           },
           {
             "name": "Date",
-            "value": "Fri, 15 May 2026 15:20:23 GMT"
+            "value": "Thu, 28 May 2026 17:18:11 GMT"
           }
         ]
       }
     },
     "body": {
       "success": true,
-      "timestamp": "2026-05-15 15:20:14.569+00",
-      "eventType": "Create-Applicant-BFF-Orch-Event-Pd6CB7Gu0W",
-      "eventID": "Pd6CB7Gu0W",
-      "requestID": "Pd6CB7Gu0W",
+      "timestamp": "2026-05-28T17:18:03.523Z",
+      "eventType": "Create-Applicant-BFF-Orch-Event-UO70MaNdWR",
+      "eventID": "UO70MaNdWR",
+      "requestID": "UO70MaNdWR",
       "data": {
         "customer": {
-          "accountName": "CRUICKSHANK LLC",
-          "customerDomainID": "Pd6CB7Gu0W",
-          "globalID": "2000511732",
-          "customerID": "2000511732",
-          "contactFirstName": "Kenton",
-          "contactLastName": "Kilback",
-          "distributionChannel": "20",
-          "primaryEmail": "kenton_kilback16@yahoo.com",
-          "legalOwnerName": "HELLER - CRONIN LLC",
-          "phone": "333-519-7142",
+          "accountName": "GRANT - NIENOW",
+          "customerDomainID": "UO70MaNdWR",
+          "globalID": "2000511768",
+          "customerID": "2000511768",
+          "contactFirstName": "Oliver",
+          "contactLastName": "Torp",
+          "distributionChannel": "10",
+          "primaryEmail": "oliver.torp@gmail.com",
+          "legalOwnerName": "JACOBSON - O'CONNELL LLC",
+          "phone": "369-395-3746",
           "customerType": "Z001",
           "establishmentType": "999",
           "siteID": "70",
-          "customerGroup": "OF",
+          "customerGroup": "ON",
           "storeNumber": "",
           "customerAccountType": "Z002",
           "lifecycleStatus": "3",
           "source": "onboard",
           "addresses": [
             {
-              "addressID": "2000511732",
-              "alternateID": "547328",
-              "postalCodeExtension": "1828",
+              "addressID": "2000511768",
+              "alternateID": "547937",
+              "postalCodeExtension": "6809",
               "country": "US",
-              "countyCode": "0AQ",
-              "city": "PRINCETON",
+              "countyCode": "0CV",
+              "city": "RICHMOND",
               "addressType": "Shipping",
-              "postalCode": "42445",
-              "county": "CALDWELL",
-              "addressLine1": "13 JILL DR",
+              "postalCode": "40475",
+              "county": "MADISON",
+              "addressLine1": "1000 BLACKWELL CT # 2",
               "addressLine2": null,
               "state": "KY",
-              "name": "CRUICKSHANK LLC"
+              "name": "GRANT - NIENOW"
             }
           ],
           "licenses": [
             {
-              "number": "221-YCR-839904",
+              "number": "185-OYW-020844",
               "legalRegulation": "1",
-              "type": "QUOTA RETAIL PACKAGE LICENSE",
+              "type": "RETAIL DRINK LICENSE",
               "effectiveDate": "1900-01-01",
               "expirationDate": "9999-12-31",
               "status": "V",
-              "createdAt": "2026-05-15 15:20:14.569+00"
+              "createdAt": "2026-05-28"
             }
           ],
           "legalRegulation": "1",
-          "licenseType": "QUOTA RETAIL PACKAGE LICENSE",
+          "licenseType": "RETAIL DRINK LICENSE",
           "licenseEffectiveDate": "1900-01-01",
           "licenseExpirationDate": "9999-12-31",
           "licenseStatus": "V",
-          "licenseNumber": "221-YCR-839904",
+          "licenseNumber": "185-OYW-020844",
           "salesOrganization": "4410",
           "salesDivision": "10",
           "salesOffice": "4401",
@@ -231,18 +231,18 @@
           "distributionCenters": [],
           "contacts": [
             {
-              "phone": "333-519-7142",
-              "email": "kenton_kilback16@yahoo.com",
-              "name": "Kenton Kilback",
-              "contactID": "003bc00000vcZDdAAM"
+              "phone": "369-395-3746",
+              "email": "oliver.torp@gmail.com",
+              "name": "Oliver Torp",
+              "contactID": "003bc00000wTNPmAAO"
             }
           ]
         },
         "request": {
-          "globalID": "2000511732",
+          "globalID": "2000511768",
           "action": null,
           "customer": "customer",
-          "id": "2000511732"
+          "id": "2000511768"
         }
       }
     }

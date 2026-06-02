@@ -69,6 +69,7 @@ test.describe('Verify Add License API', () => {
   test('TC-LIC-10 | Verify add with duplicate license number', async ({ request }) => {
     const payload = getDuplicateLicensePayload();
     payload.license.operation = 'add';
+    console.log(JSON.stringify(payload, null, 2));
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
       { data: payload, headers: getAuthHeaders() },

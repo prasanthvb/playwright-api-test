@@ -80,6 +80,7 @@ test.describe('Verify Edit Billing Address API', () => {
 
   test('TC-BILL-02 | Verify edit billing address with invalid details', async ({ request }) => {
     const payload = getInvalidBillingAddressPayload();
+    console.log(JSON.stringify(payload, null, 2));
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=billingAddress`,
       { data: payload, headers: getAuthHeaders() },

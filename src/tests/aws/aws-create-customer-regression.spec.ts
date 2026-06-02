@@ -162,7 +162,7 @@ test.describe('AWS Create Customer - Get Request - Get Customer - API Test Cases
   test('CC-12 Invalid State input', async ({ request }) => {
     const payload = await generatePayloadWithFakerData();
     payload.Address[0].state = data.invalidState;
-
+    console.log(JSON.stringify(payload, null, 2));
     const result = await runFullFlow(request, payload, 'Invalid State Input');
     expect(result).toBeDefined();
     expect(result.status).toBe(200);
