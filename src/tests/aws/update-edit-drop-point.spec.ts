@@ -4,7 +4,10 @@ import path from 'path';
 import data from '../../data/api-data/test-data.json';
 import apiPaths from '../../data/api-data/api-path.json';
 import { createBaselineWithRetry } from '../../custom_modules/api/aws-utils/aws-create-update-baseline-helper';
-import { getValidDropPointPayload } from '../../custom_modules/api/payload/update-drop-point-payload';
+import {
+  getInvalidAddressIDDropPointPayload,
+  getValidDropPointPayload,
+} from '../../custom_modules/api/payload/update-drop-point-payload';
 import { runUpdateFlow } from '../../custom_modules/api/aws-utils/aws-update-flow-helper';
 const baselineFilePath = path.join(process.cwd(), 'src/data/update-baseline/drop-point.json');
 
@@ -57,5 +60,29 @@ test.describe('Verify Edit Drop Point API', () => {
       payload.dropPoint.name?.toUpperCase(),
     );
     expect(updateResult.updatedCustomer?.body.data.customer.addresses[0].addressID).toBe(payload.dropPoint.addressID);
+  });
+
+  test('TC-DP-02 | Verify edit drop point with invalid addressID', async ({ request }) => {
+    const payload = getInvalidAddressIDDropPointPayload();
+    console.log('Payload for Drop Point Update with Invalid AddressID:', JSON.stringify(payload, null, 2));
+    const response = await request.patch(
+      `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=droppoint`,
+      { data: payload, headers: getAuthHeaders() },
+    );
+
+    expect(response.status()).toBe(200);
+
+    const body = await response.json();
+    expect(body.updateRequestID).toBeTruthy();
+    console.log(body);
+
+    const updateResult = await runUpdateFlow(request, body, globalID);
+
+    expect(updateResult.status).toBe('active');
+    console.log(JSON.stringify(updateResult.updatedCustomer?.body.data.customer.addresses[0], null, 2));
+    console.log(JSON.stringify(payload.dropPoint, null, 2));
+    expect(updateResult.updatedCustomer?.body.data.customer.addresses[0].locations[0].name.toUpperCase()).toBe(
+      payload.dropPoint.name?.toUpperCase(),
+    );
   });
 });

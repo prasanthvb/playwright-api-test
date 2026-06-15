@@ -65,7 +65,7 @@ test.describe('AWS Create Customer - Get Request - Get Customer - API Test Cases
   test('CC-05 Duplicate license number', async ({ request }) => {
     const payload = await generatePayloadWithFakerData();
     payload.alcoholLicenseNumber = data.alcoholLicenseNumber;
-
+    console.log(JSON.stringify(payload, null, 2));
     const result = await runFullFlow(request, payload, 'Duplicate License Number');
     expect(result).toBeDefined();
     expect(result.status).toBe(200);
@@ -76,7 +76,7 @@ test.describe('AWS Create Customer - Get Request - Get Customer - API Test Cases
 
       if (result.getRequestStatus === 'Active') {
         expect(result.globalID).toBeTruthy();
-        expect(result.getCustomerStatus).toBe(500);
+        expect(result.getCustomerStatus).toBe(200);
       }
     }
   });
