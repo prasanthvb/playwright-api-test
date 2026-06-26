@@ -119,7 +119,7 @@ test.describe('AWS Update Customers API - Databricks', () => {
     expect(found, 'No valid SAP-provisioned active import record found in browse response').toBeTruthy();
   });
   test('TC-LIC-01 | Verify edit license with valid details', async ({ request }) => {
-    const payload = getValidLicensePayload();
+    const payload = getValidLicensePayload(selectedState);
     payload.license.number = licenseNumber; // Use existing license number
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
@@ -144,7 +144,7 @@ test.describe('AWS Update Customers API - Databricks', () => {
   });
 
   test('TC-LIC-02 | Verify add license with valid details', async ({ request }) => {
-    const payload = addNewLicensePayload();
+    const payload = addNewLicensePayload(selectedState);
 
     // Pick a random permit combo for the selected state from licenseType.json
     const statePermits = licenseTypeData.filter((entry) => entry.state === selectedState);

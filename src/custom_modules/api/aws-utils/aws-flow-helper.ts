@@ -83,7 +83,14 @@ export async function runFullFlow(request: APIRequestContext, payload: Payload, 
         .trim(),
     );
     expect(data_GID.legalOwnerName).toBe(payload.legalOwnerName?.toUpperCase());
-    expect(data_GID.licenses?.[0]?.number).toBe(payload.alcoholLicenseNumber);
+    
+    // Skip license number validation for NON ALCOHOL and LICENSE EXEMPT types
+    // as these don't require actual license numbers
+    const exemptLicenseTypes = ['NON ALCOHOL', 'LICENSE EXEMPT', 'NON ALCOHOLIC'];
+    if (!exemptLicenseTypes.includes(payload.licenseType ?? '')) {
+      expect(data_GID.licenses?.[0]?.number).toBe(payload.alcoholLicenseNumber);
+    }
+    
     // SAP may auto-correct/normalize city names (e.g. typos in source data).
     // Use a loose check: returned city should be truthy; log if it differs.
     const sentCity_GID = payload.Address?.[0]?.city?.toUpperCase() ?? '';

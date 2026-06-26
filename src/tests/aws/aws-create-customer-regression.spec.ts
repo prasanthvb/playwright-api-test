@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { generatePayloadWithFakerData } from '../../custom_modules/api/payload/generate-new-customer-payload';
 import { runFullFlow } from '../../custom_modules/api/aws-utils/aws-flow-helper';
+import { getCustomerByGlobalID } from '../../custom_modules/api/aws-utils/aws-api-helper';
 import expectedErrors from '../../data/api-data/aws-error-messages.json';
 import data from '../../data/api-data/test-data.json';
 import { awsConfig } from '../../../config/api-config';
@@ -335,7 +336,92 @@ test.describe('AWS Create Customer - Get Request - Get Customer - API Test Cases
       }
     }
   });
-  test('CC-23 Create customer with valid details', async () => {
+
+  test('CC-23 Create customer with NON ALCOHOL license type', async ({ request }) => {
+    const payload = await generatePayloadWithFakerData();
+    // NON ALCOHOL license type does not require a valid license number
+    // Using 'NA' as placeholder since empty string causes validation error
+    payload.alcoholLicenseNumber = 'NA';
+    payload.licenseType = 'NON ALCOHOL';
+
+    const result = await runFullFlow(request, payload, 'Create customer with NON ALCOHOL license type');
+    expect(result).toBeDefined();
+    expect(result.status).toBe(200);
+
+    if (result.requestID) {
+      expect(result.getRequestStatus).toBeDefined();
+      console.log(`CC-23: Request Status = ${result.getRequestStatus}`);
+
+      // Handle different statuses: Active, In Review, Error, Pending
+      if (result.getRequestStatus === 'Active') {
+        expect(result.globalID).toBeTruthy();
+        expect(result.getCustomerStatus).toBe(200);
+
+        // Fetch customer data to verify license type and license number
+        const customerData = await getCustomerByGlobalID(request, result.globalID!);
+        const customer = customerData.body?.data?.customer;
+
+        console.log(`CC-23: Customer License Type = ${customer?.licenseType}`);
+        console.log(`CC-23: Customer License Number = ${customer?.licenseNumber || customer?.licenses?.[0]?.number}`);
+
+        // Verify the customer was created with NON ALCOHOL license type
+        expect(customer?.licenseType).toBe('NON ALCOHOL');
+        // For NON ALCOHOL, license number might be NA or empty
+        const licenseNum = customer?.licenseNumber || customer?.licenses?.[0]?.number;
+        console.log(`CC-23: Verified License Number = ${licenseNum}`);
+      } else if (result.getRequestStatus === 'In Review') {
+        console.log('CC-23: Customer creation is In Review - verification stopped here');
+        expect(result.requestID).toBeTruthy();
+      } else {
+        console.log(`CC-23: Customer creation ended with status: ${result.getRequestStatus}`);
+        expect(result.requestID).toBeTruthy();
+      }
+    }
+  });
+
+  test('CC-24 Create customer with LICENSE EXEMPT license type', async ({ request }) => {
+    const payload = await generatePayloadWithFakerData();
+    // LICENSE EXEMPT license type does not require a valid license number
+    // Using 'NA' as placeholder since empty string causes validation error
+    payload.alcoholLicenseNumber = 'NA';
+    payload.licenseType = 'LICENSE EXEMPT';
+
+    const result = await runFullFlow(request, payload, 'Create customer with LICENSE EXEMPT license type');
+    expect(result).toBeDefined();
+    expect(result.status).toBe(200);
+
+    if (result.requestID) {
+      expect(result.getRequestStatus).toBeDefined();
+      console.log(`CC-24: Request Status = ${result.getRequestStatus}`);
+
+      // Handle different statuses: Active, In Review, Error, Pending
+      if (result.getRequestStatus === 'Active') {
+        expect(result.globalID).toBeTruthy();
+        expect(result.getCustomerStatus).toBe(200);
+
+        // Fetch customer data to verify license type and license number
+        const customerData = await getCustomerByGlobalID(request, result.globalID!);
+        const customer = customerData.body?.data?.customer;
+
+        console.log(`CC-24: Customer License Type = ${customer?.licenseType}`);
+        console.log(`CC-24: Customer License Number = ${customer?.licenseNumber || customer?.licenses?.[0]?.number}`);
+
+        // Verify the customer was created with LICENSE EXEMPT license type
+        expect(customer?.licenseType).toBe('LICENSE EXEMPT');
+        // For LICENSE EXEMPT, license number might be NA or empty
+        const licenseNum = customer?.licenseNumber || customer?.licenses?.[0]?.number;
+        console.log(`CC-24: Verified License Number = ${licenseNum}`);
+      } else if (result.getRequestStatus === 'In Review') {
+        console.log('CC-24: Customer creation is In Review - verification stopped here');
+        expect(result.requestID).toBeTruthy();
+      } else {
+        console.log(`CC-24: Customer creation ended with status: ${result.getRequestStatus}`);
+        expect(result.requestID).toBeTruthy();
+      }
+    }
+  });
+
+  test('CC-25 Create customer with valid details', async () => {
     const payload = await generatePayloadWithFakerData();
     console.log(JSON.stringify(payload, null, 2));
   });

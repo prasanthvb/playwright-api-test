@@ -22,6 +22,7 @@ const baseUrl = awsConfig.baseUrl;
 test.describe('Verify Edit License API', () => {
   let globalID: string;
   let licenceNumber: string;
+  let customerState: string;
 
   test.beforeAll(async ({ request }) => {
     // This will create a new baseline customer and return globalID and licenceNumber
@@ -29,19 +30,22 @@ test.describe('Verify Edit License API', () => {
     if (baselineResult) {
       globalID = baselineResult.globalID;
       licenceNumber = baselineResult.licenceNumber || '';
+      customerState = baselineResult.getCustomerAddress?.state || 'KY';
     } else {
       globalID = data.globalIDQA;
       licenceNumber = '';
+      customerState = 'KY'; // Default to KY if baseline creation fails
     }
     if (!globalID || globalID === 'NA') {
       globalID = data.globalIDQA;
     }
     // globalID = data.globalIDQA;
     expect(globalID).toBeTruthy();
+    expect(customerState).toBeTruthy();
   });
 
   test('TC-LIC-01 | Verify edit license with valid details', async ({ request }) => {
-    const payload = getValidLicensePayload();
+    const payload = getValidLicensePayload(customerState);
     payload.license.number = licenceNumber; // Use existing license number
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
@@ -63,12 +67,12 @@ test.describe('Verify Edit License API', () => {
     expect(updateResult.updatedCustomer?.body.data.customer.licenses[0].expirationDate).toBe(
       payload.license.expirationDate,
     );
-    expect(updateResult.updatedCustomer?.body.data.customer.licenses[0].type).toBe('ZGAL');
+    expect(updateResult.updatedCustomer?.body.data.customer.licenses[0].type).toBe(payload.license.type);
     expect(updateResult.updatedCustomer?.body.data.customer.licenses[0].legalRegulation).toBe('1');
   });
 
   test('TC-LIC-02 | Verify edit with duplicate license number', async ({ request }) => {
-    const payload = getDuplicateLicensePayload();
+    const payload = getDuplicateLicensePayload(customerState);
 
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
@@ -89,14 +93,13 @@ test.describe('Verify Edit License API', () => {
     expect(updateResult.updatedCustomer?.body.data.customer.licenses[0].expirationDate).not.toBe(
       payload.license.expirationDate,
     );
-    expect(updateResult.updatedCustomer?.body.data.customer.licenses[0].type).toBe('ZGAL');
+    expect(updateResult.updatedCustomer?.body.data.customer.licenses[0].type).toBe(payload.license.type);
     expect(updateResult.updatedCustomer?.body.data.customer.licenses[0].legalRegulation).toBe('1');
   });
 
   test('TC-LIC-03 | Verify edit licence with Invalid license type', async ({ request }) => {
     const payload = getInvalidLicenseTypePayload();
     payload.license.number = licenceNumber; // Use existing license number
-    console.log(JSON.stringify(payload, null, 2));
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
       { data: payload, headers: getAuthHeaders() },
@@ -113,7 +116,7 @@ test.describe('Verify Edit License API', () => {
   });
 
   test('TC-LIC-04 | Verify edit licence with Invalid effective date and expiration date', async ({ request }) => {
-    const payload = getInvalidLicenseDatesPayload();
+    const payload = getInvalidLicenseDatesPayload(customerState);
     payload.license.number = licenceNumber; // Use existing license number
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
@@ -143,8 +146,7 @@ test.describe('Verify Edit License API', () => {
   });
 
   test('TC-LIC-06 | Verify edit licence with missing license number', async ({ request }) => {
-    const payload = getMissingLicenseNumberPayload();
-
+    const payload = getMissingLicenseNumberPayload(customerState);
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
       { data: payload, headers: getAuthHeaders() },
@@ -159,8 +161,7 @@ test.describe('Verify Edit License API', () => {
   test('TC-LIC-07 | Verify edit licence with missing license effective date and expiration date', async ({
     request,
   }) => {
-    const payload = getMissingLicenseDatesPayload();
-
+    const payload = getMissingLicenseDatesPayload(customerState);
     const response = await request.patch(
       `${baseUrl}${apiPaths['update-customer-account-details']}/${globalID}?action=license`,
       { data: payload, headers: getAuthHeaders() },

@@ -58,7 +58,7 @@ test.describe('AWS Update Customers API - New Customer E2E', () => {
     );
   });
   test('TC-LIC-01 | Verify edit license with valid details', async ({ request }) => {
-    const payload = getValidLicensePayload();
+    const payload = getValidLicensePayload(selectedState);
     payload.license.number = licenseNumber;
     console.log(`\n[TC-LIC-01] ── REQUEST ──────────────────────────────`);
     console.log(`[TC-LIC-01] globalID: ${globalID}`);
@@ -97,7 +97,7 @@ test.describe('AWS Update Customers API - New Customer E2E', () => {
   });
 
   test('TC-LIC-02 | Verify add license with valid details', async ({ request }) => {
-    const payload = addNewLicensePayload();
+    const payload = addNewLicensePayload(selectedState);
     const statePermits = licenseTypeData.filter((entry) => entry.state === selectedState);
     const randomPermit =
       statePermits.length > 0 ? statePermits[Math.floor(Math.random() * statePermits.length)] : undefined;
