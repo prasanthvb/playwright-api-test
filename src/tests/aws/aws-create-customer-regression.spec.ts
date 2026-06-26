@@ -340,8 +340,7 @@ test.describe('AWS Create Customer - Get Request - Get Customer - API Test Cases
   test('CC-23 Create customer with NON ALCOHOL license type', async ({ request }) => {
     const payload = await generatePayloadWithFakerData();
     // NON ALCOHOL license type does not require a valid license number
-    // Using 'NA' as placeholder since empty string causes validation error
-    payload.alcoholLicenseNumber = 'NA';
+    // payload.alcoholLicenseNumber = 'NA';
     payload.licenseType = 'NON ALCOHOL';
 
     const result = await runFullFlow(request, payload, 'Create customer with NON ALCOHOL license type');
@@ -382,8 +381,7 @@ test.describe('AWS Create Customer - Get Request - Get Customer - API Test Cases
   test('CC-24 Create customer with LICENSE EXEMPT license type', async ({ request }) => {
     const payload = await generatePayloadWithFakerData();
     // LICENSE EXEMPT license type does not require a valid license number
-    // Using 'NA' as placeholder since empty string causes validation error
-    payload.alcoholLicenseNumber = 'NA';
+    // payload.alcoholLicenseNumber = 'NA';
     payload.licenseType = 'LICENSE EXEMPT';
 
     const result = await runFullFlow(request, payload, 'Create customer with LICENSE EXEMPT license type');

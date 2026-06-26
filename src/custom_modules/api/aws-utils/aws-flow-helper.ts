@@ -83,14 +83,14 @@ export async function runFullFlow(request: APIRequestContext, payload: Payload, 
         .trim(),
     );
     expect(data_GID.legalOwnerName).toBe(payload.legalOwnerName?.toUpperCase());
-    
+
     // Skip license number validation for NON ALCOHOL and LICENSE EXEMPT types
     // as these don't require actual license numbers
     const exemptLicenseTypes = ['NON ALCOHOL', 'LICENSE EXEMPT', 'NON ALCOHOLIC'];
     if (!exemptLicenseTypes.includes(payload.licenseType ?? '')) {
       expect(data_GID.licenses?.[0]?.number).toBe(payload.alcoholLicenseNumber);
     }
-    
+
     // SAP may auto-correct/normalize city names (e.g. typos in source data).
     // Use a loose check: returned city should be truthy; log if it differs.
     const sentCity_GID = payload.Address?.[0]?.city?.toUpperCase() ?? '';
@@ -136,66 +136,74 @@ export async function runFullFlow(request: APIRequestContext, payload: Payload, 
       expect(validCombos).toContain(data_GID.licenses?.[0]?.licenseType);
     }
 
-    // Verifiy with Alcohol License Number
-    if (!alcoholLicenseNumber) {
-      throw new Error('alcoholLicenseNumber is undefined');
-    }
-    const customer_ALN = await getCustomerByLicenceNumber(request, alcoholLicenseNumber);
-    getCustomerStatus = customer_ALN.getCustomerResponse.status();
-    if (getCustomerStatus === 200) {
-      const data_ALN = customer_GID.body.data.customer;
-
-      expect(data_ALN).toBeDefined();
-      expect(
-        data_ALN.accountName
-          ?.toUpperCase()
-          .replace(/\s*&\s*/g, '&') // normalize spaces around &
-          .replace(/\s*AND\s*/g, '&') // convert "AND" to "&"
-          .trim(),
-      ).toBe(
-        payload.accountName
-          ?.toUpperCase()
-          .replace(/\s*&\s*/g, '&')
-          .replace(/\s*AND\s*/g, '&')
-          .trim(),
+    // Skip license number verification for NON ALCOHOL and LICENSE EXEMPT types
+    // as these don't have searchable license numbers in the system
+    if (exemptLicenseTypes.includes(payload.licenseType ?? '')) {
+      console.log(
+        `✅ Customer Active (${globalID}) verified successfully — license lookup skipped for ${payload.licenseType}`,
       );
-      expect(data_ALN.legalOwnerName).toBe(payload.legalOwnerName?.toUpperCase());
-      expect(data_ALN.licenses?.[0]?.number).toBe(payload.alcoholLicenseNumber);
-      // SAP may normalize city names — log mismatch but do not fail
-      const sentCity_ALN = payload.Address?.[0]?.city?.toUpperCase() ?? '';
-      const returnedCity_ALN = (data_ALN.addresses?.[0]?.city ?? '').toUpperCase();
-      if (sentCity_ALN !== returnedCity_ALN) {
-        console.warn(
-          `[flow-helper ALN] City mismatch (SAP normalized): sent="${sentCity_ALN}" returned="${returnedCity_ALN}"`,
-        );
+    } else {
+      // Verify with Alcohol License Number
+      if (!alcoholLicenseNumber) {
+        throw new Error('alcoholLicenseNumber is undefined');
       }
-      expect(returnedCity_ALN).toBeTruthy();
-      expect(data_ALN.addresses?.[0]?.state).toBe(payload.Address?.[0]?.state?.toUpperCase());
-      // SAP may normalize postal code and county
-      const sentPostal_ALN = payload.Address?.[0]?.postalCode ?? '';
-      const returnedPostal_ALN = data_ALN.addresses?.[0]?.postalCode ?? '';
-      if (sentPostal_ALN !== returnedPostal_ALN) {
-        console.warn(
-          `[flow-helper ALN] PostalCode mismatch (SAP normalized): sent="${sentPostal_ALN}" returned="${returnedPostal_ALN}"`,
-        );
-      }
-      expect(returnedPostal_ALN).toBeTruthy();
-      expect(data_ALN.addresses?.[0]?.country).toBe(payload.Address?.[0]?.country?.toUpperCase());
-      const sentCounty_ALN = payload.Address?.[0]?.county?.toUpperCase() ?? '';
-      const returnedCounty_ALN = (data_ALN.addresses?.[0]?.county ?? '').toUpperCase();
-      if (sentCounty_ALN !== returnedCounty_ALN) {
-        console.warn(
-          `[flow-helper ALN] County mismatch (SAP normalized): sent="${sentCounty_ALN}" returned="${returnedCounty_ALN}"`,
-        );
-      }
-      expect(returnedCounty_ALN).toBeTruthy();
-      expect(data_ALN.globalID).toBe(globalID);
+      const customer_ALN = await getCustomerByLicenceNumber(request, alcoholLicenseNumber);
+      getCustomerStatus = customer_ALN.getCustomerResponse.status();
+      if (getCustomerStatus === 200) {
+        const data_ALN = customer_GID.body.data.customer;
 
-      console.log(`✅ Customer Active (${globalID}) verified successfully with 200 OK`);
-    } else if (getCustomerStatus === 500) {
-      const body = await customer_ALN.getCustomerResponse.json().catch(() => ({}));
-      expect(body.error).toContain('Multiple customers with licenseID');
-    }
+        expect(data_ALN).toBeDefined();
+        expect(
+          data_ALN.accountName
+            ?.toUpperCase()
+            .replace(/\s*&\s*/g, '&') // normalize spaces around &
+            .replace(/\s*AND\s*/g, '&') // convert "AND" to "&"
+            .trim(),
+        ).toBe(
+          payload.accountName
+            ?.toUpperCase()
+            .replace(/\s*&\s*/g, '&')
+            .replace(/\s*AND\s*/g, '&')
+            .trim(),
+        );
+        expect(data_ALN.legalOwnerName).toBe(payload.legalOwnerName?.toUpperCase());
+        expect(data_ALN.licenses?.[0]?.number).toBe(payload.alcoholLicenseNumber);
+        // SAP may normalize city names — log mismatch but do not fail
+        const sentCity_ALN = payload.Address?.[0]?.city?.toUpperCase() ?? '';
+        const returnedCity_ALN = (data_ALN.addresses?.[0]?.city ?? '').toUpperCase();
+        if (sentCity_ALN !== returnedCity_ALN) {
+          console.warn(
+            `[flow-helper ALN] City mismatch (SAP normalized): sent="${sentCity_ALN}" returned="${returnedCity_ALN}"`,
+          );
+        }
+        expect(returnedCity_ALN).toBeTruthy();
+        expect(data_ALN.addresses?.[0]?.state).toBe(payload.Address?.[0]?.state?.toUpperCase());
+        // SAP may normalize postal code and county
+        const sentPostal_ALN = payload.Address?.[0]?.postalCode ?? '';
+        const returnedPostal_ALN = data_ALN.addresses?.[0]?.postalCode ?? '';
+        if (sentPostal_ALN !== returnedPostal_ALN) {
+          console.warn(
+            `[flow-helper ALN] PostalCode mismatch (SAP normalized): sent="${sentPostal_ALN}" returned="${returnedPostal_ALN}"`,
+          );
+        }
+        expect(returnedPostal_ALN).toBeTruthy();
+        expect(data_ALN.addresses?.[0]?.country).toBe(payload.Address?.[0]?.country?.toUpperCase());
+        const sentCounty_ALN = payload.Address?.[0]?.county?.toUpperCase() ?? '';
+        const returnedCounty_ALN = (data_ALN.addresses?.[0]?.county ?? '').toUpperCase();
+        if (sentCounty_ALN !== returnedCounty_ALN) {
+          console.warn(
+            `[flow-helper ALN] County mismatch (SAP normalized): sent="${sentCounty_ALN}" returned="${returnedCounty_ALN}"`,
+          );
+        }
+        expect(returnedCounty_ALN).toBeTruthy();
+        expect(data_ALN.globalID).toBe(globalID);
+
+        console.log(`✅ Customer Active (${globalID}) verified successfully with 200 OK`);
+      } else if (getCustomerStatus === 500) {
+        const body = await customer_ALN.getCustomerResponse.json().catch(() => ({}));
+        expect(body.error).toContain('Multiple customers with licenseID');
+      }
+    } // end of else block for non-exempt license types
   } else if (getRequestStatus === 'Error') {
     console.error('❌ Customer creation failed (Status: Error)');
   } else {
