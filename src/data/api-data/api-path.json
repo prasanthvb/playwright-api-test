@@ -4,5 +4,6 @@
   "aws-get-customer": "/get-customer",
   "aws-browse-customer": "/browse-customers",
   "update-customer-account-details": "/customer",
-  "get-update-request": "/get-update-request"
+  "get-update-request": "/get-update-request",
+  "update-default-route": "/admin/sales_organization"
 }

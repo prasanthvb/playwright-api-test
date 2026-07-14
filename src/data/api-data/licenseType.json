@@ -414,6 +414,120 @@
     "licenseType": "8"
   },
   {
+    "state": "KY",
+    "distributionChannel": "On Premise",
+    "permitCombo": "QUOTA RETAIL PACKAGE LICENSE",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIMITED NON QUOTA PACKAGE - REQUIRES NQ1/NQ3/LD/LR PERMIT",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "LIMITED NON QUOTA PACKAGE - REQUIRES NQ1/NQ3/LD/LR PERMIT",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "QUOTA RETAIL PACKAGE",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "WHOLESALER",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "On Premise",
+    "permitCombo": "CATERER",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "On Premise",
+    "permitCombo": "ENTERTAINMENT DESTINATION CENTER",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIMITED GOLF COURSE",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "LIMITED GOLF COURSE",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "On Premise",
+    "permitCombo": "LIMITED RESTAURANT",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "On Premise",
+    "permitCombo": "NQ1 RETAIL DRINK",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "On Premise",
+    "permitCombo": "NQ2 RETAIL DRINK",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "On Premise",
+    "permitCombo": "NQ3 RETAIL DRINK",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "On Premise",
+    "permitCombo": "QUALIFIED HISTORIC SITE",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "SPECIAL NONBEVERAGE ALCOHOL",
+    "licenseType": "1"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "SPECIAL TEMPORARY",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "SPECIAL TEMPORARY ALCOHOLIC BEVERAGE AUCTION",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "On Premise",
+    "permitCombo": "TRANSITIONAL DISTILLED SPIRITS AND WINE",
+    "licenseType": "7"
+  },
+  {
+    "state": "KY",
+    "distributionChannel": "Off Premise",
+    "permitCombo": "TRANSITIONAL DISTILLED SPIRITS AND WINE",
+    "licenseType": "7"
+  },
+  {
     "state": "KS",
     "distributionChannel": "Off Premise",
     "permitCombo": "CEREAL MALT BEVERAGE (CMB) RETAILER - OFF PREMISE",
