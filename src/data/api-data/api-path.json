@@ -5,5 +5,8 @@
   "aws-browse-customer": "/browse-customers",
   "update-customer-account-details": "/customer",
   "get-update-request": "/get-update-request",
-  "update-default-route": "/admin/sales_organization"
+  "update-default-route": "/admin/sales_organization",
+  "update-admin-site": "/admin/site",
+  "update-admin-sales-office": "/admin/sales-office",
+  "update-admin-license-type": "/admin/license-type"
 }

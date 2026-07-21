@@ -1,0 +1,20 @@
+[
+  { "siteId": "14", "state": "FL", "name": "Southern Wine & Spirit of FL" },
+  { "siteId": "31", "state": "NV", "name": "SPARKS" },
+  { "siteId": "43", "state": "IN", "name": "GLAZERS INDIANA SITE 0043" },
+  { "siteId": "45", "state": "KY", "name": "GLAZERS KENTUCKY SITE 0045" },
+  { "siteId": "48", "state": "PA", "name": "SGWS Pennsylvania" },
+  { "siteId": "81", "state": "MI", "name": "SOUTHERN WINE & SPIRITS OF MI" },
+  { "siteId": "92", "state": "NJ", "name": "New Jersey" },
+  { "siteId": "115", "state": "DE", "name": "Southern Wine & Spirit of Delaware" },
+  { "siteId": "121", "state": "AK", "name": "ODOM CORP/ANCHORAGE (30)" },
+  { "siteId": "122", "state": "AK", "name": "ODOM CORP/FAIRBANKS (32)" },
+  { "siteId": "123", "state": "AK", "name": "ODOM CORP/ALASKA (52)" },
+  { "siteId": "126", "state": "ID", "name": "ODOM CORP/LEWISTON (73)" },
+  { "siteId": "129", "state": "ID", "name": "ODOM CORP/COEUR D'ALENE (75)" },
+  { "siteId": "132", "state": "WA", "name": "ODOM CORP/WALLA WALLA (SR74)" },
+  { "siteId": "133", "state": "WA", "name": "ODOM CORP/SPOKANE(SR77)" },
+  { "siteId": "134", "state": "WA", "name": "ODOM CORP./OMAK(SR84)" },
+  { "siteId": "136", "state": "WA", "name": "ODOM CORP./MOSES LAKE (SR 85)" },
+  { "siteId": "139", "state": "OR", "name": "Odom-Portland" }
+]
