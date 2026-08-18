@@ -8,5 +8,8 @@
   "update-default-route": "/admin/sales_organization",
   "update-admin-site": "/admin/site",
   "update-admin-sales-office": "/admin/sales-office",
-  "update-admin-license-type": "/admin/license-type"
+  "update-admin-license-type": "/admin/license-type",
+  "admin-audit-customer": "/admin/audit/customer",
+  "admin-audit-agent": "/admin/audit/agent",
+  "create-support-case": "/case-creation"
 }
