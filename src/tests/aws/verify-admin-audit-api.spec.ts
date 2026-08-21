@@ -65,9 +65,12 @@ test.describe('CUSTOMER-115 | Verify Admin Audit API', () => {
     const expectedEmail = decodeAuthToken().email;
     expect(expectedEmail).toBeTruthy();
 
-    const response = await request.get(`${baseUrl}${apiPaths['admin-audit-agent']}/${encodeURIComponent(expectedEmail!)}`, {
-      headers: getAdminAuthHeaders(),
-    });
+    const response = await request.get(
+      `${baseUrl}${apiPaths['admin-audit-agent']}/${encodeURIComponent(expectedEmail!)}`,
+      {
+        headers: getAdminAuthHeaders(),
+      },
+    );
 
     expect(response.status()).toBe(200);
 
@@ -91,10 +94,13 @@ test.describe('CUSTOMER-115 | Verify Admin Audit API', () => {
     const expectedEmail = decodeAuthToken().email;
     expect(expectedEmail).toBeTruthy();
 
-    const response = await request.get(`${baseUrl}${apiPaths['admin-audit-agent']}/${encodeURIComponent(expectedEmail!)}`, {
-      headers: getAdminAuthHeaders(),
-      params: { pageSize: 2, sortDirection: 'desc' },
-    });
+    const response = await request.get(
+      `${baseUrl}${apiPaths['admin-audit-agent']}/${encodeURIComponent(expectedEmail!)}`,
+      {
+        headers: getAdminAuthHeaders(),
+        params: { pageSize: 2, sortDirection: 'desc' },
+      },
+    );
 
     expect(response.status()).toBe(200);
 

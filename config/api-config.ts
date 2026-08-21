@@ -50,7 +50,8 @@ export function getAuthHeaders(): Record<string, string> {
 // standard customer API key.
 export function getAdminAuthHeaders(): Record<string, string> {
   return {
-    'x-api-key': awsConfig.adminApiKey ?? '',
+    'x-api-key': awsConfig.apiKey ?? '',
+    'x-admin-key': awsConfig.adminApiKey ?? '',
     Authorization: awsConfig.authToken ?? '',
   };
 }
