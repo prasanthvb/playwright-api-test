@@ -11,5 +11,6 @@
   "update-admin-license-type": "/admin/license-type",
   "admin-audit-customer": "/admin/audit/customer",
   "admin-audit-agent": "/admin/audit/agent",
+  "admin-request": "/admin/request",
   "create-support-case": "/case-creation"
 }
