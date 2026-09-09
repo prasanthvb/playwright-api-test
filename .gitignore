@@ -9,3 +9,4 @@ node_modules/
 .env
 allure-*
 /reports/
+src/data/update-baseline/*.json

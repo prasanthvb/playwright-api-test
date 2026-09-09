@@ -1,4 +1,5 @@
 {
   "CC-02": "The AttributeValue for a key attribute cannot contain an empty string value",
-  "BC-07": "filterValue can only be used with state"
+  "BC-07": "filterValue can only be used with state",
+  "MA": "Missing one or more mandatory attributes"
 }
