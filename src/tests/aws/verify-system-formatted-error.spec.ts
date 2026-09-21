@@ -8,7 +8,8 @@ interface SystemErrorFixture {
 // CUSTOMER-132 asks that infra-level errors get a distinct source:"system" formattedError
 // entry instead of being reported as C360/S4/Salesforce errors. In this environment the
 // only two source:"system" variants that actually occur are:
-//   - code "unknown"       for a request whose raw error array came back empty
+//   - code "unknown"       for a request whose raw error doesn't match any known C360/S4/
+//                           Salesforce pattern (e.g. an unmapped Sandbox.Timedout entry)
 //   - code "gateway-error" for a request whose raw error is an unparsed HTML 502 page
 // Real, already-settled examples of both are found by browsing rather than manufacturing
 // a live timeout/outage.
@@ -57,10 +58,12 @@ test.describe('CUSTOMER-132 | Verify system-source formattedError mapping for in
     ).toBeDefined();
   });
 
-  test('SE-01 | A request with no captured raw error is mapped to system/unknown', async ({ request }) => {
+  test('SE-01 | An unmapped raw error (Sandbox.Timedout) is mapped to system/unknown', async ({ request }) => {
     const { getReqData } = await pollGetRequest(request, unknownFixture!.requestID, 1, 1);
 
-    expect(getReqData.error).toEqual([]);
+    // Raw error carries an unmapped Lambda/Sandbox timeout — none of the C360/S4/Salesforce
+    // formatters recognize this shape, so it falls through to system/unknown.
+    expect(getReqData.error).toEqual([{ source: 'Sandbox.Timedout', message: 'Lambda execution failed' }]);
     expect(Array.isArray(getReqData.formattedError)).toBeTruthy();
 
     for (const formatted of getReqData.formattedError) {
