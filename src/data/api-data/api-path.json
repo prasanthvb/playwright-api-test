@@ -12,5 +12,7 @@
   "admin-audit-customer": "/admin/audit/customer",
   "admin-audit-agent": "/admin/audit/agent",
   "admin-request": "/admin/request",
+  "request-by-customer": "/request/customer",
+  "admin-request-retry": "/request/{requestId}/retry",
   "create-support-case": "/case-creation"
 }
